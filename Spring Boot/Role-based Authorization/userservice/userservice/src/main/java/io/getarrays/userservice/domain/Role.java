@@ -18,6 +18,16 @@ public class Role {
 	private Long id;
 	private String name;
 	
+	
+	public Role() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Role(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 	public Long getId() {
 		return id;
 	}

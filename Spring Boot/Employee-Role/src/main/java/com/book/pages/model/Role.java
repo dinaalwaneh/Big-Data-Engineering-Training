@@ -22,7 +22,15 @@ public class Role implements Serializable{
             cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<>();
 
-    public Long getId() {
+    
+    
+    public Role(Long id, RoleName name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	public Long getId() {
 		return id;
 	}
 

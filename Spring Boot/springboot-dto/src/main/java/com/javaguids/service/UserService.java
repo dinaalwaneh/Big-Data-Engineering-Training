@@ -1,6 +1,7 @@
 package com.javaguids.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.javaguids.dto.UserLocationDTO;
 import com.javaguids.repository.UserRepository;
@@ -10,6 +11,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.javaguids.model.*;
+@Service
 public class UserService {
 
 	@Autowired

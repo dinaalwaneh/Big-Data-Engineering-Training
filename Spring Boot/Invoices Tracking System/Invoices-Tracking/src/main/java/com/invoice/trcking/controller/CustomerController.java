@@ -4,66 +4,72 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.invoice.trcking.model.User;
-import com.invoice.trcking.model.Role;
-import com.invoice.trcking.repository.*;
+import com.invoice.trcking.service.CustomerService;
+
 
 import java.util.*;
+
+import com.invoice.trcking.dto.CustomerDto;
+import com.invoice.trcking.mapper.CustomerMapper;
 import com.invoice.trcking.model.Customer;
 
 @RestController
 public class CustomerController {
-/*
-	
-	
-	@GetMapping("/client")
-	public ResponseEntity<List<Client>> getClient(){
-		return ResponseEntity.ok().body((List<Client>) clientRepository.findAll());
-	}
-	@PostMapping("/add/client")
-	public void save(@RequestBody Client client) {
-		clientRepository.save(client);
-	}
-	*/
-	
+
 	@Autowired
-	private CustomerRepository customerRepository;
-	
- 
-	List<Customer> customer = new ArrayList<>();
+	private CustomerService customerService;
 
-	@PostMapping("/saveBook")
-	public Customer addBook(@RequestBody Customer customer) {
-		customerRepository.save(customer);
-	
-		return customer;
-		
-	}
+	@Autowired
+	private CustomerMapper customerMapper;
 
-/*	@GetMapping("/getBooks")
-	public ResponseEntity<List<Object>> getAllBooks() {
-		return ResponseEntity.ok().body((List<Client>)clientRepository.findAll());
-	}
-	@GetMapping("/getBooks")
-	public List<Client> getClients(){
-		
-		List<Client> employee = new ArrayList<>();
-		clientRepository.findAll().forEach(custumet->employee.add(custumet));
-		return employee;
-	}*/
-	
-	@RequestMapping(value = "/getBooks", method = RequestMethod.GET)
-	public ResponseEntity<Object> getEmployees()
+	@GetMapping("/get/customers")
+	public ResponseEntity<Object> getCustomers()
 	{
-		List<Customer> employee = new ArrayList<>();
-		customerRepository.findAll().forEach(custumet->employee.add(custumet));
-		return new ResponseEntity<>(employee, HttpStatus.OK);
+		List<CustomerDto> customerDtos = new ArrayList<CustomerDto>();
+		customerService.getAllCustomers().forEach(user -> customerDtos.add(customerMapper.convertEntityToDto(user)));
+		return new ResponseEntity<>(customerDtos, HttpStatus.OK);
 	}
+	
+	@GetMapping("/get/customers/{id}")
+	public ResponseEntity<CustomerDto> getPostById(@PathVariable(name = "id") Long id) {
+		Customer customer = customerService.getCustomerById(id);
 
+		// convert entity to DTO
+		CustomerDto postResponse = customerMapper.convertEntityToDto(customer);
+
+		return ResponseEntity.ok().body(postResponse);
+	}
+	
+	public ResponseEntity<CustomerDto> createPost(@RequestBody CustomerDto customerDto) {
+
+		// convert DTO to entity
+		Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
+
+		Customer user = customerService.createCustomer(customerRequest);
+
+		// convert entity to DTO
+		CustomerDto customerResponse = customerMapper.convertEntityToDto(user);
+
+		return new ResponseEntity<CustomerDto>(customerResponse, HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/update/customers/{id}")
+	public ResponseEntity<CustomerDto> updatePost(@PathVariable long id, @RequestBody CustomerDto customerDto) {
+
+		// convert DTO to Entity
+		Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
+
+
+		Customer customer = customerService.updateCustomer(id, customerRequest);
+
+		// entity to DTO
+		CustomerDto customerResponse = customerMapper.convertEntityToDto(customer);
+
+		return ResponseEntity.ok().body(customerResponse);
+	}
 }

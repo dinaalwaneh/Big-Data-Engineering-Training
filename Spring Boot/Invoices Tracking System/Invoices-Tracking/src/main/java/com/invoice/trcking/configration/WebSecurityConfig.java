@@ -66,7 +66,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().antMatchers("/home").permitAll().antMatchers("/getBooks/**").permitAll().antMatchers("/authenticate/**").permitAll()
 			
 			
-			.antMatchers("/users/**").hasAuthority("Auditor")
+			.antMatchers("/get/users/**").hasAuthority("Auditor")
+			.antMatchers("/add/user/**").hasAuthority("Auditor")
+			.antMatchers("/add/role/**").hasAuthority("Auditor")
+			.antMatchers("/get/users/{id}/**").hasAuthority("Auditor")
+			.antMatchers("/add/role/**").hasAuthority("Auditor")
+			.antMatchers("/get/customers/{id}/**").hasAuthority("Auditor")
+			.antMatchers("/update/customers/{id}/**").hasAuthority("Auditor")
 			.antMatchers("/add/employee/**").permitAll()
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

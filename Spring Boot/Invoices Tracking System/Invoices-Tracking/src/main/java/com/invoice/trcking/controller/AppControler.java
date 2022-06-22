@@ -29,27 +29,6 @@ import com.invoice.trcking.repository.*;
 @RestController
 public class AppControler {
 	
-	@Autowired
-	private RoleRepository roleRepository;
-	@Autowired
-	private UserRepository userRepository;
-	//@Autowired
-	//private PasswordEncoder passwordEncoder ;
-
-
-   
-	@GetMapping("/users")
-	public ResponseEntity<List<User>> getUsers(){
-		return ResponseEntity.ok().body((List<User>) userRepository.findAll());
-	}
-	@PostMapping("/add/role")
-	public void save(@RequestBody Role role) {
-		roleRepository.save(role);
-	}
-	
-	@PostMapping("/add/employee")
-	public void save(@RequestBody User employee) {
-		//employee.setPassword(passwordEncoder.encode(employee.getPassword()));
-		userRepository.save(employee);
-	}
+ 
+ 
 }

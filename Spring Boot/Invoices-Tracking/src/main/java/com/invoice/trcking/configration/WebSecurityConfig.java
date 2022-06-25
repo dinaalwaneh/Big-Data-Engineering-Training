@@ -93,7 +93,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/put/item/{id}/**").permitAll()
 			
 			.antMatchers("/get/customers/**").permitAll()
-			.antMatchers("/update/customers/{id}/**").permitAll()
+			.antMatchers("/update/customer/{id}/**").permitAll()
 			.antMatchers("/add/employee/**").permitAll()
 			.antMatchers("/resources/static/**").permitAll()
 			.anyRequest().authenticated();

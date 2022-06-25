@@ -120,4 +120,6 @@ public class Customer {
 	public void setInvoices(Set<Invoice> invoices) {
 		this.invoices = invoices;
 	}
+
+	
 }

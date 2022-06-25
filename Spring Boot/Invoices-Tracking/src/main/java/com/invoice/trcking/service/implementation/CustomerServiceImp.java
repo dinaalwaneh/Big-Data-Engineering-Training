@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invoice.trcking.exception.customer.NoSuchCustomerExistsException;
 import com.invoice.trcking.model.Customer;
 import com.invoice.trcking.repository.CustomerRepository;
 import com.invoice.trcking.service.CustomerService;
@@ -32,7 +33,10 @@ public class CustomerServiceImp implements CustomerService {
 
 	@Override
 	public Customer updateCustomer(long id, Customer newCustomerDetails) {
-		Customer customer = customerRepository.findById(id).get();
+		Customer customer = customerRepository.findById(id).orElseThrow(
+            ()
+                -> new NoSuchCustomerExistsException(
+                    "NO CUSTOMER PRESENT WITH ID = " + id));
 	
 		//.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 		

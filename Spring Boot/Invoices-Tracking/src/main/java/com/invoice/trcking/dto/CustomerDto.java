@@ -12,7 +12,6 @@ public class CustomerDto {
     private String  address;
     private String  phone;
     private String  email;
-    private String password;
     private boolean enabled;
     
 	public CustomerDto() {
@@ -21,7 +20,7 @@ public class CustomerDto {
 	}
 
 	public CustomerDto(Long id, String name, String customerName, String address, String phone, String email,
-			String password, boolean enabled) {
+			 boolean enabled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -29,7 +28,6 @@ public class CustomerDto {
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
-		this.password = password;
 		this.enabled = enabled;
 	}
 
@@ -79,14 +77,6 @@ public class CustomerDto {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public boolean isEnabled() {

@@ -38,10 +38,15 @@ public class InvoiceServiceImp implements InvoiceService{
 		//.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 		invoice.setId(newInvoiceDetails.getId());
 		invoice.setNumber(newInvoiceDetails.getNumber());
-		invoice.setAmmount(newInvoiceDetails.getAmmount());
-		invoice.setDateOfCreat(newInvoiceDetails.getDateOfCreat());
+		invoice.setTotalAmount(newInvoiceDetails.getTotalAmount());
+		invoice.setDateOfCreate(newInvoiceDetails.getDateOfCreate());
 		invoice.setDateOfUpdate(newInvoiceDetails.getDateOfUpdate());
+		invoice.setTotalPaid(newInvoiceDetails.getTotalPaid());
+		invoice.setRemainingAmount(newInvoiceDetails.getRemainingAmount());
+		invoice.setStatus(newInvoiceDetails.getStatus());
 		invoice.setIsDeleated(newInvoiceDetails.getIsDeleated());
+		invoice.setCustomer(newInvoiceDetails.getCustomer());
+		invoice.setUser(newInvoiceDetails.getUser());
 		return invoiceRepository.save(invoice);
 	}
 

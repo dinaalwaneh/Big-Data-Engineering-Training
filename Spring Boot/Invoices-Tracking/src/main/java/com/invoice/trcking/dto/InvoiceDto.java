@@ -4,38 +4,55 @@ import java.security.Timestamp;
 
 import javax.persistence.Column;
 
+import com.invoice.trcking.model.Customer;
+import com.invoice.trcking.model.User;
+
 import lombok.Data;
 
 @Data
 public class InvoiceDto {
-
-	private Long id;
-    private Timestamp  dateOfCreat;
+ 
+    private Long id;
+    private Timestamp  dateOfCreate;
     private Timestamp  dateOfUpdate;
-    private String  number;
-    private String ammount;
+    private long  number;
+    private long totalAmount;
+    private long totalPaid;
+    private long remainingAmount;
+    private String status;
     private String isDeleated;
     private String customerName;
     private String userName;
+    private Customer customer;
+    private User user;
     
+    //Empty constructer
 	public InvoiceDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public InvoiceDto(Long id, Timestamp dateOfCreat, Timestamp dateOfUpdate, String number, String ammount,
-			String isDeleated, String customerName, String userName) {
+	//Args constructer
+	public InvoiceDto(Long id, Timestamp dateOfCreate, Timestamp dateOfUpdate, long number, long totalAmount,
+			long totalPaid, long remainingAmount, String status, String isDeleated, String customerName,
+			String userName, Customer customer, User user) {
 		super();
 		this.id = id;
-		this.dateOfCreat = dateOfCreat;
+		this.dateOfCreate = dateOfCreate;
 		this.dateOfUpdate = dateOfUpdate;
 		this.number = number;
-		this.ammount = ammount;
+		this.totalAmount = totalAmount;
+		this.totalPaid = totalPaid;
+		this.remainingAmount = remainingAmount;
+		this.status = status;
 		this.isDeleated = isDeleated;
 		this.customerName = customerName;
 		this.userName = userName;
+		this.customer = customer;
+		this.user = user;
 	}
 
+	//setters & Getters
 	public Long getId() {
 		return id;
 	}
@@ -44,12 +61,12 @@ public class InvoiceDto {
 		this.id = id;
 	}
 
-	public Timestamp getDateOfCreat() {
-		return dateOfCreat;
+	public Timestamp getDateOfCreate() {
+		return dateOfCreate;
 	}
 
-	public void setDateOfCreat(Timestamp dateOfCreat) {
-		this.dateOfCreat = dateOfCreat;
+	public void setDateOfCreate(Timestamp dateOfCreate) {
+		this.dateOfCreate = dateOfCreate;
 	}
 
 	public Timestamp getDateOfUpdate() {
@@ -60,20 +77,44 @@ public class InvoiceDto {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 
-	public String getNumber() {
+	public long getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(long number) {
 		this.number = number;
 	}
 
-	public String getAmmount() {
-		return ammount;
+	public long getTotalAmount() {
+		return totalAmount;
 	}
 
-	public void setAmmount(String ammount) {
-		this.ammount = ammount;
+	public void setTotalAmount(long totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public long getTotalPaid() {
+		return totalPaid;
+	}
+
+	public void setTotalPaid(long totalPaid) {
+		this.totalPaid = totalPaid;
+	}
+
+	public long getRemainingAmount() {
+		return remainingAmount;
+	}
+
+	public void setRemainingAmount(long remainingAmount) {
+		this.remainingAmount = remainingAmount;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getIsDeleated() {
@@ -99,6 +140,21 @@ public class InvoiceDto {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-    
-    
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

@@ -14,13 +14,23 @@ public class Invoice implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
     private Long id;
-
-    private Timestamp  dateOfCreat;
+	@Column(name = "date_of_create")
+    private Timestamp  dateOfCreate;
+	@Column(name = "date_of_update")
     private Timestamp  dateOfUpdate;
-    @Column(unique = true)
-    private String  number;
-    private String ammount;
+    @Column(name = "number", unique = true, nullable = false)
+    private long  number;
+    @Column(name = "total_amount")
+    private long totalAmount;
+    @Column(name = "paid_amount")
+    private long totalPaid;
+    @Column(name = "remaining_amount")
+    private long remainingAmount;
+    @Column(name = "status")
+    private String status; //paid or not paid
+    @Column(name = "is_deleted")
     private String isDeleated;
 
 
@@ -36,25 +46,30 @@ public class Invoice implements Serializable {
     @OneToMany(mappedBy = "invoice")
     Set<InvoiceItem> items;
 
-
+    //Empty constructor
 	public Invoice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Invoice(Long id, Timestamp dateOfCreat, Timestamp dateOfUpdate, String number, String ammount,
-			String isDeleated, User user, Customer customer) {
+	//Args constructer
+	public Invoice(Long id, Timestamp dateOfCreate, Timestamp dateOfUpdate, long number, long totalAmount,
+			long totalPaid, long remainingAmount, String status, String isDeleated, User user, Customer customer) {
 		super();
 		this.id = id;
-		this.dateOfCreat = dateOfCreat;
+		this.dateOfCreate = dateOfCreate;
 		this.dateOfUpdate = dateOfUpdate;
 		this.number = number;
-		this.ammount = ammount;
+		this.totalAmount = totalAmount;
+		this.totalPaid = totalPaid;
+		this.remainingAmount = remainingAmount;
+		this.status = status;
 		this.isDeleated = isDeleated;
 		this.user = user;
 		this.customer = customer;
 	}
 
+	//setters & getters :
 	public Long getId() {
 		return id;
 	}
@@ -63,12 +78,12 @@ public class Invoice implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getDateOfCreat() {
-		return dateOfCreat;
+	public Timestamp getDateOfCreate() {
+		return dateOfCreate;
 	}
 
-	public void setDateOfCreat(Timestamp dateOfCreat) {
-		this.dateOfCreat = dateOfCreat;
+	public void setDateOfCreate(Timestamp dateOfCreate) {
+		this.dateOfCreate = dateOfCreate;
 	}
 
 	public Timestamp getDateOfUpdate() {
@@ -79,20 +94,44 @@ public class Invoice implements Serializable {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 
-	public String getNumber() {
+	public long getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(long number) {
 		this.number = number;
 	}
 
-	public String getAmmount() {
-		return ammount;
+	public long getTotalAmount() {
+		return totalAmount;
 	}
 
-	public void setAmmount(String ammount) {
-		this.ammount = ammount;
+	public void setTotalAmount(long totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public long getTotalPaid() {
+		return totalPaid;
+	}
+
+	public void setTotalPaid(long totalPaid) {
+		this.totalPaid = totalPaid;
+	}
+
+	public long getRemainingAmount() {
+		return remainingAmount;
+	}
+
+	public void setRemainingAmount(long remainingAmount) {
+		this.remainingAmount = remainingAmount;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public String getIsDeleated() {
@@ -119,5 +158,12 @@ public class Invoice implements Serializable {
 		this.customer = customer;
 	}
 
-    
+	public Set<InvoiceItem> getItems() {
+		return items;
+	}
+
+	public void setItems(Set<InvoiceItem> items) {
+		this.items = items;
+	}
+	
 }

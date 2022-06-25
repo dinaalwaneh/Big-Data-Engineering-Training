@@ -49,19 +49,13 @@ public class InvoicesTrackingApplication {
 			itemRepository.save(new Item(null , "noia Wallet","new item in suuper market", 10,5,false));
 			itemRepository.save(new Item(null , "milk Wallet","new item in suuper market", 100,10,false));
 			
-			customerRepository.save(new Customer(null , "John daron", "john", "jenin","dina1@gmail.com","0568285214",true));
-			customerRepository.save(new Customer(null , "will d", "will", "jenin","dina16@gmail.com","0568575214",true));
+			customerRepository.save(new Customer(null , "John daron", "john", "jenin","0568285214","dina1@gmail.com",true));
+			customerRepository.save(new Customer(null , "will d", "will", "jenin","0568575214","dina16@gmail.com",true));
 			customerRepository.save(new Customer(null , "jim d", "jim", "jenin","dina12@gmail.com","0568985214",true));
 			customerRepository.save(new Customer(null , "arnold d", "arnold", "jenin","dina15@gmail.com","0568595214",true));
-			/*customerRepository.save(new Customer(1 , "John d", "john"));
-			customerRepository.save(new Customer(2 , "will d", "will"));
-			customerRepository.save(new Customer(3 , "jim d", "jim"));
-			customerRepository.save(new Customer(4 , "arnold d", "arnold"));
+			/*
 			
-			itemRepository.save(new Item(null , "Swish Wallet", 50,10,"flase"));
-			itemRepository.save(new Item(null , "sanselk Wallet", 18,30,"flase"));
-			itemRepository.save(new Item(null , "noia Wallet", 10,5,"flase"));
-			itemRepository.save(new Item(null , "milk Wallet", 100,10,"flase"));
+			
 			 
 			 */
 			/*

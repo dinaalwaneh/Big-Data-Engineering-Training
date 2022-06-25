@@ -16,7 +16,8 @@ public class ItemMapper {
 		itemDto.setName(item.getName());
 		itemDto.setAmmount(item.getAmmount());
 		itemDto.setQuantity(item.getQuantity());
-		itemDto.setIsDeleated(item.getIsDeleated());
+		itemDto.setDiscription(item.getDiscription());
+		itemDto.setDeleated(item.getIsDeleated());
 		return itemDto;
 	}
 	
@@ -26,7 +27,8 @@ public class ItemMapper {
 		item.setName(itemDto.getName());
 		item.setAmmount(itemDto.getAmmount());
 		item.setQuantity(itemDto.getQuantity());
-		item.setIsDeleated(itemDto.getIsDeleated());
+		item.setDiscription(itemDto.getDiscription());
+		item.setIsDeleated(itemDto.isDeleated());
 		return item;
 	}
 }

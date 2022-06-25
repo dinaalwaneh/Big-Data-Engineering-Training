@@ -44,6 +44,7 @@ public class ItemServiceImp implements ItemService {
 		item.setName(newItemDetails.getName());
 		item.setAmmount(newItemDetails.getAmmount());
 		item.setQuantity(newItemDetails.getQuantity());
+		item.setDiscription(newItemDetails.getDiscription());
 		item.setIsDeleated(newItemDetails.getIsDeleated());
 		return itemRepository.save(item);
 	}

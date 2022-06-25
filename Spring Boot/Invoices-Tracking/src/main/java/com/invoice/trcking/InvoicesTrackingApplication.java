@@ -44,6 +44,10 @@ public class InvoicesTrackingApplication {
 			userRepository.save(new User(null , "jim d", "jim", "jenin","dina12@gmail.com","0568985214", "1234",true, role));
 			userRepository.save(new User(null , "arnold d", "arnold", "jenin","dina15@gmail.com","0568595214", "1234",true,role3));
 			
+			itemRepository.save(new Item(null , "Swish Wallet" , "new item in suuper market", 50,10,false ));
+			itemRepository.save(new Item(null , "sanselk Wallet","new item in suuper market", 18,30,false));
+			itemRepository.save(new Item(null , "noia Wallet","new item in suuper market", 10,5,false));
+			itemRepository.save(new Item(null , "milk Wallet","new item in suuper market", 100,10,false));
 			/*customerRepository.save(new Customer(1 , "John d", "john"));
 			customerRepository.save(new Customer(2 , "will d", "will"));
 			customerRepository.save(new Customer(3 , "jim d", "jim"));

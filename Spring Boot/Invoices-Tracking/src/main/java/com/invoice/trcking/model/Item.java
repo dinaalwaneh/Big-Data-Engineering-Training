@@ -1,9 +1,7 @@
 package com.invoice.trcking.model;
 
-import java.security.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,35 +16,37 @@ public class Item {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
     private Long id;
-	
-    @Column(unique = true)
+    @Column(unique = true , name = "name")
     private String  name;
+    @Column(name = "discription")
+    private String  discription;
+    @Column(name = "ammount")
     private long ammount;
+    @Column(name = "quantity")
     private long quantity;
-    @Column(name = "isDeleated")
-    private String isDeleated;
+    @Column(name = "is_deleated")
+    private boolean isDeleated;
     
     @OneToMany(mappedBy = "item")
-    Set<InvoiceItem> items = new HashSet<InvoiceItem>();
+    Set<InvoiceItem> invoiceItems = new HashSet<InvoiceItem>();
 
 	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
- 
 
-	public Item(Long id, String name, long ammount, long quantity, String isDeleated) {
+	public Item(Long id, String name, String discription, long ammount, long quantity, Boolean isDeleated) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.discription = discription;
 		this.ammount = ammount;
 		this.quantity = quantity;
 		this.isDeleated = isDeleated;
-		 
 	}
-
 
 
 	public Long getId() {
@@ -81,12 +81,32 @@ public class Item {
 		this.quantity = quantity;
 	}
 
-	public String getIsDeleated() {
+	public boolean getIsDeleated() {
 		return isDeleated;
 	}
 
-	public void setIsDeleated(String isDeleated) {
+	public void setIsDeleated(Boolean isDeleated) {
 		this.isDeleated = isDeleated;
+	}
+
+
+	public String getDiscription() {
+		return discription;
+	}
+
+
+	public void setDiscription(String discription) {
+		this.discription = discription;
+	}
+
+
+	public Set<InvoiceItem> getItems() {
+		return invoiceItems;
+	}
+
+
+	public void setItems(Set<InvoiceItem> items) {
+		this.invoiceItems = items;
 	}
     
     

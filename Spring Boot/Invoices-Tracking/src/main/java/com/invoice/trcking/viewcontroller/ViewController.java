@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ViewController {
 
 	
-	   @GetMapping("/home")
-	    public String viewHomePage(){
-	        return "index";
-	    }
-	   
+
 	  
 }

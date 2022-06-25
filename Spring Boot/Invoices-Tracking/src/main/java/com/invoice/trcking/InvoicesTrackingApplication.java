@@ -1,15 +1,21 @@
 package com.invoice.trcking;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.invoice.trcking.model.Customer;
+import com.invoice.trcking.model.InvoiceItem;
 import com.invoice.trcking.model.Role;
 import com.invoice.trcking.model.RoleType;
 import com.invoice.trcking.model.User;
+import com.invoice.trcking.model.Item;
 import com.invoice.trcking.repository.CustomerRepository;
+import com.invoice.trcking.repository.ItemRepository;
 import com.invoice.trcking.repository.RoleRepository;
 import com.invoice.trcking.repository.UserRepository;
 
@@ -22,7 +28,8 @@ public class InvoicesTrackingApplication {
 	
 
 	@Bean
-	CommandLineRunner run (UserRepository userRepository, RoleRepository roleRepository,CustomerRepository customerRepository){
+	CommandLineRunner run (UserRepository userRepository, RoleRepository roleRepository,CustomerRepository customerRepository
+			,ItemRepository itemRepository){
 		
 		return args ->{
 			
@@ -41,7 +48,12 @@ public class InvoicesTrackingApplication {
 			customerRepository.save(new Customer(3 , "jim d", "jim"));
 			customerRepository.save(new Customer(4 , "arnold d", "arnold"));
 			
-			
+			itemRepository.save(new Item(null , "Swish Wallet", 50,10,"flase"));
+			itemRepository.save(new Item(null , "sanselk Wallet", 18,30,"flase"));
+			itemRepository.save(new Item(null , "noia Wallet", 10,5,"flase"));
+			itemRepository.save(new Item(null , "milk Wallet", 100,10,"flase"));
+			 
+			 
 			/*
 			userService.addRoleToUser("john", "ROLE_USER");
 		

@@ -1,6 +1,7 @@
 package com.invoice.trcking.model;
 
 import java.security.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "invoice")
+@Table(name = "item")
 public class Item {
 
 	@Id
@@ -23,15 +24,18 @@ public class Item {
     private String  name;
     private long ammount;
     private long quantity;
+    @Column(name = "isDeleated")
     private String isDeleated;
     
     @OneToMany(mappedBy = "item")
-    Set<InvoiceItem> items;
+    Set<InvoiceItem> items = new HashSet<InvoiceItem>();
 
 	public Item() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+ 
 
 	public Item(Long id, String name, long ammount, long quantity, String isDeleated) {
 		super();
@@ -40,7 +44,10 @@ public class Item {
 		this.ammount = ammount;
 		this.quantity = quantity;
 		this.isDeleated = isDeleated;
+		 
 	}
+
+
 
 	public Long getId() {
 		return id;

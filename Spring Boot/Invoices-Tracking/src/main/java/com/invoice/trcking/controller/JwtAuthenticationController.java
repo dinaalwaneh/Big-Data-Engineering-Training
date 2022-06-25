@@ -4,6 +4,7 @@ package com.invoice.trcking.controller;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.invoice.trcking.service.JwtUserDetailsService;
 
-
+ 
 import com.invoice.trcking.configration.JwtTokenUtil;
 import com.invoice.trcking.model.JwtRequest;
 import com.invoice.trcking.model.JwtResponse;
@@ -39,15 +40,9 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 	
-	//@RequestMapping(value={"/login"} , method = RequestMethod.GET)
-	@GetMapping("/login")
-	public String getLoginPage(Model model) {
-	    model.addAttribute("loginRequest", new JwtRequest());
-		return "login_page";
-	}
 	
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+	public ResponseEntity<Object> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
@@ -55,8 +50,9 @@ public class JwtAuthenticationController {
 				.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
-
-		return ResponseEntity.ok(new JwtResponse(token));
+	
+		return new ResponseEntity<Object>(new JwtResponse(token), HttpStatus.CREATED);
+		 
 	}
 
 	//if the user and password exist in data base or not :

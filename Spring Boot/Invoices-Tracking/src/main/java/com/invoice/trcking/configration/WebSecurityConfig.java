@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -58,22 +59,43 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	@Override
+	public void configure(WebSecurity web) throws Exception {
+	    web
+	            .ignoring()
+	            .antMatchers("/css/**","/images/**","/js/**");
+	}
+	
+	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
 			.exceptionHandling().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			
-			.authorizeRequests().antMatchers("/home").permitAll().antMatchers("/getBooks/**").permitAll().antMatchers("/authenticate/**").permitAll()
+			.authorizeRequests().antMatchers("/home").permitAll()
+			.antMatchers("/login/**").permitAll()
+			.antMatchers("/authenticate/**").permitAll()
+			.antMatchers("/register/**").permitAll()
+			.antMatchers("/register/**").permitAll()
+			.antMatchers("/user/{username}/**").permitAll()
+			.antMatchers("/profile").permitAll()
+			.antMatchers("/dashboard").permitAll()
+			.antMatchers("/dashboardd").permitAll()
+			.antMatchers("/customer").permitAll()
+			.antMatchers("/product").permitAll()
+			.antMatchers("/employee").permitAll()
+			.antMatchers("/get/users/**").permitAll()
+			.antMatchers("/add/user/**").permitAll()
+			.antMatchers("/add/role/**").permitAll()
+			.antMatchers("/get/user/{id}/**").permitAll()
+			.antMatchers("/add/role/**").permitAll()
+			.antMatchers("/get/items/**").permitAll()
+			.antMatchers("/add/item/**").permitAll()
+			.antMatchers("/put/item/{id}/**").permitAll()
 			
-			
-			.antMatchers("/get/users/**").hasAuthority("Auditor")
-			.antMatchers("/add/user/**").hasAuthority("Auditor")
-			.antMatchers("/add/role/**").hasAuthority("Auditor")
-			.antMatchers("/get/users/{id}/**").hasAuthority("Auditor")
-			.antMatchers("/add/role/**").hasAuthority("Auditor")
-			.antMatchers("/get/customers/{id}/**").hasAuthority("Auditor")
-			.antMatchers("/update/customers/{id}/**").hasAuthority("Auditor")
+			.antMatchers("/get/customers/**").permitAll()
+			.antMatchers("/update/customers/{id}/**").permitAll()
 			.antMatchers("/add/employee/**").permitAll()
+			.antMatchers("/resources/static/**").permitAll()
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}

@@ -29,7 +29,7 @@ public class Invoice implements Serializable {
     private User user;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "customer_id" , nullable = false )
+    @JoinColumn(name = "customer_id" , nullable = true )
     private Customer customer;
     
    

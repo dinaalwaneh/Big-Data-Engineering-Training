@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.Item;
@@ -14,6 +15,7 @@ import com.invoice.trcking.repository.UserRepository;
 import com.invoice.trcking.service.InvoiceService;
 import com.invoice.trcking.service.ItemService;
 
+@Service
 public class ItemServiceImp implements ItemService {
 
 	@Autowired

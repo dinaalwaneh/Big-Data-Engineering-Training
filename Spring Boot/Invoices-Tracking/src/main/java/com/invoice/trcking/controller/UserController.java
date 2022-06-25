@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,7 +59,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/get/user/{id}")
-	public ResponseEntity<UserDto> getUserById(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
 		User user = userService.getUserById(id);
 
 		// convert entity to DTO
@@ -67,7 +68,7 @@ public class UserController {
 		return ResponseEntity.ok().body(postResponse);
 	}
 	
-	@PutMapping("/add/user")
+	@PostMapping("/add/user")
 	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
 
 		// convert DTO to entity
@@ -95,6 +96,18 @@ public class UserController {
 
 		return ResponseEntity.ok().body(userResponse);
 	}
+	
  
+	 
+
+	@GetMapping("/user/{username}")
+	public ResponseEntity<UserDto> getUserByUserName(@PathVariable String username) {
+		User user = userService.getUserByUsername(username);
+
+		// convert entity to DTO
+		UserDto postResponse = userMapper.convertEntityToDto(user);
+
+		return ResponseEntity.ok().body(postResponse);
+	}
 	 
 }

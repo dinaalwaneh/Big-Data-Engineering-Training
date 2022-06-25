@@ -24,9 +24,6 @@ public class User implements Serializable {
     @JoinColumn(name = "role_id" , nullable = false )
     private Role role;
 
-    
-  
-
 
     public User(Long id, String name, String username, String password, String enabled, Role role) {
 		super();

@@ -7,6 +7,7 @@ import lombok.Data;
 public class ItemDto {
 
 	private Long id;  
+	@Column(nullable = false)
     private String  name;
     private long ammount;
     private long quantity;

@@ -2,10 +2,13 @@ package com.invoice.trcking.model;
 
 
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -21,7 +24,10 @@ public class Customer {
 	private long bookId;
 	private String bookName;
 	private String author;
-	
+	   
+    @OneToMany(mappedBy = "customer")
+    Set<Invoice> invoices;
+
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub

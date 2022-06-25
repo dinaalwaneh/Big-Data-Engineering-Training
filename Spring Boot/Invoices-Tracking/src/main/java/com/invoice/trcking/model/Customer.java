@@ -4,6 +4,7 @@ package com.invoice.trcking.model;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,12 +19,23 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Customer {
 
-	
-	@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long bookId;
-	private String bookName;
-	private String author;
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
+    private String  name;
+    @Column(name = "custumer_name" , unique = true , nullable = false)
+    private String  customerName;
+    @Column(name = "address")
+    private String  address;
+    @Column(name = "phone_number", unique = true , nullable = false)
+    private String  phone;
+    @Column(name = "email", unique = true , nullable = false)
+    private String  email;
+    @Column(name = "is_enabled", nullable = false)
+    private boolean isEnabled;
 	   
     @OneToMany(mappedBy = "customer")
     Set<Invoice> invoices;
@@ -33,87 +45,79 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(long bookId, String bookName, String author) {
-		super();
-		this.bookId = bookId;
-		this.bookName = bookName;
-		this.author = author;
-	}
-
-	public long getBookId() {
-		return bookId;
-	}
-
-	public void setBookId(long bookId) {
-		this.bookId = bookId;
-	}
-
-	public String getBookName() {
-		return bookName;
-	}
-
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-	
-	
-	
-/*
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String  firstname;
-    private String  lastname;
-    private String enabled;
-    
-    
-	public Client() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public Client(Long id, String firstname, String lastname, String enabled) {
+	public Customer(Long id, String name, String customerName, String address, String phone, String email,
+			boolean isEnabled) {
 		super();
 		this.id = id;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.enabled = enabled;
+		this.name = name;
+		this.customerName = customerName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.isEnabled = isEnabled;
 	}
 
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getFirstname() {
-		return firstname;
+
+	public String getName() {
+		return name;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLastname() {
-		return lastname;
+
+	public String getCustomerName() {
+		return customerName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
-	public String getEnabled() {
-		return enabled;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setEnabled(String enabled) {
-		this.enabled = enabled;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-    
- */   
-    
-    
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isEnabled() {
+		return isEnabled;
+	}
+
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	public Set<Invoice> getInvoices() {
+		return invoices;
+	}
+
+	public void setInvoices(Set<Invoice> invoices) {
+		this.invoices = invoices;
+	}
 }

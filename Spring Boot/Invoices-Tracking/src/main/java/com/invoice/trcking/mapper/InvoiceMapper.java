@@ -18,7 +18,7 @@ public class InvoiceMapper {
 		invoiceDto.setDateOfCreat(invoice.getDateOfCreat());
 		invoiceDto.setDateOfUpdate(invoice.getDateOfUpdate());
 		invoiceDto.setUserName(invoice.getUser().getName());
-		invoiceDto.setCustomerName(invoice.getCustomer().getBookName());
+		invoiceDto.setCustomerName(invoice.getCustomer().getName());
 		invoiceDto.setIsDeleated(invoice.getIsDeleated());
 		return invoiceDto;
 	}

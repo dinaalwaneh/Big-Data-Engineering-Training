@@ -13,17 +13,25 @@ public class CustomerMapper {
 
 	public CustomerDto convertEntityToDto(Customer customer) {
 		CustomerDto customerDto = new CustomerDto();
-		customerDto.setBookId(customer.getBookId());
-		customerDto.setAuthor(customer.getAuthor());
-		customerDto.setBookName(customer.getBookName());
+		customerDto.setId(customer.getId());
+		customerDto.setName(customer.getName());
+		customerDto.setCustomerName(customer.getCustomerName());
+		customerDto.setAddress(customer.getAddress());
+		customerDto.setPhone(customer.getPhone());
+		customerDto.setEmail(customer.getEmail());
+		customerDto.setEnabled(customer.isEnabled());
 		return customerDto;
 	}
 	
 	public Customer convertDtoToEntity(CustomerDto customerDto) {
 		Customer customer = new Customer();
-		customer.setBookId(customerDto.getBookId());
-		customer.setAuthor(customerDto.getAuthor());
-		customer.setBookName(customerDto.getBookName());
+		customer.setId(customerDto.getId());
+		customer.setName(customerDto.getName());
+		customer.setCustomerName(customerDto.getCustomerName());
+		customer.setAddress(customerDto.getAddress());
+		customer.setPhone(customerDto.getPhone());
+		customer.setEmail(customerDto.getEmail());
+		customer.setEnabled(customerDto.isEnabled());
 		return customer;
 	}
 	

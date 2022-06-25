@@ -36,9 +36,13 @@ public class CustomerServiceImp implements CustomerService {
 	
 		//.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 		
-		customer.setBookId(newCustomerDetails.getBookId());
-		customer.setAuthor(newCustomerDetails.getAuthor());
-		customer.setBookName(newCustomerDetails.getBookName());
+		customer.setId(newCustomerDetails.getId());
+		customer.setName(newCustomerDetails.getName());
+		customer.setCustomerName(newCustomerDetails.getCustomerName());
+		customer.setAddress(newCustomerDetails.getAddress());
+		customer.setPhone(newCustomerDetails.getPhone());
+		customer.setEmail(newCustomerDetails.getEmail());
+		customer.setEnabled(newCustomerDetails.isEnabled());
 		return customerRepository.save(customer);
 	}
 

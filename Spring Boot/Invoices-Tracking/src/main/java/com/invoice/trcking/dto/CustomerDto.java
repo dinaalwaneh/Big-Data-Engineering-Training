@@ -5,44 +5,96 @@ import lombok.Data;
 @Data
 public class CustomerDto {
 
-	private long bookId;
-	private String bookName;
-	private String author;
-	
+	  
+    private Long id;
+    private String  name;
+    private String  customerName;
+    private String  address;
+    private String  phone;
+    private String  email;
+    private String password;
+    private boolean enabled;
+    
 	public CustomerDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerDto(long bookId, String bookName, String author) {
+	public CustomerDto(Long id, String name, String customerName, String address, String phone, String email,
+			String password, boolean enabled) {
 		super();
-		this.bookId = bookId;
-		this.bookName = bookName;
-		this.author = author;
+		this.id = id;
+		this.name = name;
+		this.customerName = customerName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.password = password;
+		this.enabled = enabled;
 	}
 
-	public long getBookId() {
-		return bookId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setBookId(long bookId) {
-		this.bookId = bookId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getBookName() {
-		return bookName;
+	public String getName() {
+		return name;
 	}
 
-	public void setBookName(String bookName) {
-		this.bookName = bookName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getCustomerName() {
+		return customerName;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 }

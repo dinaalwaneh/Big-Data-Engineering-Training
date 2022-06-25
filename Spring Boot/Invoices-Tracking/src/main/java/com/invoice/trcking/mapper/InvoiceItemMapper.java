@@ -1,10 +1,13 @@
 package com.invoice.trcking.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.invoice.trcking.dto.InvoiceDto;
 import com.invoice.trcking.dto.InvoiceItemDto;
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.InvoiceItem;
 
+@Component
 public class InvoiceItemMapper {
 
 	

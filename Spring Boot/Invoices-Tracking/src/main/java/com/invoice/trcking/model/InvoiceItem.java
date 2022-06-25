@@ -14,17 +14,17 @@ public class InvoiceItem {
 
 	    @Id
 	    @EmbeddedId
-	    InvoiceItemKey id;
+	    private InvoiceItemKey id;
 
 	    @ManyToOne
 	    @MapsId("invoiceId")
 	    @JoinColumn(name = "invoice_id")
-	    Invoice invoice;
+	    private Invoice invoice;
 
 	    @ManyToOne
 	    @MapsId("itemId")
 	    @JoinColumn(name = "item_id")
-	    Item item;
+	    private Item item;
 
 	    int quantity;
 

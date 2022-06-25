@@ -15,14 +15,16 @@ import lombok.Data;
 @Data
 public class InvoiceItemDto {
 
-    InvoiceItemKey id;
-    Invoice invoice;
-    Item item;
-    int quantity;
+	private InvoiceItemKey id;
+	private Invoice invoice;
+	private Item item;
+	private int quantity;
+	
 	public InvoiceItemDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public InvoiceItemDto(InvoiceItemKey id, Invoice invoice, Item item, int quantity) {
 		super();
 		this.id = id;
@@ -30,27 +32,35 @@ public class InvoiceItemDto {
 		this.item = item;
 		this.quantity = quantity;
 	}
+	
 	public InvoiceItemKey getId() {
 		return id;
 	}
+	
 	public void setId(InvoiceItemKey id) {
 		this.id = id;
 	}
+	
 	public Invoice getInvoice() {
 		return invoice;
 	}
+	
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
+	
 	public Item getItem() {
 		return item;
 	}
+	
 	public void setItem(Item item) {
 		this.item = item;
 	}
+	
 	public int getQuantity() {
 		return quantity;
 	}
+	
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

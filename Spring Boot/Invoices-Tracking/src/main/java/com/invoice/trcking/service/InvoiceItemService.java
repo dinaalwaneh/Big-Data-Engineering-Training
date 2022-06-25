@@ -7,11 +7,11 @@ import com.invoice.trcking.model.InvoiceItem;
 
 public interface InvoiceItemService {
 
-	List<InvoiceItem> getAllInvoices();
+	List<InvoiceItem> getAllInvoiceItems();
 
-	InvoiceItem createInvoice(InvoiceItem invoiceItem);
+	InvoiceItem createInvoiceItem(InvoiceItem invoiceItem);
 
-	InvoiceItem updateInvoice(long id, InvoiceItem invoiceItem);
+	InvoiceItem updateInvoiceItem(long id, InvoiceItem invoiceItem);
 
-	InvoiceItem getInvoiceById(long id);
+	InvoiceItem getInvoiceItemById(long id);
 }

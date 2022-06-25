@@ -66,8 +66,4 @@ public class InvoiceItemKey implements Serializable{
 			InvoiceItemKey other = (InvoiceItemKey) obj;
 			return Objects.equals(itemId, other.itemId) && Objects.equals(invoiceId, other.invoiceId);
 		}
-		
-		
-	    
-	    
 }

@@ -12,35 +12,54 @@ public class User implements Serializable {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-
+    @Column(name = "name")
     private String  name;
-    private String  username;
+    @Column(name = "user_name" , unique = true , nullable = false)
+    private String  username; //userName
+    @Column(name = "address")
+    private String  address;
+    @Column(name = "phone_number", unique = true , nullable = false)
+    private String  phone;
+    @Column(name = "email", unique = true , nullable = false)
+    private String  email;
+    @Column(name = "password",nullable = false)
     private String password;
-    private String enabled;
+    @Column(name = "is_enabled", nullable = false)
+    private boolean isEnabled;
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "role_id" , nullable = false )
     private Role role;
 
-
-    public User(Long id, String name, String username, String password, String enabled, Role role) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-		this.role = role;
-	}
-
-
-	public User() {
+    
+    //PS :  constructers , setters and getters i can replace them with annotations from lombok dependancy ->
+    //@Data -> for setters and getters 
+    //@ArgsConstructer & NoArgsConstructer 
+    //but it doesn't work with meee :)
+    //empty constructer :
+    public User() {
     	
     }
 
+    //args constructer :
+	public User(Long id, String name, String userName, String address, String phone, String email, String password,
+			boolean isEnabled, Role role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.username = userName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.password = password;
+		this.isEnabled = isEnabled;
+		this.role = role;
+	}
 
+    //setters and getters
 	public Long getId() {
 		return id;
 	}
@@ -61,6 +80,46 @@ public class User implements Serializable {
 	}
 
 
+	public String getUserName() {
+		return username;
+	}
+
+
+	public void setUserName(String userName) {
+		this.username = userName;
+	}
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 	public String getPassword() {
 		return password;
 	}
@@ -71,13 +130,13 @@ public class User implements Serializable {
 	}
 
 
-	public String getEnabled() {
-		return enabled;
+	public boolean isEnabled() {
+		return isEnabled;
 	}
 
 
-	public void setEnabled(String enabled) {
-		this.enabled = enabled;
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
 	}
 
 
@@ -91,14 +150,6 @@ public class User implements Serializable {
 	}
 
 
-	public String getUsername() {
-		return username;
-	}
-
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	
  }

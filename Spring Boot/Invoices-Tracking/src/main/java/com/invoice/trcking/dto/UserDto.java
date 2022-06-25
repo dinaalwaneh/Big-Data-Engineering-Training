@@ -5,22 +5,30 @@ import lombok.Data;
 @Data
 public class UserDto {
 
+	  
 	    private Long id;
 	    private String  name;
-	    private String  username;
+	    private String  userName;
+	    private String  address;
+	    private String  phone;
+	    private String  email;
 	    private String password;
-	    private String enabled;
+	    private boolean enabled;
 	    
 		public UserDto() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public UserDto(Long id, String name, String username, String password, String enabled) {
+		public UserDto(Long id, String name, String userName, String address, String phone, String email,
+				String password, boolean enabled) {
 			super();
 			this.id = id;
 			this.name = name;
-			this.username = username;
+			this.userName = userName;
+			this.address = address;
+			this.phone = phone;
+			this.email = email;
 			this.password = password;
 			this.enabled = enabled;
 		}
@@ -41,12 +49,36 @@ public class UserDto {
 			this.name = name;
 		}
 
-		public String getUsername() {
-			return username;
+		public String getUserName() {
+			return userName;
 		}
 
-		public void setUsername(String username) {
-			this.username = username;
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+
+		public String getAddress() {
+			return address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		public String getPhone() {
+			return phone;
+		}
+
+		public void setPhone(String phone) {
+			this.phone = phone;
+		}
+
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
 		}
 
 		public String getPassword() {
@@ -57,12 +89,13 @@ public class UserDto {
 			this.password = password;
 		}
 
-		public String getEnabled() {
+		public boolean isEnabled() {
 			return enabled;
 		}
 
-		public void setEnabled(String enabled) {
+		public void setEnabled(boolean enabled) {
 			this.enabled = enabled;
 		}
-	    
+
+		
 }

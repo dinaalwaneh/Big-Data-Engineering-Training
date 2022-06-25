@@ -43,8 +43,8 @@ public class JwtUserDetailsService implements UserDetailsService {
 		System.out.println(user.getRole());
 	    authorities.add(new SimpleGrantedAuthority(user.getRole().getName().name()));
 		System.out.println("loadUserByUsername HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH   "+ user.getRole().getName().name() );
-		if (user.getUsername().equals(username)) {
-			return new User(user.getUsername(), user.getPassword(),
+		if (user.getUserName().equals(username)) {
+			return new User(user.getUserName(), user.getPassword(),
 					authorities);
 		} else {
 			throw new UsernameNotFoundException("User not found with username: " + username);

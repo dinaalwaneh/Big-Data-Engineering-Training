@@ -13,8 +13,11 @@ public class UserMapper {
 		UserDto userDto = new UserDto();
 		userDto.setId(user.getId());
 		userDto.setName(user.getName());
-		userDto.setUsername(user.getUsername());
-		userDto.setEnabled(user.getEnabled());
+		userDto.setUserName(user.getUserName());
+		userDto.setAddress(user.getAddress());
+		userDto.setPhone(user.getPhone());
+		userDto.setEmail(user.getEmail());
+		userDto.setEnabled(user.isEnabled());
 		userDto.setPassword(user.getPassword());
 		return userDto;
 	}
@@ -23,8 +26,11 @@ public class UserMapper {
 		User user = new User();
 		user.setId(userDto.getId());
 		user.setName(userDto.getName());
-		user.setUsername(userDto.getUsername());
-		user.setEnabled(userDto.getEnabled());
+		user.setUserName(userDto.getUserName());
+		user.setAddress(userDto.getAddress());
+		user.setPhone(userDto.getPhone());
+		user.setEmail(userDto.getEmail());
+		user.setEnabled(userDto.isEnabled());
 		user.setPassword(userDto.getPassword());
 		return user;
 	}

@@ -38,12 +38,13 @@ public class InvoicesTrackingApplication {
 			Role role2 =roleRepository.save(new Role(null , RoleType.SuperUser));
 			Role role3 =roleRepository.save(new Role(null , RoleType.SupportUser));
  
-			userRepository.save(new User(null , "John d", "john", "1234","true",role));
-			userRepository.save(new User(null , "will d", "will", "1234","true", role2));
-			userRepository.save(new User(null , "jim d", "jim", "1234","true", role));
-			userRepository.save(new User(null , "arnold d", "arnold","true", "1234",role3));
+
+			userRepository.save(new User(null , "John daron", "john", "jenin","dina1@gmail.com","0568285214", "1234",true,role));
+			userRepository.save(new User(null , "will d", "will", "jenin","dina16@gmail.com","0568575214", "1234",true, role2));
+			userRepository.save(new User(null , "jim d", "jim", "jenin","dina12@gmail.com","0568985214", "1234",true, role));
+			userRepository.save(new User(null , "arnold d", "arnold", "jenin","dina15@gmail.com","0568595214", "1234",true,role3));
 			
-			customerRepository.save(new Customer(1 , "John d", "john"));
+			/*customerRepository.save(new Customer(1 , "John d", "john"));
 			customerRepository.save(new Customer(2 , "will d", "will"));
 			customerRepository.save(new Customer(3 , "jim d", "jim"));
 			customerRepository.save(new Customer(4 , "arnold d", "arnold"));
@@ -53,7 +54,7 @@ public class InvoicesTrackingApplication {
 			itemRepository.save(new Item(null , "noia Wallet", 10,5,"flase"));
 			itemRepository.save(new Item(null , "milk Wallet", 100,10,"flase"));
 			 
-			 
+			 */
 			/*
 			userService.addRoleToUser("john", "ROLE_USER");
 		

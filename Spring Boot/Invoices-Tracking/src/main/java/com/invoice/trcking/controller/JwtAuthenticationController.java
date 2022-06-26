@@ -11,6 +11,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,16 +43,25 @@ public class JwtAuthenticationController {
 	
 	
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<Object> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+	public ResponseEntity<Object> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws UsernameNotFoundException , Exception {
+		try {
+			authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+			final UserDetails userDetails = userDetailsService
+					.loadUserByUsername(authenticationRequest.getUsername());
 
-		final UserDetails userDetails = userDetailsService
-				.loadUserByUsername(authenticationRequest.getUsername());
+			final String token = jwtTokenUtil.generateToken(userDetails);
+		
+			return new ResponseEntity<Object>(new JwtResponse(token), HttpStatus.CREATED);
+		}catch(UsernameNotFoundException e) {
+			System.out.println("UsernameNotFoundException : "+e.getMessage());
+			e.printStackTrace();
+		}catch(Exception e) {
+			System.out.println("Exception : "+e.getMessage());
+			e.printStackTrace();
+		}
+		return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 
-		final String token = jwtTokenUtil.generateToken(userDetails);
-	
-		return new ResponseEntity<Object>(new JwtResponse(token), HttpStatus.CREATED);
 		 
 	}
 

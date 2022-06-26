@@ -9,7 +9,7 @@ public interface ItemService {
 
 	List<Item> getAllItems();
 
-	Item createItem(Item item);
+	Item addItem(Item item);
 
 	Item updateItem(long id, Item item);
 

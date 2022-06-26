@@ -64,6 +64,7 @@ public class JwtTokenUtil  {
 	                .getBody();
 	    } catch (Exception e) {
 	        claims = null;
+	        System.out.println("Exception : "+e.getMessage());
 	    }
 	    return claims;
 	}

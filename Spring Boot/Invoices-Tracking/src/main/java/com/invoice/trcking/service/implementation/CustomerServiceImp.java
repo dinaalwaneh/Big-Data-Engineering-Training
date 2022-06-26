@@ -75,15 +75,6 @@ public class CustomerServiceImp implements CustomerService {
 			throw new NoSuchCustomerExistsException("No sush customer exist with id = "+id);
 		}
 		return result.get();
-		/*if(result.isPresent()) {
-			return result.get();
-		}else {
-			throw new ResourceNotFoundException("Post", "id", id);
-		}*/
-		
-//		Post post = postRepository.findById(id)
-//				.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-		//return post;
 	}
 
 }

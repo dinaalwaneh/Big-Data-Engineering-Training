@@ -2,7 +2,7 @@ package com.invoice.trcking.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,10 +29,12 @@ import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.User;
 import com.invoice.trcking.service.InvoiceService;
 import com.invoice.trcking.service.UserService;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Controller
 public class InvoiceController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(InvoiceController.class);
 
 	@Autowired
 	private InvoiceService invoiceService;
@@ -51,16 +53,20 @@ public class InvoiceController {
 	@GetMapping("/get/invoice/{id}")
 	public ResponseEntity<InvoiceDto> getInvoiceById(@PathVariable(name = "id") Long id)throws NoSuchInvoiceExistsException, Exception {
 		try {
+			
+			LOGGER.debug("getInvoiceById service with id : ",id);
 			Invoice invoice = invoiceService.getInvoiceById(id);
 
 			// convert entity to DTO
 			InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
-
+			LOGGER.info("getInvoiceById service is done successfully");
 			return ResponseEntity.ok().body(invoiceResponse);
 		}catch (NoSuchInvoiceExistsException e) {
+			LOGGER.error("Invoice not foundes with id :",id);
 			System.out.println("NoSuchInvoiceExistsException : "+e.getMessage());
 			e.printStackTrace();
 		}catch (Exception e) {
+			LOGGER.error("Something goes wrong in getInvoiceById api at InvoiceController");
 			System.out.println("Exception : "+e.getMessage());
 			e.printStackTrace();
 		}
@@ -73,6 +79,7 @@ public class InvoiceController {
 	
 		try {
 
+			LOGGER.debug("Add invoice service");
 			if(invoiceDto == null){
 				throw new NullPointerException("InvoiceDto point to null ");
 			}
@@ -86,19 +93,23 @@ public class InvoiceController {
 			}
 			// convert entity to DTO
 		    InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
-	
+		    LOGGER.info("Invoice with id :",invoice.getId(),"added to invoice entity successfuly :");
 			return new ResponseEntity<InvoiceDto>(invoiceResponse, HttpStatus.CREATED);
 			
 		}catch(InvoiceAlreadyExistsException e) {
+			LOGGER.error("Invoice already exists in invoice entity");
 			System.out.println("InvoiceAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullPointerException e) {
+			LOGGER.error("object point to null");
 			System.out.println("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(EmptyValueException e) {
+			LOGGER.error("invoice data has empty value!!");
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
+			LOGGER.error("Something goes wrong in addInvoice service in InvoiceController");
 			System.out.println("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}
@@ -110,7 +121,9 @@ public class InvoiceController {
 	public ResponseEntity<InvoiceDto> updateInvoice(@PathVariable long id, @RequestBody InvoiceDto invoiceDto) throws NullPointerException, NoSuchInvoiceExistsException , EmptyValueException, Exception {
 		
 		try {
-
+			
+			LOGGER.debug("Update Invoice service");
+			
 			if(invoiceDto == null){
 				throw new NullPointerException("InvoiceDto point to null ");
 			}
@@ -127,16 +140,20 @@ public class InvoiceController {
 			// entity to DTO
 			InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
 			
+		    LOGGER.info("Invoice with id :",invoiceResponse.getId(),"has updated successfuly :");
 			return ResponseEntity.ok().body(invoiceResponse);
 			
 			
 		}catch(NoSuchInvoiceExistsException e) {
+			LOGGER.error("No Such Invoice Exists with id =",id);
 			System.out.println("NoSuchInvoiceExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(EmptyValueException e) {
+			LOGGER.error("trieng to update data with empty value");
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
+			LOGGER.error("Something goes wrong in updateInvoice service in InvoiceController");
 			System.out.println("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}

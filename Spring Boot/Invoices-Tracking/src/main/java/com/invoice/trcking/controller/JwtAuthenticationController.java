@@ -3,6 +3,8 @@ package com.invoice.trcking.controller;
 
 import java.util.Objects;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +34,8 @@ import com.invoice.trcking.model.JwtResponse;
 @CrossOrigin
 public class JwtAuthenticationController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationController.class);
+
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
@@ -44,6 +48,8 @@ public class JwtAuthenticationController {
 	
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<Object> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws UsernameNotFoundException , Exception {
+		
+		LOGGER.debug("authenticate service with username : ",authenticationRequest.getUsername());
 		try {
 			authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
@@ -52,8 +58,10 @@ public class JwtAuthenticationController {
 
 			final String token = jwtTokenUtil.generateToken(userDetails);
 		
+			LOGGER.info("User authenticated successfully : ");
 			return new ResponseEntity<Object>(new JwtResponse(token), HttpStatus.CREATED);
 		}catch(UsernameNotFoundException e) {
+			LOGGER.error("User not found : ");
 			System.out.println("UsernameNotFoundException : "+e.getMessage());
 			e.printStackTrace();
 		}catch(Exception e) {
@@ -70,8 +78,10 @@ public class JwtAuthenticationController {
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		} catch (DisabledException e) {
+			LOGGER.error("User Disabled : ");
 			throw new Exception("USER_DISABLED", e);
 		} catch (BadCredentialsException e) {
+			LOGGER.error("Invalid credentials : ");
 			throw new Exception("INVALID_CREDENTIALS", e);
 		}
 	}

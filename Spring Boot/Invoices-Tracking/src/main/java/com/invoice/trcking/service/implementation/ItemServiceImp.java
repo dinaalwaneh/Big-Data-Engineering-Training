@@ -38,10 +38,10 @@ public class ItemServiceImp implements ItemService {
 
 	@Override
 	public Item addItem(Item item) throws ItemAlreadyExistsException , NullValueException , EmptyValueException {
-		if(item.getName()==null) {
-			throw new NullValueException("Item name date has null values!!");
+		if(item.getId()==null||item.getName()==null) {
+			throw new NullValueException("Item date has null values!!");
     	}
-    	if(item.getId()==0||item.getName()==""||item.getAmmount()==0) {
+    	if(item.getName()==""||item.getAmmount()==0) {
     		throw new EmptyValueException("added date has empty values!!");
     	}
 		Item existingItem = itemRepository.findById(item.getId()).orElse(null); 

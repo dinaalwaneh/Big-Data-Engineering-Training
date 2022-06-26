@@ -54,7 +54,7 @@ public class InvoiceController {
 	public ResponseEntity<InvoiceDto> getInvoiceById(@PathVariable(name = "id") Long id)throws NoSuchInvoiceExistsException, Exception {
 		try {
 			
-			LOGGER.debug("getInvoiceById service with id : ",id);
+			//LOGGER.debug("getInvoiceById service with id : ",id);
 			Invoice invoice = invoiceService.getInvoiceById(id);
 
 			// convert entity to DTO
@@ -79,7 +79,7 @@ public class InvoiceController {
 	
 		try {
 
-			LOGGER.debug("Add invoice service");
+			//LOGGER.debug("Add invoice service");
 			if(invoiceDto == null){
 				throw new NullPointerException("InvoiceDto point to null ");
 			}
@@ -93,7 +93,7 @@ public class InvoiceController {
 			}
 			// convert entity to DTO
 		    InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
-		    LOGGER.info("Invoice with id :",invoice.getId(),"added to invoice entity successfuly :");
+		    LOGGER.info("Invoice added to item entity successfuly");
 			return new ResponseEntity<InvoiceDto>(invoiceResponse, HttpStatus.CREATED);
 			
 		}catch(InvoiceAlreadyExistsException e) {
@@ -122,7 +122,7 @@ public class InvoiceController {
 		
 		try {
 			
-			LOGGER.debug("Update Invoice service");
+			//LOGGER.debug("Update Invoice service");
 			
 			if(invoiceDto == null){
 				throw new NullPointerException("InvoiceDto point to null ");

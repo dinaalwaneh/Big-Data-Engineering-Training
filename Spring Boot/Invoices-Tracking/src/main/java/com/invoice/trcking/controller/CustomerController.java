@@ -1,5 +1,7 @@
 package com.invoice.trcking.controller;
 
+ import org.hibernate.exception.ConstraintViolationException;
+import org.hibernate.internal.EntityManagerMessageLogger_.logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +17,20 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import com.invoice.trcking.service.CustomerService;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.io.Console;
 import java.util.*;
 
 import com.invoice.trcking.dto.CustomerDto;
+import com.invoice.trcking.exception.customer.CustomerAlreadyExistsException;
 import com.invoice.trcking.exception.customer.NoSuchCustomerExistsException;
 import com.invoice.trcking.mapper.CustomerMapper;
 import com.invoice.trcking.model.Customer;
 
 @ControllerAdvice
 @RestController
+@Log4j2
 public class CustomerController {
 
 	@Autowired
@@ -33,6 +39,7 @@ public class CustomerController {
 	@Autowired
 	private CustomerMapper customerMapper;
 
+	
 	@GetMapping("/get/customers")
 	public ResponseEntity<Object> getCustomers()
 	{
@@ -43,48 +50,93 @@ public class CustomerController {
 	
 	@GetMapping("/get/customer/{id}")
 	public ResponseEntity<CustomerDto> getCustomerById(@PathVariable(name = "id") Long id)  {
-		try {
-			Customer customer = customerService.getCustomerById(id);
-			// convert entity to DTO
-			CustomerDto postResponse = customerMapper.convertEntityToDto(customer);
-
-			return ResponseEntity.ok().body(postResponse);
-			
-		}catch (NoSuchElementException e) {
-			System.out.println("NoSuchElementException : "+new NoSuchElementException("There is no custemer with id = "+id)) ;
-		}catch (Exception e) {
-			System.out.println("Exception : "+e.getMessage()) ;
-		}
-
-		return null;
+		
+			try {
+ 				Customer customer = customerService.getCustomerById(id);
+				// convert entity to DTO
+				CustomerDto postResponse = customerMapper.convertEntityToDto(customer);
+	
+				return ResponseEntity.ok().body(postResponse);
+				
+			}catch (NoSuchCustomerExistsException e) {
+				System.out.println("NoSuchCustomerExistsException : "+e.getMessage());
+				e.printStackTrace();
+			}catch (Exception e) {
+				System.out.println("Exception : "+e.getMessage());
+				e.printStackTrace();
+			}
+	
+			return null;
 	}
 	
 	@PostMapping("/add/customer")
-	public ResponseEntity<CustomerDto> addCustomer(@RequestBody CustomerDto customerDto) {
+	public ResponseEntity<CustomerDto> addCustomer(@RequestBody CustomerDto customerDto) throws NullPointerException {
 
-		// convert DTO to entity
-		Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
+			try {
 
-		Customer user = customerService.createCustomer(customerRequest);
-
-		// convert entity to DTO
-		CustomerDto customerResponse = customerMapper.convertEntityToDto(user);
-
-		return new ResponseEntity<CustomerDto>(customerResponse, HttpStatus.CREATED);
+				if(customerDto == null){
+					throw new NullPointerException("customerDto point to null ");
+				}
+				// convert DTO to entity
+				Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
+		
+				 
+				Customer customer = customerService.addCustomer(customerRequest);
+				
+				if(customer == null){
+					throw new NullPointerException("customer point to null");
+				}
+				// convert entity to DTO
+				CustomerDto customerResponse = customerMapper.convertEntityToDto(customer);
+	
+				return new ResponseEntity<CustomerDto>(customerResponse, HttpStatus.CREATED);
+				
+			}catch(CustomerAlreadyExistsException e) {
+				System.out.println("CustomerAlreadyExistsException : "+ e.getMessage()) ;
+				e.printStackTrace();
+			}catch(NullPointerException e) {
+				System.out.println("NullPointerException : "+ e.getMessage()) ;
+				e.printStackTrace();
+			}catch(Exception e) {
+				System.out.println("Exception : "+ e.getMessage()) ;
+				e.printStackTrace();
+			}
+			
+			return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@PutMapping("/update/customer/{id}")
-	public ResponseEntity<CustomerDto> updateCustomer(@PathVariable long id, @RequestBody CustomerDto customerDto) {
+	public ResponseEntity<CustomerDto> updateCustomer(@PathVariable long id, @RequestBody CustomerDto customerDto) throws NullPointerException {
 
-		// convert DTO to Entity
-		Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
-
-
-		Customer customer = customerService.updateCustomer(id, customerRequest);
-
-		// entity to DTO
-		CustomerDto customerResponse = customerMapper.convertEntityToDto(customer);
-
-		return ResponseEntity.ok().body(customerResponse);
+			try {
+				
+				if(customerDto == null){
+					throw new NullPointerException("customerDto point to null value :");
+				}
+				// convert DTO to Entity
+				Customer customerRequest = customerMapper.convertDtoToEntity(customerDto);
+	
+				Customer customer = customerService.updateCustomer(id, customerRequest);
+				
+				if(customer == null){
+					throw new NullPointerException("customer point to null");
+				}
+				// entity to DTO
+				CustomerDto customerResponse = customerMapper.convertEntityToDto(customer);
+	
+				return ResponseEntity.ok().body(customerResponse);
+			}catch(NoSuchCustomerExistsException e) {
+				System.out.println("NoSuchCustomerExistsException : "+ e.getMessage());
+				e.printStackTrace();
+			}catch(NullPointerException e) {
+				System.out.println("NullPointerException : "+ e.getMessage());
+				e.printStackTrace();
+			}catch(Exception e) {
+				System.out.println("Exception : "+ e.getMessage());
+				e.printStackTrace();
+			}
+			
+			return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
+		
 	}
 }

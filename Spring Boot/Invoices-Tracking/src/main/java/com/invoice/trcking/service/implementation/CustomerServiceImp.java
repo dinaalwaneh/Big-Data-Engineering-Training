@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invoice.trcking.exception.EmptyValueException;
+import com.invoice.trcking.exception.NullValueException;
+import com.invoice.trcking.exception.customer.CustomerAlreadyExistsException;
 import com.invoice.trcking.exception.customer.NoSuchCustomerExistsException;
 import com.invoice.trcking.model.Customer;
 import com.invoice.trcking.repository.CustomerRepository;
@@ -27,32 +30,50 @@ public class CustomerServiceImp implements CustomerService {
 	}
 
 	@Override
-	public Customer createCustomer(Customer customer) {
-		return customerRepository.save(customer);
-	}
-
-	@Override
-	public Customer updateCustomer(long id, Customer newCustomerDetails) {
-		Customer customer = customerRepository.findById(id).orElseThrow(
-            ()
-                -> new NoSuchCustomerExistsException(
-                    "NO CUSTOMER PRESENT WITH ID = " + id));
-	
-		//.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+	public Customer addCustomer(Customer customer)throws CustomerAlreadyExistsException , NullValueException , EmptyValueException {
 		
-		customer.setId(newCustomerDetails.getId());
-		customer.setName(newCustomerDetails.getName());
-		customer.setCustomerName(newCustomerDetails.getCustomerName());
-		customer.setAddress(newCustomerDetails.getAddress());
-		customer.setPhone(newCustomerDetails.getPhone());
-		customer.setEmail(newCustomerDetails.getEmail());
-		customer.setEnabled(newCustomerDetails.isEnabled());
-		return customerRepository.save(customer);
+		if(customer.getId()==null||customer.getCustomerName()==null||customer.getPhone()==null) {
+			throw new NullValueException("updated date has null values!!");
+    	}
+    	if(customer.getId()==0||customer.getCustomerName()==""||customer.getPhone()=="") {
+    		throw new EmptyValueException("updated date has empty values!!");
+    	}
+		Customer existingCustomer= customerRepository.findById(customer.getId()).orElse(null); 
+		if (existingCustomer == null) {
+	    	return customerRepository.save(customer);
+	     }else throw new CustomerAlreadyExistsException("Customer already exixts!!");		
 	}
 
 	@Override
-	public Customer getCustomerById(long id) {
+	public Customer updateCustomer(long id, Customer newCustomerDetails)throws NoSuchCustomerExistsException , NullValueException , EmptyValueException{
+		
+		 Customer customer = customerRepository.findById(id).orElse(null);
+	     if (customer == null)
+	         throw new NoSuchCustomerExistsException("No Such Customer exists with id = "+id);
+	     else {
+	    	if(newCustomerDetails.getId()==null||newCustomerDetails.getCustomerName()==null||(newCustomerDetails.getPhone()==null)) {
+	    		throw new NullValueException("updated date has null values!!");
+	    	}
+	    	if(newCustomerDetails.getId()==0||newCustomerDetails.getCustomerName()==""||newCustomerDetails.getPhone()=="") {
+	    		throw new EmptyValueException("updated date has empty values!!");
+	    	}
+	    	customer.setId(newCustomerDetails.getId());
+	 		customer.setName(newCustomerDetails.getName());
+	 		customer.setCustomerName(newCustomerDetails.getCustomerName());
+	 		customer.setAddress(newCustomerDetails.getAddress());
+	 		customer.setPhone(newCustomerDetails.getPhone());
+	 		customer.setEmail(newCustomerDetails.getEmail());
+	 		customer.setEnabled(newCustomerDetails.isEnabled());
+	 		return customerRepository.save(customer);
+	     }	
+	}
+
+	@Override
+	public Customer getCustomerById(long id) throws NoSuchCustomerExistsException{
 		Optional<Customer> result = customerRepository.findById(id);
+		if(result.isEmpty()) {
+			throw new NoSuchCustomerExistsException("No sush customer exist with id = "+id);
+		}
 		return result.get();
 		/*if(result.isPresent()) {
 			return result.get();

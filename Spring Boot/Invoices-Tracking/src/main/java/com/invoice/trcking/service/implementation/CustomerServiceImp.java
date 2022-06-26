@@ -49,7 +49,7 @@ public class CustomerServiceImp implements CustomerService {
 		
 		 Customer customer = customerRepository.findById(id).orElse(null);
 	     if (customer == null)
-	         throw new NoSuchCustomerExistsException("No Such Customer exists with id = "+id);
+	            throw new NoSuchCustomerExistsException("No Such Customer exists with id = "+id);
 	     else {
 	    	if(newCustomerDetails.getId()==null||newCustomerDetails.getCustomerName()==null||(newCustomerDetails.getPhone()==null)) {
 	    		throw new NullValueException("updated date has null values!!");

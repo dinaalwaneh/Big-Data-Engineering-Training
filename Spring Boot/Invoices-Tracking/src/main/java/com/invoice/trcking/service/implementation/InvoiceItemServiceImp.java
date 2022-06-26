@@ -7,6 +7,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.invoice.trcking.exception.EmptyValueException;
+import com.invoice.trcking.exception.invoiceItem.InvoiceItemAlreadyExistsException;
+import com.invoice.trcking.exception.invoive.InvoiceAlreadyExistsException;
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.InvoiceItem;
 import com.invoice.trcking.model.User;
@@ -27,7 +30,11 @@ public class InvoiceItemServiceImp implements InvoiceItemService {
 	}
 
 	@Override
-	public InvoiceItem createInvoiceItem(InvoiceItem invoiceItem) {
+	public InvoiceItem createInvoiceItem(InvoiceItem invoiceItem) throws InvoiceItemAlreadyExistsException , EmptyValueException {
+		
+		if(invoiceItem.getQuantity()==0) {
+			throw new EmptyValueException("Item quantity must be mor than zero!!");
+    	}
 		return invoiceItemRepository.save(invoiceItem);
 	}
 

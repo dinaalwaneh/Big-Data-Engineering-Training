@@ -53,17 +53,17 @@ public class ItemController {
 		
 		try {
 			
-			LOGGER.debug("getItemById service with id : ",id);
+			//LOGGER.debug("getItemById service with id : ",id);
 			Item item = itemService.getItemById(id);
  
 			// convert entity to DTO
 			ItemDto itemResponse = itemMapper.convertEntityToDto(item);
 			
-			LOGGER.info("getItemById service is done successfully");
+			LOGGER.info("getItemById service with id = {} is done successfully",id);
 			return ResponseEntity.ok().body(itemResponse);
 			
 		}catch (NoSuchItemExistsException e) {
-			LOGGER.error("Item not foundes with id :",id);
+			LOGGER.error("Item not foundes with id = {} ",id);
 			System.out.println("NoSuchItemExistsException : "+e.getMessage());
 			e.printStackTrace();
 		}catch (Exception e) {
@@ -82,7 +82,7 @@ public class ItemController {
 		
 			try {
 				
-				LOGGER.debug("Add item service");
+				//LOGGER.debug("Add item service");
 				if(itemDto == null){
 					throw new NullPointerException("itemDto point to null ");
 				}
@@ -96,11 +96,11 @@ public class ItemController {
 				}
 				// convert entity to DTO
 				ItemDto itemResponse = itemMapper.convertEntityToDto(item);
-			    LOGGER.info("Item added to item entity successfuly :");
+				LOGGER.error("Item with id = {} added successfuly",itemDto.getId());
 				return new ResponseEntity<ItemDto>(itemResponse, HttpStatus.CREATED);
 				
 		}catch(ItemAlreadyExistsException e) {
-			LOGGER.error("Item already exists in item entity");
+			LOGGER.error("Item with id = {} already exists in item entity",itemDto.getId());
 			System.out.println("ItemAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullPointerException e) {
@@ -112,7 +112,7 @@ public class ItemController {
 			System.out.println("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(EmptyValueException e) {
-			LOGGER.error("invoice data has empty value!!");
+			LOGGER.error("item data has empty value!!");
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
@@ -129,7 +129,7 @@ public class ItemController {
 	public ResponseEntity<ItemDto> updateItem(@PathVariable long id, @RequestBody ItemDto itemDto)  throws NullPointerException, NoSuchItemExistsException, EmptyValueException, NullValueException, Exception {
 		
 		try {
-			LOGGER.debug("Update Item service");
+			//LOGGER.debug("Update Item service");
 			if(itemDto == null){
 				throw new NullPointerException("itemDto point to null ");
 			}
@@ -144,12 +144,12 @@ public class ItemController {
 			// convert entity to DTO
 			ItemDto itemResponse = itemMapper.convertEntityToDto(item);
 			
-		    LOGGER.info("Item with id :",itemResponse.getId(),"has updated successfuly :");
+		    LOGGER.info("Item with id = {} ",itemResponse.getId(),"has updated successfuly :");
         	return ResponseEntity.ok().body(itemResponse);
 
 			
 		}catch(NoSuchItemExistsException e) {
-			LOGGER.error("No Such Item Exists with id =",id);
+			LOGGER.error("No Such Item Exists with id = {}",id);
 			System.out.println("NoSuchItemExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullPointerException e) {
@@ -165,7 +165,7 @@ public class ItemController {
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in Item service in ItemController");
+			LOGGER.error("Something goes wrong in updateItem service in ItemController");
 			System.out.println("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}

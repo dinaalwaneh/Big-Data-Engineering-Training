@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,7 +52,8 @@ public class UserController {
 		return new ResponseEntity<>(userList, HttpStatus.OK);
 	}*/
 	/********************************************************************/
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+
 
 	@Autowired
 	private UserService userService;
@@ -69,16 +72,21 @@ public class UserController {
 	@GetMapping("/get/user/{id}")
 	public ResponseEntity<UserDto> getUserById(@PathVariable Long id) throws NoSuchUserExistsException, Exception { 
 		try {
+			
+			//LOGGER.debug("getUserById service with id = {} ",id);
 			User user = userService.getUserById(id);
 	
 			// convert entity to DTO
 			UserDto postResponse = userMapper.convertEntityToDto(user);
-	
+			
+			LOGGER.info("getCustomerById service with id = {} is done successfully",id);
 			return ResponseEntity.ok().body(postResponse);
 		}catch (NoSuchUserExistsException e) {
+			LOGGER.error("User not foundes with id = {} ",id);
 			System.out.println("NoSuchUserExistsException : "+e.getMessage());
 			e.printStackTrace();
 		}catch (Exception e) {
+			LOGGER.error("Something goes wrong in getUserById api at User Controller");
 			System.out.println("Exception : "+e.getMessage());
 			e.printStackTrace();
 		}
@@ -90,7 +98,7 @@ public class UserController {
 	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) throws NullPointerException, UserAlreadyExistsException, EmptyValueException, NullValueException, Exception {
 
 		try {
-
+			//LOGGER.debug("Add User service");
 			if(userDto == null){
 				throw new NullPointerException("userDto point to null ");
 			}
@@ -106,22 +114,27 @@ public class UserController {
 
 			// convert entity to DTO
 			UserDto userResponse = userMapper.convertEntityToDto(user);
-			
+			LOGGER.error("User with id = {} added successfuly",userDto.getId());
 			return new ResponseEntity<UserDto>(userResponse, HttpStatus.CREATED);
 			
 		}catch(UserAlreadyExistsException e) {
+			LOGGER.error("User with id = {} already exists in item entity",userDto.getId());
 			System.out.println("UserAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullPointerException e) {
+			LOGGER.error("object point to null");
 			System.out.println("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullValueException e) {
+			LOGGER.error("User data has null value!!");
 			System.out.println("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(EmptyValueException e) {
+			LOGGER.error("User data has empty value!!");
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
+			LOGGER.error("Something goes wrong in addUser service in UserController");
 			System.out.println("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}
@@ -133,7 +146,7 @@ public class UserController {
 	public ResponseEntity<UserDto> updateUser(@PathVariable long id, @RequestBody UserDto userDto)throws NullPointerException, NoSuchCustomerExistsException, EmptyValueException, NullValueException, Exception {
 		
 		try {
-
+			//LOGGER.debug("Update User service");
 			if(userDto == null){
 				throw new NullPointerException("userDto point to null ");
 			}
@@ -149,21 +162,26 @@ public class UserController {
 			// entity to DTO
 			UserDto userResponse = userMapper.convertEntityToDto(user);
 
-			
+		    LOGGER.info("User with id = {} ",userResponse.getId()," has updated successfuly :");
 			return ResponseEntity.ok().body(userResponse);
 		}catch(NoSuchCustomerExistsException e) {
+			LOGGER.error("No Such User Exists with id = {}",id);
 			System.out.println("NoSuchCustomerExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullPointerException e) {
+			LOGGER.error("object point to null");
 			System.out.println("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(NullValueException e) {
+			LOGGER.error("User data has null value!!");
 			System.out.println("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(EmptyValueException e) {
+			LOGGER.error("User data has empty value!!");
 			System.out.println("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}catch(Exception e) {
+			LOGGER.error("Something goes wrong in updateUser service in UserController");
 			System.out.println("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}
@@ -176,12 +194,21 @@ public class UserController {
 
 	@GetMapping("/user/{username}")
 	public ResponseEntity<UserDto> getUserByUserName(@PathVariable String username) {
-		User user = userService.getUserByUsername(username);
+		try {
+			LOGGER.info("user name = {}",username);
+			User user = userService.getUserByUsername(username);
+			
+			// convert entity to DTO
+			UserDto postResponse = userMapper.convertEntityToDto(user);
 
-		// convert entity to DTO
-		UserDto postResponse = userMapper.convertEntityToDto(user);
-
-		return ResponseEntity.ok().body(postResponse);
+			return ResponseEntity.ok().body(postResponse);
+		}catch (Exception e) {
+			LOGGER.error("Something goes wrong in getUserByUserName service in UserController");
+			System.out.println("Exception : "+ e.getMessage()) ;
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 	 
 }

@@ -7,9 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import com.invoice.trcking.model.Customer;
-import com.invoice.trcking.model.InvoiceItem;
 import com.invoice.trcking.model.Role;
 import com.invoice.trcking.model.RoleType;
 import com.invoice.trcking.model.User;
@@ -33,10 +31,11 @@ public class InvoicesTrackingApplication {
 		
 		return args ->{
 			
-			 
-			Role role = roleRepository.save(new Role(null ,RoleType.Auditor));
-			Role role2 =roleRepository.save(new Role(null , RoleType.SuperUser));
-			Role role3 =roleRepository.save(new Role(null , RoleType.SupportUser));
+			
+			
+			Role role = roleRepository.save(new Role(null ,RoleType.valueOf("AUDITORUSER")));
+			Role role2 =roleRepository.save(new Role(null ,RoleType.valueOf("SUPERUSER")));
+			Role role3 =roleRepository.save(new Role(null ,RoleType.valueOf("SUPPORTUSER")));
  
 
 			userRepository.save(new User(null , "John daron", "john", "jenin","dina1@gmail.com","0568285214", "1234",true,role));
@@ -53,6 +52,8 @@ public class InvoicesTrackingApplication {
 			customerRepository.save(new Customer(null , "will d", "will", "jenin","0568575214","dina16@gmail.com",true));
 			customerRepository.save(new Customer(null , "jim d", "jim", "jenin","dina12@gmail.com","0568985214",true));
 			customerRepository.save(new Customer(null , "arnold d", "arnold", "jenin","dina15@gmail.com","0568595214",true));
+			
+			 
 			/*
 			
 			

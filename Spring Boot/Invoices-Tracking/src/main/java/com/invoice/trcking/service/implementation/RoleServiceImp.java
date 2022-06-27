@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invoice.trcking.model.Role;
+import com.invoice.trcking.model.RoleType;
 import com.invoice.trcking.model.User;
 import com.invoice.trcking.repository.RoleRepository;
 import com.invoice.trcking.repository.UserRepository;
@@ -28,6 +29,12 @@ public class RoleServiceImp implements RoleService{
 		List<Role> listOfRoles = new ArrayList<Role>();
 	    roleRepository.findAll().forEach(user-> listOfRoles.add(user));
 	    return listOfRoles;
+	}
+
+	@Override
+	public Role getRoleByRoleName(RoleType roleName) {
+		
+		return roleRepository.findByName(roleName);
 	}
 	
 	

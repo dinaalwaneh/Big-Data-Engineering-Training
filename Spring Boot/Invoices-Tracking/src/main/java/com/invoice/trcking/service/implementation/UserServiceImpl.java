@@ -34,13 +34,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user)throws UserAlreadyExistsException , NullValueException , EmptyValueException {
-		if(user.getId()==null||user.getUserName()==null||user.getPhone()==null||user.getPassword()==null) {
+		if(user.getUserName()==null||user.getPhone()==null||user.getPassword()==null) {
 			throw new NullValueException("updated date has null values!!");
 		}
-		if(user.getId()==0||user.getUserName()==""||user.getPhone()==""||user.getPassword()=="") {
+		if(user.getUserName()==""||user.getPhone()==""||user.getPassword()=="") {
 			throw new EmptyValueException("updated date has empty values!!");
 		}
-		User existingUser= userRepository.findById(user.getId()).orElse(null); 
+		User existingUser= userRepository.findByUsername(user.getUserName());
 		if (existingUser == null) {
 			return userRepository.save(user);
 	     }else throw new UserAlreadyExistsException("User already exixts!!");

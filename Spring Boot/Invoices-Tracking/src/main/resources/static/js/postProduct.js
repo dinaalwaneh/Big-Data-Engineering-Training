@@ -80,10 +80,11 @@
                   },
                   data : requestJSON,
                   success : function(data) {
-	 
+	
                   		location.reload();
                   },
                   error : function(data) {
+	 
 	 alert("noooo");
                   }
                });

@@ -1,5 +1,7 @@
 package com.invoice.trcking.dto;
 
+import com.invoice.trcking.model.Role;
+
 import lombok.Data;
 
 @Data
@@ -14,6 +16,8 @@ public class UserDto {
 	    private String  email;
 	    private String password;
 	    private boolean enabled;
+	    private String roleName;
+	 
 	    
 		public UserDto() {
 			super();
@@ -21,7 +25,7 @@ public class UserDto {
 		}
 
 		public UserDto(Long id, String name, String userName, String address, String phone, String email,
-				String password, boolean enabled) {
+				String password, boolean enabled, String roleName) {
 			super();
 			this.id = id;
 			this.name = name;
@@ -31,6 +35,8 @@ public class UserDto {
 			this.email = email;
 			this.password = password;
 			this.enabled = enabled;
+			this.roleName = roleName;
+			 
 		}
 
 		public Long getId() {
@@ -97,5 +103,11 @@ public class UserDto {
 			this.enabled = enabled;
 		}
 
-		
+		public String getRoleName() {
+			return roleName;
+		}
+
+		public void setRoleName(String roleName) {
+			this.roleName = roleName;
+		}
 }

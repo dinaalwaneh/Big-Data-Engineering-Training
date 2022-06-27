@@ -14,6 +14,7 @@ public class CustomerDto {
     private String  email;
     private boolean enabled;
     
+    
 	public CustomerDto() {
 		super();
 		// TODO Auto-generated constructor stub

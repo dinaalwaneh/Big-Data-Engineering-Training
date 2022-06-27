@@ -1,13 +1,20 @@
 package com.invoice.trcking.mapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.invoice.trcking.dto.UserDto;
+import com.invoice.trcking.model.RoleType;
 import com.invoice.trcking.model.User;
+import com.invoice.trcking.service.implementation.RoleServiceImp;
+import com.invoice.trcking.service.implementation.UserServiceImpl;
 
 @Component
 public class UserMapper {
 
+	
+	@Autowired
+	private RoleServiceImp roleServiceImp;
 	
 	public UserDto convertEntityToDto(User user) {
 		UserDto userDto = new UserDto();
@@ -19,8 +26,10 @@ public class UserMapper {
 		userDto.setEmail(user.getEmail());
 		userDto.setEnabled(user.isEnabled());
 		userDto.setPassword(user.getPassword());
+		userDto.setRoleName(user.getRole().getName().name());
 		return userDto;
 	}
+ 
 	
 	public User convertDtoToEntity(UserDto userDto) {
 		User user = new User();
@@ -32,6 +41,9 @@ public class UserMapper {
 		user.setEmail(userDto.getEmail());
 		user.setEnabled(userDto.isEnabled());
 		user.setPassword(userDto.getPassword());
+		System.out.println(roleServiceImp.getRoleByRoleName(RoleType.valueOf(userDto.getRoleName())));
+		
+		user.setRole(roleServiceImp.getRoleByRoleName(RoleType.valueOf(userDto.getRoleName())));
 		return user;
 	}
 }

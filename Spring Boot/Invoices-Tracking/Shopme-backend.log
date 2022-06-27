@@ -29719,3 +29719,749 @@ Unconditional classes:
 2022-06-27 17:14:59.408 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
 2022-06-27 17:14:59.411 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
 2022-06-27 17:14:59.432 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:30:05.747 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:30:05.747 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:30:05.748 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:30:05.749 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:30:05.751 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:30:05.769 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/normalize.css", parameters={}
+2022-06-27 17:30:05.769 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:30:05.772 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 17:30:05.772 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 17:30:05.776 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:30:05.777 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:30:05.779 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:30:05.804 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:52.390 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:38:52.390 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:38:52.391 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:38:52.391 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:38:52.394 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:38:52.415 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:38:52.415 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/normalize.css", parameters={}
+2022-06-27 17:38:52.415 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:52.415 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:52.418 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 17:38:52.418 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 17:38:52.418 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:38:52.434 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:57.837 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:38:57.837 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/normalize.css", parameters={}
+2022-06-27 17:38:57.837 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:57.837 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:38:57.842 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:38:57.841 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 17:38:57.843 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 17:39:02.939 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:39:07.806 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:39:07.806 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:39:07.806 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:39:07.808 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:39:07.811 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:39:07.846 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:39:07.846 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:39:07.850 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:39:08.059 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:50.613 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:46:50.614 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:46:50.614 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:46:50.615 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:46:50.618 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:46:50.638 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/normalize.css", parameters={}
+2022-06-27 17:46:50.638 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:50.640 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 17:46:50.641 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 17:46:50.647 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:46:50.648 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:50.651 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:46:50.676 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:57.867 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:46:57.867 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:46:57.867 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:46:57.868 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:46:57.870 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:46:57.889 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/normalize.css", parameters={}
+2022-06-27 17:46:57.889 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:57.892 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 17:46:57.892 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 17:46:57.897 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:46:57.897 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:46:57.907 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:46:57.925 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:47:11.292 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:47:11.292 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 17:47:11.292 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 17:47:11.293 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 17:47:11.295 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:47:11.310 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 17:47:11.311 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 17:47:11.313 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 17:47:11.331 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:08:22.085 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:08:22.089 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:08:22.089 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:08:22.094 DEBUG 13552 --- [http-nio-8082-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@3b4ba6b6]
+2022-06-27 18:08:22.098 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:08:22.105 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:08:22.110 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:08:22.119 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:08:22.124 ERROR 13552 --- [http-nio-8082-exec-8] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:08:22.128 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:08:22.128 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@661ccd29]
+2022-06-27 18:08:22.129 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:17:00.617 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:17:00.618 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:17:00.619 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:17:00.620 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:17:00.623 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:17:00.642 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:17:00.643 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:17:00.646 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:17:00.668 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:17:03.694 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:17:03.695 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:17:03.699 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:17:45.666 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:18:31.379 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:18:32.026 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:18:32.027 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:18:32.028 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:18:32.029 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:18:32.033 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:18:32.074 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:18:32.074 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:18:32.074 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:18:32.074 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:18:32.079 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:18:32.079 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:18:32.269 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:18:37.915 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:37.115 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:37.797 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:22:37.798 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:22:37.798 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:22:37.800 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:22:37.804 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:37.853 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:22:37.853 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:22:37.854 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:37.854 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:37.859 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:37.859 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:37.986 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:39.409 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:22:39.410 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:22:39.410 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:22:39.411 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:22:39.412 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:39.429 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:22:39.430 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:39.431 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:22:39.432 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:22:39.433 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:39.435 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:22:39.467 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:25:14.510 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:25:14.511 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:25:14.511 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:25:14.513 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:25:14.521 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:25:14.549 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:25:14.550 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:25:14.550 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:25:14.550 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:25:14.554 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:25:14.558 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:25:14.597 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:27:05.362 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:27:05.363 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:27:05.363 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:27:05.364 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:27:05.365 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:27:05.380 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:27:05.380 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:27:05.381 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:27:05.381 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:27:05.383 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:27:05.384 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:27:05.429 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:27:32.230 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:27:32.232 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:27:32.232 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:27:32.236 DEBUG 13552 --- [http-nio-8082-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@3c101a3c]
+2022-06-27 18:27:32.237 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:27:32.242 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:27:32.245 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:27:32.247 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:27:32.254 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:27:32.260 ERROR 13552 --- [http-nio-8082-exec-4] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:27:32.261 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:27:32.261 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@29489e65]
+2022-06-27 18:27:32.262 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:28:30.045 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:28:30.046 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:28:30.046 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:28:30.047 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:28:30.049 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:28:30.085 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:28:30.085 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:28:30.086 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:28:30.086 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:28:30.089 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:28:30.089 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:28:30.294 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:29:41.776 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:29:41.778 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:29:41.779 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:29:41.781 DEBUG 13552 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@23b5c96]
+2022-06-27 18:29:41.782 DEBUG 13552 --- [http-nio-8082-exec-2] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:29:41.786 DEBUG 13552 --- [http-nio-8082-exec-2] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:29:41.788 DEBUG 13552 --- [http-nio-8082-exec-2] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:29:41.790 DEBUG 13552 --- [http-nio-8082-exec-2] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:29:41.791 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:29:41.792 ERROR 13552 --- [http-nio-8082-exec-2] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:29:41.793 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:29:41.793 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@401398c3]
+2022-06-27 18:29:41.794 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:29:57.942 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:29:57.943 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:29:57.943 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:29:57.944 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:29:57.946 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:29:57.984 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:29:57.985 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:29:57.986 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:29:57.987 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:29:57.989 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:29:57.992 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:29:58.253 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:30:13.041 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:30:13.043 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:30:13.043 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:30:13.044 DEBUG 13552 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@3ad4eeec]
+2022-06-27 18:30:13.045 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:30:13.047 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:30:13.048 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:30:13.049 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:30:13.051 ERROR 13552 --- [http-nio-8082-exec-1] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:30:13.051 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:30:13.052 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@582a31b]
+2022-06-27 18:30:13.053 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:30:13.060 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:12.277 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:31:12.277 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:31:12.277 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:31:12.278 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:31:12.282 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:12.323 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:31:12.324 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:12.330 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:12.334 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:31:12.335 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:12.340 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:12.629 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:25.349 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:31:25.351 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:31:25.351 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:31:25.351 DEBUG 13552 --- [http-nio-8082-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@59f3d380]
+2022-06-27 18:31:25.352 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:31:25.353 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:31:25.355 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:31:25.356 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:31:25.357 ERROR 13552 --- [http-nio-8082-exec-4] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:31:25.358 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:31:25.358 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@3332f360]
+2022-06-27 18:31:25.359 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:31:25.359 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:50.177 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:31:50.178 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:31:50.178 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:31:50.179 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:31:50.182 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:50.234 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:31:50.235 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:50.238 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:31:50.238 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:50.239 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:50.243 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:50.467 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:51.521 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:31:51.522 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:31:51.522 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:31:51.523 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:31:51.525 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:51.546 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/login.css", parameters={}
+2022-06-27 18:31:51.547 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:51.549 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/loginPage.js", parameters={}
+2022-06-27 18:31:51.550 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:51.551 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:51.554 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:51.666 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:31:51.686 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:31:51.687 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:31:51.687 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:31:51.688 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2022-06-27 18:31:51.691 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:31:56.129 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:31:56.129 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/authenticate", parameters={}
+2022-06-27 18:31:56.130 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:31:56.132 DEBUG 13552 --- [http-nio-8082-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.model.JwtRequest@3718b516]
+2022-06-27 18:31:56.314 DEBUG 13552 --- [http-nio-8082-exec-7] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:31:56.320 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [*/*]
+2022-06-27 18:31:56.321 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-06-27 18:32:00.124 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:32:00.125 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/authenticate", parameters={}
+2022-06-27 18:32:00.125 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:32:00.127 DEBUG 13552 --- [http-nio-8082-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.model.JwtRequest@6bd46179]
+2022-06-27 18:32:00.127 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:32:00.132 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [*/*]
+2022-06-27 18:32:00.132 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-06-27 18:32:12.341 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:32:12.342 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/home", parameters={}
+2022-06-27 18:32:12.342 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:32:12.343 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:32:12.347 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:12.445 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/images/invoiceSyss.png", parameters={}
+2022-06-27 18:32:12.445 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2022-06-27 18:32:12.445 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:12.445 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:12.453 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:12.460 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:12.601 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:16.805 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:32:16.806 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:32:16.807 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:32:16.808 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:32:16.811 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:16.833 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/login.css", parameters={}
+2022-06-27 18:32:16.833 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:16.834 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/loginPage.js", parameters={}
+2022-06-27 18:32:16.835 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:16.837 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:16.838 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:16.953 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:16.967 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:32:16.968 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:32:16.968 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:32:16.969 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2022-06-27 18:32:16.972 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:29.719 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:32:29.719 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : POST "/authenticate", parameters={}
+2022-06-27 18:32:29.719 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:32:29.720 DEBUG 13552 --- [http-nio-8082-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.model.JwtRequest@2c87728c]
+2022-06-27 18:32:29.721 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:32:29.890 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 18:32:30.065 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:32:30.259  INFO 13552 --- [http-nio-8082-exec-9] c.i.t.c.JwtAuthenticationController      : User authenticated successfully : 
+2022-06-27 18:32:30.261 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:32:30.261 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.model.JwtResponse@2f5b0302]
+2022-06-27 18:32:30.262 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:32:30.286 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:32:30.286 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/dashboard", parameters={}
+2022-06-27 18:32:30.286 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:32:30.288 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:32:30.294 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.344 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/dashboard.css", parameters={}
+2022-06-27 18:32:30.344 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/postProduct.js", parameters={}
+2022-06-27 18:32:30.344 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.344 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.349 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.349 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.350 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/js/getProduct.js", parameters={}
+2022-06-27 18:32:30.350 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/update.js", parameters={}
+2022-06-27 18:32:30.350 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/addNewRow.js", parameters={}
+2022-06-27 18:32:30.351 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.351 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.351 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.353 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/personalInfo.js", parameters={}
+2022-06-27 18:32:30.354 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.355 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.357 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.358 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.359 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.457 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/images/jim.jpg", parameters={}
+2022-06-27 18:32:30.457 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.462 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.682 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:32:30.682 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:32:30.682 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:32:30.683 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/user/A1", parameters={}
+2022-06-27 18:32:30.683 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:32:30.684 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/get/items", parameters={}
+2022-06-27 18:32:30.684 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:32:30.690 DEBUG 13552 --- [http-nio-8082-exec-7] org.hibernate.SQL                        : select item0_.id as id1_4_, item0_.ammount as ammount2_4_, item0_.discription as discript3_4_, item0_.is_deleated as is_delea4_4_, item0_.name as name5_4_, item0_.quantity as quantity6_4_ from item item0_
+2022-06-27 18:32:30.690  INFO 13552 --- [http-nio-8082-exec-9] c.i.trcking.controller.UserController    : user name = A1
+2022-06-27 18:32:30.691 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:32:30.698 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:32:30.699 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.invoice.trcking.dto.ItemDto@33559447, com.invoice.trcking.dto.ItemDto@4f51d55e, com.invoice.trc (truncated)...]
+2022-06-27 18:32:30.700 DEBUG 13552 --- [http-nio-8082-exec-9] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 18:32:30.701 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:32:30.705 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:32:30.706 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@2bc3ffe3]
+2022-06-27 18:32:30.726 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.458 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:41:58.459 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/dashboard", parameters={}
+2022-06-27 18:41:58.459 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:41:58.460 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:41:58.464 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.492 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/dashboard.css", parameters={}
+2022-06-27 18:41:58.492 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.492 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/postProduct.js", parameters={}
+2022-06-27 18:41:58.493 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.496 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.497 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.497 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/addNewRow.js", parameters={}
+2022-06-27 18:41:58.497 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.496 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/update.js", parameters={}
+2022-06-27 18:41:58.499 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/personalInfo.js", parameters={}
+2022-06-27 18:41:58.499 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.501 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.496 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/getProduct.js", parameters={}
+2022-06-27 18:41:58.502 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.503 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.501 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.505 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.505 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.535 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/images/jim.jpg", parameters={}
+2022-06-27 18:41:58.536 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.539 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.736 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:41:58.738 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/get/items", parameters={}
+2022-06-27 18:41:58.738 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:41:58.740 DEBUG 13552 --- [http-nio-8082-exec-2] org.hibernate.SQL                        : select item0_.id as id1_4_, item0_.ammount as ammount2_4_, item0_.discription as discript3_4_, item0_.is_deleated as is_delea4_4_, item0_.name as name5_4_, item0_.quantity as quantity6_4_ from item item0_
+2022-06-27 18:41:58.744 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:41:58.745 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/user/A1", parameters={}
+2022-06-27 18:41:58.747 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:41:58.747  INFO 13552 --- [http-nio-8082-exec-8] c.i.trcking.controller.UserController    : user name = A1
+2022-06-27 18:41:58.748 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:41:58.748 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:41:58.748 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.invoice.trcking.dto.ItemDto@4bd5dc7f, com.invoice.trcking.dto.ItemDto@1db3abe6, com.invoice.trc (truncated)...]
+2022-06-27 18:41:58.749 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:58.757 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:58.758 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 18:41:58.764 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:41:58.765 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@449d1b52]
+2022-06-27 18:41:58.765 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:59.537 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:41:59.537 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:41:59.538 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:41:59.539 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:41:59.541 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:59.565 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/login.css", parameters={}
+2022-06-27 18:41:59.566 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:59.569 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:59.575 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/loginPage.js", parameters={}
+2022-06-27 18:41:59.576 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:59.581 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:41:59.682 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:41:59.690 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:41:59.691 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:41:59.691 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:41:59.693 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2022-06-27 18:41:59.695 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:01.299 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:01.300 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/home", parameters={}
+2022-06-27 18:42:01.300 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:01.301 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:01.304 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:01.336 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/images/invoiceSyss.png", parameters={}
+2022-06-27 18:42:01.336 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2022-06-27 18:42:01.337 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:01.337 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:01.343 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:01.383 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:01.520 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:02.813 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:02.813 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:42:02.814 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:02.814 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:02.817 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:02.842 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:42:02.842 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:42:02.843 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:02.843 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:02.846 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:02.849 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:02.945 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:31.840 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:42:31.842 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:42:31.842 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:42:31.843 DEBUG 13552 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@d9df09e]
+2022-06-27 18:42:31.844 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:42:31.848 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:42:31.849 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:42:31.850 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:31.855 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:42:31.859 ERROR 13552 --- [http-nio-8082-exec-1] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:42:31.859 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:42:31.859 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@7bc3fa29]
+2022-06-27 18:42:31.860 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:42:31.887 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:31.887 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/login", parameters={}
+2022-06-27 18:42:31.888 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:31.892 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2022-06-27 18:42:31.892 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2022-06-27 18:42:31.893 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2022-06-27 18:42:31.894 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2022-06-27 18:42:31.948 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2022-06-27 18:42:31.957 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2022-06-27 18:42:32.030 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:35.946 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:35.947 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:42:35.947 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:35.947 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:35.949 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:35.963 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:42:35.963 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:42:35.964 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:35.964 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:35.966 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:35.966 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:36.091 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:36.879 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:36.880 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/home", parameters={}
+2022-06-27 18:42:36.880 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:36.881 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:36.883 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:36.897 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2022-06-27 18:42:36.898 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:36.898 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/images/invoiceSyss.png", parameters={}
+2022-06-27 18:42:36.898 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:36.902 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:36.907 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:36.977 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:38.569 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:42:38.570 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:42:38.570 DEBUG 13552 --- [http-nio-8082-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:42:38.571 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:38.574 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:38.611 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/login.css", parameters={}
+2022-06-27 18:42:38.612 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:38.612 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/loginPage.js", parameters={}
+2022-06-27 18:42:38.612 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:38.615 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:38.616 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:38.766 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:38.775 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:42:38.775 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:42:38.776 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:42:38.776 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2022-06-27 18:42:38.779 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:46.691 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:46.692 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/home", parameters={}
+2022-06-27 18:42:46.692 DEBUG 13552 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 18:42:46.693 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:46.695 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:46.709 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2022-06-27 18:42:46.710 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:46.712 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/images/invoiceSyss.png", parameters={}
+2022-06-27 18:42:46.712 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:46.713 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:46.721 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:46.763 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:47.919 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:47.920 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 18:42:47.920 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 18:42:47.921 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:42:47.924 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:47.963 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 18:42:47.963 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:47.964 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 18:42:47.964 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:42:47.968 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:47.969 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:42:48.053 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:32.148 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:43:32.150 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : POST "/add/user", parameters={}
+2022-06-27 18:43:32.151 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#createUser(UserDto)
+2022-06-27 18:43:32.152 DEBUG 13552 --- [http-nio-8082-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.dto.UserDto@28b88c10]
+2022-06-27 18:43:32.153 DEBUG 13552 --- [http-nio-8082-exec-10] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:43:32.155 DEBUG 13552 --- [http-nio-8082-exec-10] org.hibernate.SQL                        : select role0_.id as id1_5_, role0_.role_type as role_typ2_5_ from role role0_ where role0_.role_type=?
+2022-06-27 18:43:32.157 DEBUG 13552 --- [http-nio-8082-exec-10] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:43:32.158 DEBUG 13552 --- [http-nio-8082-exec-10] org.hibernate.SQL                        : insert into employee (address, email, is_enabled, name, password, phone_number, role_id, user_name) values (?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-27 18:43:32.160 ERROR 13552 --- [http-nio-8082-exec-10] c.i.trcking.controller.UserController    : User with id = null added successfuly
+2022-06-27 18:43:32.161 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:43:32.161 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@10e57b14]
+2022-06-27 18:43:32.162 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:32.162 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:43:32.191 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:43:32.192 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:43:32.192 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:43:32.193 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:43:32.196 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:32.229 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/login.css", parameters={}
+2022-06-27 18:43:32.230 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:32.234 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:32.235 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/loginPage.js", parameters={}
+2022-06-27 18:43:32.236 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:32.239 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:32.355 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:32.367 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:43:32.367 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/authenticate", parameters={}
+2022-06-27 18:43:32.367 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getLoginPage()
+2022-06-27 18:43:32.368 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8]
+2022-06-27 18:43:32.371 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.222 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:43:40.223 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/authenticate", parameters={}
+2022-06-27 18:43:40.223 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.JwtAuthenticationController#createAuthenticationToken(JwtRequest)
+2022-06-27 18:43:40.224 DEBUG 13552 --- [http-nio-8082-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.invoice.trcking.model.JwtRequest@2d75353f]
+2022-06-27 18:43:40.225 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:43:40.427 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 18:43:40.586 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:43:40.802  INFO 13552 --- [http-nio-8082-exec-8] c.i.t.c.JwtAuthenticationController      : User authenticated successfully : 
+2022-06-27 18:43:40.802 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:43:40.803 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.model.JwtResponse@26eb8e9a]
+2022-06-27 18:43:40.803 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-06-27 18:43:40.825 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:43:40.825 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/dashboard", parameters={}
+2022-06-27 18:43:40.826 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 18:43:40.826 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 18:43:40.833 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.868 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/dashboard.css", parameters={}
+2022-06-27 18:43:40.868 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/postProduct.js", parameters={}
+2022-06-27 18:43:40.868 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.868 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.871 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.871 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.873 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/update.js", parameters={}
+2022-06-27 18:43:40.873 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/getProduct.js", parameters={}
+2022-06-27 18:43:40.874 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.874 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.874 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/js/addNewRow.js", parameters={}
+2022-06-27 18:43:40.874 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/personalInfo.js", parameters={}
+2022-06-27 18:43:40.875 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.875 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.878 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.880 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.880 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.880 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:40.953 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/images/jim.jpg", parameters={}
+2022-06-27 18:43:40.954 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:40.957 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:41.092 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:43:41.094 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/get/items", parameters={}
+2022-06-27 18:43:41.094 DEBUG 13552 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 18:43:41.095 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:43:41.095 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/user/kkk", parameters={}
+2022-06-27 18:43:41.095 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 18:43:41.095 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 18:43:41.096  INFO 13552 --- [http-nio-8082-exec-8] c.i.trcking.controller.UserController    : user name = kkk
+2022-06-27 18:43:41.096 DEBUG 13552 --- [http-nio-8082-exec-4] org.hibernate.SQL                        : select item0_.id as id1_4_, item0_.ammount as ammount2_4_, item0_.discription as discript3_4_, item0_.is_deleated as is_delea4_4_, item0_.name as name5_4_, item0_.quantity as quantity6_4_ from item item0_
+2022-06-27 18:43:41.096 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 18:43:41.097 DEBUG 13552 --- [http-nio-8082-exec-8] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 18:43:41.098 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:43:41.098 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.invoice.trcking.dto.ItemDto@57047e25, com.invoice.trcking.dto.ItemDto@15351ad, com.invoice.trck (truncated)...]
+2022-06-27 18:43:41.099 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 18:43:41.099 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 18:43:41.099 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@d216620]
+2022-06-27 18:43:41.116 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.024 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getEmployeePage()
+2022-06-27 19:25:21.026 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/employee", parameters={}
+2022-06-27 19:25:21.026 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getEmployeePage()
+2022-06-27 19:25:21.034 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 19:25:21.040 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.073 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/dashboard.css", parameters={}
+2022-06-27 19:25:21.074 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.074 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/personalInfo.js", parameters={}
+2022-06-27 19:25:21.074 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.076 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/getEmployees.js", parameters={}
+2022-06-27 19:25:21.077 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.077 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/js/AddNewRowInEmployeeTable.js", parameters={}
+2022-06-27 19:25:21.078 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.078 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.082 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.083 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.083 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.129 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/images/jim.jpg", parameters={}
+2022-06-27 19:25:21.130 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.132 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.232 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 19:25:21.233 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUsers()
+2022-06-27 19:25:21.233 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/user/kkk", parameters={}
+2022-06-27 19:25:21.234 DEBUG 13552 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 19:25:21.235  INFO 13552 --- [http-nio-8082-exec-3] c.i.trcking.controller.UserController    : user name = kkk
+2022-06-27 19:25:21.236 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/get/users", parameters={}
+2022-06-27 19:25:21.237 DEBUG 13552 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUsers()
+2022-06-27 19:25:21.237 DEBUG 13552 --- [http-nio-8082-exec-3] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 19:25:21.252 DEBUG 13552 --- [http-nio-8082-exec-3] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 19:25:21.257 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_
+2022-06-27 19:25:21.258 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 19:25:21.258 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@233463bc]
+2022-06-27 19:25:21.260 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:25:21.260 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:25:21.276 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 19:25:21.280 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 19:25:21.282 DEBUG 13552 --- [http-nio-8082-exec-1] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 19:25:21.284 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 19:25:21.284 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.invoice.trcking.dto.UserDto@4a9025e2, com.invoice.trcking.dto.UserDto@4903c209, com.invoice.trc (truncated)...]
+2022-06-27 19:25:21.292 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.758 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 19:45:49.759 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/dashboard", parameters={}
+2022-06-27 19:45:49.759 DEBUG 13552 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getdashboardPage()
+2022-06-27 19:45:49.760 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 19:45:49.763 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.791 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/dashboard.css", parameters={}
+2022-06-27 19:45:49.791 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/postProduct.js", parameters={}
+2022-06-27 19:45:49.792 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.792 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.794 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/update.js", parameters={}
+2022-06-27 19:45:49.795 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/getProduct.js", parameters={}
+2022-06-27 19:45:49.795 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.795 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.796 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.797 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/js/addNewRow.js", parameters={}
+2022-06-27 19:45:49.797 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.797 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/js/personalInfo.js", parameters={}
+2022-06-27 19:45:49.797 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.798 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.799 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.800 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.801 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.802 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.822 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/images/jim.jpg", parameters={}
+2022-06-27 19:45:49.825 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.828 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.891 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 19:45:49.893 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/get/items", parameters={}
+2022-06-27 19:45:49.893 DEBUG 13552 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.ItemController#getItems()
+2022-06-27 19:45:49.896 DEBUG 13552 --- [http-nio-8082-exec-6] org.hibernate.SQL                        : select item0_.id as id1_4_, item0_.ammount as ammount2_4_, item0_.discription as discript3_4_, item0_.is_deleated as is_delea4_4_, item0_.name as name5_4_, item0_.quantity as quantity6_4_ from item item0_
+2022-06-27 19:45:49.900 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 19:45:49.900 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/user/kkk", parameters={}
+2022-06-27 19:45:49.901 DEBUG 13552 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.controller.UserController#getUserByUserName(String)
+2022-06-27 19:45:49.902  INFO 13552 --- [http-nio-8082-exec-7] c.i.trcking.controller.UserController    : user name = kkk
+2022-06-27 19:45:49.902 DEBUG 13552 --- [http-nio-8082-exec-7] org.hibernate.SQL                        : select user0_.id as id1_1_, user0_.address as address2_1_, user0_.email as email3_1_, user0_.is_enabled as is_enabl4_1_, user0_.name as name5_1_, user0_.password as password6_1_, user0_.phone_number as phone_nu7_1_, user0_.role_id as role_id9_1_, user0_.user_name as user_nam8_1_ from employee user0_ where user0_.user_name=?
+2022-06-27 19:45:49.905 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, text/javascript, */*;q=0.01] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 19:45:49.905 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.invoice.trcking.dto.ItemDto@5dc1c6b2, com.invoice.trcking.dto.ItemDto@454a3336, com.invoice.trc (truncated)...]
+2022-06-27 19:45:49.909 DEBUG 13552 --- [http-nio-8082-exec-7] org.hibernate.SQL                        : select role0_.id as id1_5_0_, role0_.role_type as role_typ2_5_0_ from role role0_ where role0_.id=?
+2022-06-27 19:45:49.910 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:45:49.912 DEBUG 13552 --- [http-nio-8082-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:45:49.914 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-06-27 19:45:49.914 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.invoice.trcking.dto.UserDto@49b24554]
+2022-06-27 19:45:49.915 DEBUG 13552 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:40.613 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 19:46:40.624 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/home", parameters={}
+2022-06-27 19:46:40.624 DEBUG 13552 --- [http-nio-8082-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#viewHomePage()
+2022-06-27 19:46:40.628 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 19:46:40.635 DEBUG 13552 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:40.677 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2022-06-27 19:46:40.678 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:40.678 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/images/invoiceSyss.png", parameters={}
+2022-06-27 19:46:40.679 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:40.685 DEBUG 13552 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:40.692 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:40.729 DEBUG 13552 --- [http-nio-8082-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:41.448 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 19:46:41.449 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/register", parameters={}
+2022-06-27 19:46:41.449 DEBUG 13552 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.invoice.trcking.viewcontroller.AppViewController#getRegisterPage()
+2022-06-27 19:46:41.450 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2022-06-27 19:46:41.453 DEBUG 13552 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:41.479 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 19:46:41.479 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/PostEmployee.js", parameters={}
+2022-06-27 19:46:41.480 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:41.480 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:41.484 DEBUG 13552 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:41.484 DEBUG 13552 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2022-06-27 19:46:41.541 DEBUG 13552 --- [http-nio-8082-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:53.350 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/registerPageStyle.css", parameters={}
+2022-06-27 19:46:53.351 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-06-27 19:46:53.355 DEBUG 13552 --- [http-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK

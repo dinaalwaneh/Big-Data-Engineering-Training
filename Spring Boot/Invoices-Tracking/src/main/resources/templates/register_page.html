@@ -2,9 +2,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sign Up Form</title>
-        <link rel="stylesheet" href="css/normalize.css">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/registerPageStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/PostEmployee.js"></script> 
+        
     </head>
     <body>
 
@@ -15,36 +17,39 @@
         <fieldset style="background-color: white;">
          
           <label for="name">Name:</label>
-          <input type="text" id="name" name="user_name">
+          <input type="text" id="name" name="name">
           
-          <label for="mail">User Name:</label>
-          <input type="email" id="mail" name="user_email">
+          <label for="username">User Name:</label>
+          <input type="text" id="username" name="username">
           
-           <label for="name">Address:</label>
-          <input type="text" id="name" name="user_name">
+           <label for="address">Address:</label>
+          <input type="text" id="address" name="address">
           
-          <label for="mail">Phone:</label>
-          <input type="email" id="mail" name="user_email">
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone">
           
-          <label for="name">Email:</label>
-          <input type="text" id="name" name="user_name">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email">
           
           <label for="password">Password:</label>
-          <input type="password" id="password" name="user_password">
-          
-         
+          <input type="text" id="password" name="user_password">
           
           <label>enabled</label>
-          <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">true</label><br>
-          <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">false</label>
-     
+          <input type="radio" id="true" value="true" class="enabled" name="enabled"><label for="true" class="light">true</label><br>
+          <input type="radio" id="false" value="false" class="enabled" name="enabled"><label for="false" class="light">false</label>
+
 	       <label for="job" style="margin-top: 20px">Job Role:</label>
 	       <select id="job" name="user_job">
-	            <option value="rails_developer">AUDITORUSER</option>
-	            <option value="web_designer">SUPERUSER</option>
-	            <option value="WordPress_developer">SUPPORTUSER</option>
+	            <option value="AUDITORUSER">AUDITOR USER</option>
+	            <option value="SUPERUSER">SUPER USER</option>
+	            <option value="SUPPORTUSER">SUPPORT USER</option>
 	       </select>
 	        
+	        <select name="test" multiple>
+    <option>123</option>
+    <option>456</option>
+    <option>789</option>
+</select>
         </fieldset>
         <button type="submit">Sign Up</button>
       </form>

@@ -1,6 +1,7 @@
 package com.invoice.trcking.dto;
 
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 
@@ -13,8 +14,8 @@ import lombok.Data;
 public class InvoiceDto {
  
     private Long id;
-    private Timestamp  dateOfCreate;
-    private Timestamp  dateOfUpdate;
+    private LocalDateTime  dateOfCreate;
+    private LocalDateTime  dateOfUpdate;
     private long  number;
     private long totalAmount;
     private long totalPaid;
@@ -33,7 +34,7 @@ public class InvoiceDto {
 	}
 
 	//Args constructer
-	public InvoiceDto(Long id, Timestamp dateOfCreate, Timestamp dateOfUpdate, long number, long totalAmount,
+	public InvoiceDto(Long id, LocalDateTime dateOfCreate, LocalDateTime dateOfUpdate, long number, long totalAmount,
 			long totalPaid, long remainingAmount, String status, String isDeleated, String customerName,
 			String userName, Customer customer, User user) {
 		super();
@@ -61,19 +62,19 @@ public class InvoiceDto {
 		this.id = id;
 	}
 
-	public Timestamp getDateOfCreate() {
+	public LocalDateTime getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(Timestamp dateOfCreate) {
+	public void setDateOfCreate(LocalDateTime dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 
-	public Timestamp getDateOfUpdate() {
+	public LocalDateTime getDateOfUpdate() {
 		return dateOfUpdate;
 	}
 
-	public void setDateOfUpdate(Timestamp dateOfUpdate) {
+	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 

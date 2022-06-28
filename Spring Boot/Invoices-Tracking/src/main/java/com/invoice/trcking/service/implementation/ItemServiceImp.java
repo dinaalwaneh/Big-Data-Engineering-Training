@@ -82,4 +82,14 @@ public class ItemServiceImp implements ItemService {
 		return result.get();
 	}
 
+	@Override
+	public Item getItemByName(String name) {
+		Item result = itemRepository.findByName(name);
+		if(result ==null) {
+			throw new NoSuchItemExistsException("No sush Item exist with item name = "+name);
+		}
+		return result;
+	}
+
+	
 }

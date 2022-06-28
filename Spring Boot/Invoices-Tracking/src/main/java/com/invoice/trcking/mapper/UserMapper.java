@@ -40,9 +40,7 @@ public class UserMapper {
 		user.setPhone(userDto.getPhone());
 		user.setEmail(userDto.getEmail());
 		user.setEnabled(userDto.isEnabled());
-		user.setPassword(userDto.getPassword());
-		System.out.println(roleServiceImp.getRoleByRoleName(RoleType.valueOf(userDto.getRoleName())));
-		
+		user.setPassword(userDto.getPassword());		
 		user.setRole(roleServiceImp.getRoleByRoleName(RoleType.valueOf(userDto.getRoleName())));
 		return user;
 	}

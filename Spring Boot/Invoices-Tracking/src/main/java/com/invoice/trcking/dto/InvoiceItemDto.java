@@ -15,52 +15,42 @@ import lombok.Data;
 @Data
 public class InvoiceItemDto {
 
-	private InvoiceItemKey id;
-	private Invoice invoice;
-	private Item item;
+    private Long invoiceId;
+	private String itemName;
 	private int quantity;
 	
 	public InvoiceItemDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public InvoiceItemDto(InvoiceItemKey id, Invoice invoice, Item item, int quantity) {
+
+	public InvoiceItemDto(Long invoiceId, String itemName, int quantity) {
 		super();
-		this.id = id;
-		this.invoice = invoice;
-		this.item = item;
+		this.invoiceId = invoiceId;
+		this.itemName = itemName;
 		this.quantity = quantity;
 	}
-	
-	public InvoiceItemKey getId() {
-		return id;
+
+	public Long getInvoiceId() {
+		return invoiceId;
 	}
-	
-	public void setId(InvoiceItemKey id) {
-		this.id = id;
+
+	public void setInvoiceId(Long invoiceId) {
+		this.invoiceId = invoiceId;
 	}
-	
-	public Invoice getInvoice() {
-		return invoice;
+
+	public String getItemName() {
+		return itemName;
 	}
-	
-	public void setInvoice(Invoice invoice) {
-		this.invoice = invoice;
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
-	
-	public Item getItem() {
-		return item;
-	}
-	
-	public void setItem(Item item) {
-		this.item = item;
-	}
-	
+
 	public int getQuantity() {
 		return quantity;
 	}
-	
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}

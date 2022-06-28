@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
@@ -17,9 +18,9 @@ public class Invoice implements Serializable {
 	@Column(name = "id")
     private Long id;
 	@Column(name = "date_of_create")
-    private Timestamp  dateOfCreate;
+    private LocalDateTime  dateOfCreate;
 	@Column(name = "date_of_update")
-    private Timestamp  dateOfUpdate;
+    private LocalDateTime  dateOfUpdate;
     @Column(name = "number", unique = true, nullable = false)
     private long  number;
     @Column(name = "total_amount")
@@ -53,8 +54,8 @@ public class Invoice implements Serializable {
 	}
 
 	//Args constructer
-	public Invoice(Long id, Timestamp dateOfCreate, Timestamp dateOfUpdate, long number, long totalAmount,
-			long totalPaid, long remainingAmount, String status, String isDeleated, User user, Customer customer) {
+	public Invoice(Long id, LocalDateTime dateOfCreate, LocalDateTime dateOfUpdate, long number, long totalAmount,
+			long totalPaid, long remainingAmount, String status, String isDeleated,Customer customer ,User user ) {
 		super();
 		this.id = id;
 		this.dateOfCreate = dateOfCreate;
@@ -78,19 +79,19 @@ public class Invoice implements Serializable {
 		this.id = id;
 	}
 
-	public Timestamp getDateOfCreate() {
+	public LocalDateTime getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(Timestamp dateOfCreate) {
+	public void setDateOfCreate(LocalDateTime dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 
-	public Timestamp getDateOfUpdate() {
+	public LocalDateTime getDateOfUpdate() {
 		return dateOfUpdate;
 	}
 
-	public void setDateOfUpdate(Timestamp dateOfUpdate) {
+	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 

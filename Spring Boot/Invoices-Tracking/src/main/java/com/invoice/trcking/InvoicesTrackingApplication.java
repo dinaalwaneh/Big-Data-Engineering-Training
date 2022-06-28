@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -65,12 +66,19 @@ public class InvoicesTrackingApplication {
 			 
 		 
 			LocalDateTime localDateTime = LocalDateTime.now();
- 
-		    Invoice invoice=	invoiceRepository.save(new Invoice(null, localDateTime,localDateTime,555,100,0,100,"fff","false",c,u));
-			invoiceRepository.save(new Invoice(null, localDateTime,localDateTime,5585,100,0,100,"fff","false",c,u));
+			LocalDateTime myDateObj = LocalDateTime.now();
+		    System.out.println("Before formatting: " + myDateObj);
+		    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+		    String formattedDate = myDateObj.format(myFormatObj);
+		    System.out.println("After formatting: " + formattedDate);
+
+		    Invoice invoice=	invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,555,100,0,100,"fff","false",c,u));
+			invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,5585,100,0,100,"fff","false",c,u));
 			 
+			
 			InvoiceItemKey h = new InvoiceItemKey(invoice.getId(),item.getId());
-			invoiceItemRepository.save(new InvoiceItem(h,invoice,item,20));
+			invoiceItemRepository.save(new InvoiceItem(h,invoice,item,20,10));
 			
 			/*
 			

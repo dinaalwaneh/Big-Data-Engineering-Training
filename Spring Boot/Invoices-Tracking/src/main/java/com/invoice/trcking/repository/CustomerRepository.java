@@ -9,6 +9,6 @@ import com.invoice.trcking.model.Customer;
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
 		public Customer save(Customer  customer);
-		//public Customer findByUsername(String username);
+		public Customer findByUsername(String customerName);
 	}
 

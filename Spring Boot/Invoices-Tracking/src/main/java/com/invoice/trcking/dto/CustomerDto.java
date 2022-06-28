@@ -8,7 +8,7 @@ public class CustomerDto {
 	  
     private Long id;
     private String  name;
-    private String  customerName;
+    private String  username;
     private String  address;
     private String  phone;
     private String  email;
@@ -25,7 +25,7 @@ public class CustomerDto {
 		super();
 		this.id = id;
 		this.name = name;
-		this.customerName = customerName;
+		this.username = customerName;
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
@@ -49,11 +49,11 @@ public class CustomerDto {
 	}
 
 	public String getCustomerName() {
-		return customerName;
+		return username;
 	}
 
 	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+		this.username = customerName;
 	}
 
 	public String getAddress() {

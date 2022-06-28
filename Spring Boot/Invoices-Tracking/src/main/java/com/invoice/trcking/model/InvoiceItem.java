@@ -1,5 +1,6 @@
 package com.invoice.trcking.model;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,19 +27,24 @@ public class InvoiceItem {
 	    @JoinColumn(name = "item_id")
 	    private Item item;
 
+	    @Column(name = "Quantity")
 	    int quantity;
+	    
+	    @Column(name = "Amount")
+	    long amount;
 
 		public InvoiceItem() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public InvoiceItem(InvoiceItemKey id, Invoice invoice, Item item, int quantity) {
+		public InvoiceItem(InvoiceItemKey id, Invoice invoice, Item item, int quantity, long amount) {
 			super();
 			this.id = id;
 			this.invoice = invoice;
 			this.item = item;
 			this.quantity = quantity;
+			this.amount = amount;
 		}
 
 		public InvoiceItemKey getId() {
@@ -72,6 +78,13 @@ public class InvoiceItem {
 		public void setQuantity(int quantity) {
 			this.quantity = quantity;
 		}
-	    
-	    
+
+		public long getAmount() {
+			return amount;
+		}
+
+		public void setAmount(long amount) {
+			this.amount = amount;
+		}
+	     
 }

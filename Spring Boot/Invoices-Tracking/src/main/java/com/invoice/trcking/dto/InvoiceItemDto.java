@@ -18,17 +18,18 @@ public class InvoiceItemDto {
     private Long invoiceId;
 	private String itemName;
 	private int quantity;
-	
+	private long amount;
 	public InvoiceItemDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public InvoiceItemDto(Long invoiceId, String itemName, int quantity) {
+	public InvoiceItemDto(Long invoiceId, String itemName, int quantity, long amount) {
 		super();
 		this.invoiceId = invoiceId;
 		this.itemName = itemName;
 		this.quantity = quantity;
+		this.amount = amount;
 	}
 
 	public Long getInvoiceId() {
@@ -55,4 +56,11 @@ public class InvoiceItemDto {
 		this.quantity = quantity;
 	}
 
+	public long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(long amount) {
+		this.amount = amount;
+	}
 }

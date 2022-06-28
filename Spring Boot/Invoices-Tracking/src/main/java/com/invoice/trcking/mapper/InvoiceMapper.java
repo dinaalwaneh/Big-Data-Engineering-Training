@@ -1,14 +1,24 @@
 package com.invoice.trcking.mapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.invoice.trcking.dto.InvoiceDto;
 import com.invoice.trcking.dto.UserDto;
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.User;
+import com.invoice.trcking.repository.CustomerRepository;
+import com.invoice.trcking.repository.InvoiceRepository;
+import com.invoice.trcking.service.CustomerService;
+import com.invoice.trcking.service.UserService;
 
 @Component
 public class InvoiceMapper {
+
+	@Autowired
+	private CustomerService customerService;
+	@Autowired
+	private UserService userService;
 
 	public InvoiceDto convertEntityToDto(Invoice invoice) {
 		InvoiceDto invoiceDto = new InvoiceDto();
@@ -20,11 +30,9 @@ public class InvoiceMapper {
 		invoiceDto.setTotalPaid(invoice.getTotalPaid());
 		invoiceDto.setRemainingAmount(invoice.getRemainingAmount());
 		invoiceDto.setStatus(invoice.getStatus());
-		invoiceDto.setUserName(invoice.getUser().getName());
-		invoiceDto.setCustomerName(invoice.getCustomer().getName());
+		invoiceDto.setUserName(invoice.getUser().getUserName());
+		invoiceDto.setCustomerName(invoice.getCustomer().getCustomerName());
 		invoiceDto.setIsDeleated(invoice.getIsDeleated());
-		invoiceDto.setCustomer(invoice.getCustomer());
-		invoiceDto.setUser(invoice.getUser());
 		return invoiceDto;
 	}
 	
@@ -39,8 +47,8 @@ public class InvoiceMapper {
 		invoice.setRemainingAmount(invoiceDto.getRemainingAmount());
 		invoice.setStatus(invoiceDto.getStatus());
 		invoice.setIsDeleated(invoiceDto.getIsDeleated());
-		invoice.setCustomer(invoiceDto.getCustomer());
-		invoice.setUser(invoiceDto.getUser());
+		invoice.setCustomer(customerService.getCustomerByUsername(invoiceDto.getCustomerName()));
+		invoice.setUser(userService.getUserByUsername(invoiceDto.getUserName()));
 		return invoice;
 	}
 }

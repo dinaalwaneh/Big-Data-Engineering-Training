@@ -14,8 +14,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
+   <link href="css/modalStyle.css" rel="stylesheet">
   <link href="css/dashboard.css" rel="stylesheet">
+ <link rel="stylesheet" href="css/registerPageStyle.css">
+
   <style>
     body {
         color: #404E67;
@@ -37,22 +39,20 @@
         margin: 6px 0 0;
         font-size: 22px;
     }
-    .table-title .add-new ,.table-title .save {
+    .table-title .add-new1 ,.table-title .save {
         float: right;
 		height: 30px;
 		font-weight: bold;
 		font-size: 12px;
 		text-shadow: none;
-		min-width: 100px;
+		width: 100px;
 		border-radius: 50px;
 		line-height: 13px;
     }
 	.table-title .add-new i {
 		margin-right: 4px;
 	}
-    table.table {
-        table-layout: fixed;
-    }
+     
     table.table tr th, table.table tr td {
         border-color: #e9e9e9;
     }
@@ -101,15 +101,19 @@
 		display: none;
 	}
 </style>
-<script type="text/javascript" src="js/postProduct.js"></script>
-<script type="text/javascript" src="js/update.js"></script>
-<script type="text/javascript" src="js/getProduct.js"></script>
 <script type="text/javascript" src="js/addNewRow.js"></script>
 <script type="text/javascript" src="js/personalInfo.js"></script> 
+<script type="text/javascript" src="js/getCustmersNameToSelect.js"></script> 
+<script type="text/javascript" src="js/AddNewInvoice.js"></script> 
+<script type="text/javascript" src="js/getInvoices.js"></script> 
+
+<script type="text/javascript" src="js/updateInvoice.js"></script> 
+
+
 </head>
 
 <body>
-  <section id="container">
+  <section style="width: 100%" id="container">
       <header class="header black-bg">
       <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -180,25 +184,67 @@
         	<div id="customers">
         			    <div class="container">
   
-        <div class="table-wrapper">
+        <div style="width:100%" class="table-wrapper">
             <div class="table-title">
             <div id="employeesJson"></div>
                 <div class="row">
                     <div class="col-sm-8"><h2>Invoice <b>Details</b></h2></div> 
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                        <button type="button" class="btn btn-info add-new1" id="myBtn"><i class="fa fa-plus"></i> Add New</button>  
+						<!-- The Modal -->
+						<div  id="myModal" class="modal">
+						
+						  <!-- Modal content -->
+						  <div style="width: 40%" class="modal-content">
+						    <span class="close">&times;</span>
+						    <form style="background-color: white; box-shadow: 1px 3px 3px 1px lightblue;" action="index.html" method="post">
+      
+        <h1>Add New Invoice</h1>
+        
+        <fieldset style="background-color: white;">
+         
+          <label for="customersName" style="margin-top: 20px">customer Name</label>
+	       <select id="customersName"  class="customersName" name="customersName">
+	             
+	       </select>
+	       
+          <label for="number">Invoice Number:</label>
+          <input type="number" id="number" name="number">
+          
+          <label>is deleted</label>
+          <input type="radio" id="true" value="true" class="isDeleted" name="isDeleted"><label for="true" class="light">true</label><br>
+          <input type="radio" id="false" value="false" class="isDeleted" name="isDeleted"><label for="false" class="light">false</label>
+          
+          <label>Invoice status</label>
+          <input type="radio" id="paid" value="paid" class="status" name="status"><label for="paid" class="light">paid</label><br>
+          <input type="radio" id="not paid" value="not paid" class="status" name="status"><label for="not paid" class="light">not paid</label>
+
+	      
+        </fieldset>
+        <button type="submit" class = "addNewInnoice">Add</button>
+      </form>
+						  </div>
+						
+						</div>
+                      <!-- <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->  
                     </div>
                 </div>
             </div>
             
              
-            <table id="table-content" class="table table-bordered">
+            <table  id="table-content" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Quantity</th>
+                        <th>Date Of Create</th>
+                        <th>Date Of Update</th>
+                        <th>Number</th>
+                        <th>Total Amount</th>
+                        <th>Total Paid</th>
+                        <th>Remaining Amount</th>
+                        <th>Status</th>
+                        <th>Customer Name</th>
+                        <th>Employee Name</th>
                         <th>Is Deleted</th>
                         <th>Actions</th>
                     </tr>
@@ -208,6 +254,7 @@
                         <td hidden=true>
 							<a class="add1" title="Add1" data-toggle="tooltip"><i class="material-icons" style="color:black;">&#xE03B;</i></a>
                             <a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>
+               
                         </td>
                     </tr>
                 </tbody>
@@ -220,6 +267,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>   
         	
@@ -232,9 +280,34 @@
     </section>
   
   </section>
-  
+
+        
 </body>
 <script>
+// Get the modal
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 </script>
 </html>

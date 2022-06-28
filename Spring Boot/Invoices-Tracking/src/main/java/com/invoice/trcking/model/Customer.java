@@ -27,7 +27,7 @@ public class Customer {
     @Column(name = "name")
     private String  name;
     @Column(name = "custumer_name" , unique = true , nullable = false)
-    private String  customerName;
+    private String  username;
     @Column(name = "address")
     private String  address;
     @Column(name = "phone_number", unique = true , nullable = false)
@@ -50,7 +50,7 @@ public class Customer {
 		super();
 		this.id = id;
 		this.name = name;
-		this.customerName = customerName;
+		this.username = customerName;
 		this.address = address;
 		this.phone = phone;
 		this.email = email;
@@ -74,11 +74,11 @@ public class Customer {
 	}
 
 	public String getCustomerName() {
-		return customerName;
+		return username;
 	}
 
 	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+		this.username = customerName;
 	}
 
 	public String getAddress() {

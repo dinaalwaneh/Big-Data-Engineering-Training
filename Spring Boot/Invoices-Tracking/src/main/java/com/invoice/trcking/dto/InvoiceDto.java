@@ -14,8 +14,8 @@ import lombok.Data;
 public class InvoiceDto {
  
     private Long id;
-    private LocalDateTime  dateOfCreate;
-    private LocalDateTime  dateOfUpdate;
+    private String  dateOfCreate;
+    private String  dateOfUpdate;
     private long  number;
     private long totalAmount;
     private long totalPaid;
@@ -24,8 +24,6 @@ public class InvoiceDto {
     private String isDeleated;
     private String customerName;
     private String userName;
-    private Customer customer;
-    private User user;
     
     //Empty constructer
 	public InvoiceDto() {
@@ -34,9 +32,9 @@ public class InvoiceDto {
 	}
 
 	//Args constructer
-	public InvoiceDto(Long id, LocalDateTime dateOfCreate, LocalDateTime dateOfUpdate, long number, long totalAmount,
+	public InvoiceDto(Long id, String dateOfCreate, String dateOfUpdate, long number, long totalAmount,
 			long totalPaid, long remainingAmount, String status, String isDeleated, String customerName,
-			String userName, Customer customer, User user) {
+			String userName) {
 		super();
 		this.id = id;
 		this.dateOfCreate = dateOfCreate;
@@ -49,8 +47,6 @@ public class InvoiceDto {
 		this.isDeleated = isDeleated;
 		this.customerName = customerName;
 		this.userName = userName;
-		this.customer = customer;
-		this.user = user;
 	}
 
 	//setters & Getters
@@ -62,19 +58,19 @@ public class InvoiceDto {
 		this.id = id;
 	}
 
-	public LocalDateTime getDateOfCreate() {
+	public String getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(LocalDateTime dateOfCreate) {
+	public void setDateOfCreate(String dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 
-	public LocalDateTime getDateOfUpdate() {
+	public String getDateOfUpdate() {
 		return dateOfUpdate;
 	}
 
-	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
+	public void setDateOfUpdate(String dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 
@@ -142,20 +138,6 @@ public class InvoiceDto {
 		this.userName = userName;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }

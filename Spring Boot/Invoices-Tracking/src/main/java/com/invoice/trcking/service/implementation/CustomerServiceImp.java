@@ -11,7 +11,9 @@ import com.invoice.trcking.exception.EmptyValueException;
 import com.invoice.trcking.exception.NullValueException;
 import com.invoice.trcking.exception.customer.CustomerAlreadyExistsException;
 import com.invoice.trcking.exception.customer.NoSuchCustomerExistsException;
+import com.invoice.trcking.exception.user.NoSuchUserExistsException;
 import com.invoice.trcking.model.Customer;
+import com.invoice.trcking.model.User;
 import com.invoice.trcking.repository.CustomerRepository;
 import com.invoice.trcking.service.CustomerService;
 
@@ -75,6 +77,17 @@ public class CustomerServiceImp implements CustomerService {
 			throw new NoSuchCustomerExistsException("No sush customer exist with id = "+id);
 		}
 		return result.get();
+	}
+	
+
+	@Override
+	public Customer getCustomerByUsername(String customerName)throws NoSuchUserExistsException {
+		Customer result = customerRepository.findByUsername(customerName);
+		if(result==null) {
+			throw new NoSuchUserExistsException("No sush user exist with user name = "+customerName);
+		}
+		return result;
+		
 	}
 
 }

@@ -1,11 +1,11 @@
 
-	$(document).on("click", ".add-new1", function(){
+	$(document).on("click", ".add-new", function(){
 	
          //  var businessNatureId= $("#customersName option:selected").val();
 
                $.ajax({
                   type : "GET",
-                  url :"http://localhost:8082/get/customers",
+                  url :"http://localhost:8082/get/items",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -16,8 +16,8 @@
 	         $.each(result , function (key, value) {
                                 $('#customersName').append($('<option>',
                                     {
-                                    value: value.customerName,
-                                    text: value.customerName
+                                    value: value.name,
+                                    text: value.name
                                 }));
                                 });
                                 

@@ -49,12 +49,12 @@ $(document).ready(function(){
 								   +'   <div class="row">'          
 								     +' <div class="col-sm-8"><h2>Item<b>Details</b></h2></div> '              
 								      +' <div class="col-sm-4">'             
-								        +'<button type="button" class="btn btn-info add-new112"><i class="fa fa-plus"></i> Add New</button>'
+								        +'<button type="button" class="btn btn-info add-new' + i + '"><i class="fa fa-plus"></i> Add New</button>'
 								                     +'  </div>'             
 								           +' </div>'    
 								         +' </div>'  
 								             
-								      +'  <table id="table-content" class="table table-bordered itemTable">'+'<thead>'     
+								      +'  <table id="table-content" class="table table-bordered itemTable' + i + '">'+'<thead>'     
 								                 +'<tr>'   
 								                       
 								                   +' <th>ItemName</th>'    
@@ -63,7 +63,7 @@ $(document).ready(function(){
 								                       +'<th>Actions</th>'  
 								               +'  </tr>'   
 								               +'</thead>' 
-								              +' <tbody><tr><td hidden=true><a class="add11" title="Add11" data-toggle="tooltip"><i class="material-icons" style="color:black;">&#xE03B;</i></a>' 
+								              +"<tbody><tr><td hidden=true><a class='add11'"+"title='Add11' data-toggle='tooltip'>"+"<i class='material-icons' style='color:black;'>&#xE03B;</i></a>" 
 								               +' <a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>'+'</td>'       
 								                        
 															+'</td> </tr></tbody> </table><div class="table-title"><div id="employeesJson"></div>'

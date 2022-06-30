@@ -81,7 +81,7 @@ $(document).ready(function(){
                      var row = $('<tr><td id="Id">' + result[i].id +
                       '</td><td id="dateOfCreate">' +result[i].dateOfCreate
                      + '</td><td name="dateOfUpdate" id="dateOfUpdate">' + result[i].dateOfUpdate +
-                       '</td>'+'<td name="number" id="number">' + result[i].number +
+                       '</td>'+'<td name="numbern" id="numbern">' + result[i].number +
                        '</td>'+'<td name="totalAmount" id="totalAmount">' + result[i].totalAmount +  '</td>' +
                        '<td name="totalPaid" id="totalPaid">' + result[i].totalPaid +
                        '<td name="remainingAmount" id="remainingAmount">' + result[i].remainingAmount +  '</td>' +

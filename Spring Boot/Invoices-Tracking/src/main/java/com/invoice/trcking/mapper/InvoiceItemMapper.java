@@ -26,6 +26,7 @@ public class InvoiceItemMapper {
 		invoiceItemDto.setInvoiceId(invoiceItem.getInvoice().getId());
 		invoiceItemDto.setItemName(invoiceItem.getItem().getName());
 		invoiceItemDto.setQuantity(invoiceItem.getQuantity());
+		invoiceItemDto.setAmount(invoiceItem.getAmount());
 		return invoiceItemDto;
 	}
 	

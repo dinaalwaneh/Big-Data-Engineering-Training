@@ -34,13 +34,23 @@ public class InvoiceItemController {
 	}
 	
 	@GetMapping("/get/invoiceitem/{id}")
-	public ResponseEntity<InvoiceItemDto> getInvoiceItemById(@PathVariable Long id) {
-		InvoiceItem invoiceItem = invoiceItemService.getInvoiceItemById(id);
+	public ResponseEntity<Object> getInvoiceItemById(@PathVariable Long id) {
+		
+		List<InvoiceItemDto> invoiceItemDtos = new ArrayList<InvoiceItemDto>();
+		
+		invoiceItemService.getAllInvoiceItems().forEach(invoiceItem ->{
+			if(invoiceItem.getInvoice().getId()==id) {
+				invoiceItemDtos.add(invoiceItemMapper.convertEntityToDto(invoiceItem));
+			}
+			
+		});
+		return new ResponseEntity<>(invoiceItemDtos, HttpStatus.OK);
+		/*InvoiceItem invoiceItem = invoiceItemService.getInvoiceItemById(id);
 
 		// convert entity to DTO
 		InvoiceItemDto invoiceItemResponse = invoiceItemMapper.convertEntityToDto(invoiceItem);
 
-		return ResponseEntity.ok().body(invoiceItemResponse);
+		return ResponseEntity.ok().body(invoiceItemResponse);*/
 	}
 	
 	@PostMapping("/add/invoiceitem")

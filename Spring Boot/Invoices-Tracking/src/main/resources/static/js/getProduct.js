@@ -18,7 +18,7 @@ $(document).ready(function(){
  				var actions = $("table td:last-child").html();
                   for (var i=0; i<result.length; i++) {
                      var row = $('<tr><td id="Id">' + result[i].id + '</td><td id="name">' +result[i].name
-                     + '</td><td name="ammount" id="ammount">' + result[i].ammount +  '</td>'+'<td name="quantity" id="quantity">' + result[i].quantity +  '</td>'+'<td id="isDeleated">' + result[i].isDeleated +  '</td>'+'<td>' + actions + '</td>' +'</tr>');
+                     + '</td><td name="ammount" id="ammount">' + result[i].ammount +  '</td>'+'<td name="description" id="description">' + result[i].discription +  '</td>'+'<td id="isDeleated">' + result[i].deleated +  '</td>'+'<td>' + actions + '</td>' +'</tr>');
                 
                     $('#table-content').append(row);
                 }

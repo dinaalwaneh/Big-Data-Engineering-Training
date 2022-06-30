@@ -38,16 +38,16 @@ public class ItemServiceImp implements ItemService {
 
 	@Override
 	public Item addItem(Item item) throws ItemAlreadyExistsException , NullValueException , EmptyValueException {
-		if(item.getId()==null||item.getName()==null) {
+		if(item.getName()==null) {
 			throw new NullValueException("Item date has null values!!");
     	}
     	if(item.getName()==""||item.getAmmount()==0) {
     		throw new EmptyValueException("added date has empty values!!");
     	}
-		Item existingItem = itemRepository.findById(item.getId()).orElse(null); 
-		if (existingItem == null) {
+		//Item existingItem = itemRepository.findById(item.getId()).orElse(null); 
+		//if (existingItem == null) {
 			return itemRepository.save(item);
-	     }else throw new CustomerAlreadyExistsException("Item already exixts!!");		
+	    // }else throw new CustomerAlreadyExistsException("Item already exixts!!");		
 	}
 
 	@Override

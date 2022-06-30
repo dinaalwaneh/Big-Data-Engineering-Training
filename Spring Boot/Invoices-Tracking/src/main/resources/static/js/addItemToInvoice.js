@@ -44,23 +44,35 @@
     });*/
     
     	$(document).on("click", ".add11", function(){
+	
+	  
+/* 
   
    var employel =  
 				{
-					 id: $(this).parents("tr").find("td:first-child").text()[0],
+					 id: $(this).parents("tr").find("td:first-child").text(),
 			        dateOfCreate:$(this).parents("tr").find("td:nth-child(2)").text() ,
 			        dateOfUpdate:$(this).parents("tr").find("td:nth-child(3)").text(),
 			        number:$(this).parents("tr").find("td:nth-child(4)").text() ,
-			        totalAmount: $(this).parents("tr").find("td:nth-child(5)").text() ,
+			        totalAmount: $(this).parents("tr").find("td:nth-child(5)").text(),
 			        totalPaid:$(this).parents("tr").find("td:nth-child(6)").text()  ,
 			        remainingAmount:$(this).parents("tr").find("td:nth-child(7)").text() ,
 			        status: $(this).parents("tr").find("td:nth-child(8)").text() ,
 			        isDeleated: $(this).parents("tr").find("td:nth-child(9)").text(),
 			        customerName:$(this).parents("tr").find("td:nth-child(10)").text() ,
 			        userName: $(this).parents("tr").find("td:nth-child(11)").text() ,
-			    } 
+			    } */
+			    var i = $(this).parents("tr").find("td:nth-child(1)").text().replace(' Swish Walletsanselk Walletnoia Walletmilk WalletSwish Walletsanselk Walletnoia Walletmilk Wallet','');
+ i=i.replace('Swish Walletsanselk Walletnoia Walletmilk WalletSwish Walletsanselk Walletnoia Walletmilk Wallet','');
+
+
+i=i.replace(/[A-Z]/g,'');
+i=i.replace(/[a-z]/g,'');
+i=i.replace(' ','');
+i=i.replace(' ','');
+console.log("ffffffffffffffffffffffff ============== "+i );
 			var empl =  {
-         invoiceId: $(this).parents("tr").find("td:first-child").text()[0],
+         invoiceId: i,
          itemName: $("#ItemName").val(),
          quantity: $("#quan").val()
   }
@@ -80,7 +92,7 @@
 	
                   		console.log("invoicenumber "+empl.invoiceId);
                   		
-                  	    totalAmount= getTotalAmmount(empl.invoiceId,employel);
+                  	    totalAmount= getTotalAmmount(empl.invoiceId);
                   	    console.log("totalAmmount == "+totalAmount);
                   	   
                   		 
@@ -94,8 +106,8 @@
 			
 		
 		
-		 		function getTotalAmmount(o,employeeMode){
-			console.log("employeeModeiiiiiiiiiiiiiiiiiiiiiiiii "+employeeMode.id);
+		 		function getTotalAmmount(o){
+			 
 					 $.ajax({	 
 					
                type : "GET",
@@ -114,8 +126,8 @@
                     
                 }
                       
-                     console.log("Suchhhhhss: ", totalAmount,employeeMode);
-                      UpdateInvoice(totalAmount,employeeMode);
+                     console.log("Suchhhhhss: ", totalAmount);
+                      UpdateInvoice(totalAmount,o);
                      
 
                },
@@ -126,21 +138,55 @@
 			
 		      }
 			 
-			 function UpdateInvoice(totalAmount,employeeMode){
+			 function UpdateInvoice(totalAmount,o){
 	
+	  getInvoiceById(o,totalAmount);
 	  
-console.log("employeeMjjjjjjjjjjode == ",employeeMode.id);
- ajaxGet() ;
+	  function getInvoiceById(o,totalAmount){
+		
+		
+    
+            $.ajax({
+               type : "GET",
+               url : "http://localhost:8082/get/invoice/"+o,
+               headers : {
+                     "Content-Type" : "application/json",
+                      Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
+                  },
+               success : function(result) {
+             
+                    
+       console.log("Success: ", result);
+                             ajaxGet(result,totalAmount) ;       
+                    
+                  
+               },
+               error : function(e) {
+                  $("#getResultDiv").html("<strong>Error</strong>");
+                  console.log("ERROR: ", e);
+               }
+            });
+         
+	}
+
 
 			// DO GET
-			function ajaxGet() {
-		console.log("employeeMode = "+employeeMode);
-		  
-               var requestJSON = JSON.stringify(employeeMode);
+			function ajaxGet(oo,totalAmount) {
+		console.log("get invoice by id = "+oo);
+		
+		   oo.totalAmount=totalAmount;
+		   oo.remainingAmount=oo.totalAmount-oo.totalPaid;
+		    if(oo.totalAmount-oo.totalPaid==0){
+			oo.status="paid";
+		  }else{
+			oo.status="not paid";
+		  }
+		 
+               var requestJSON = JSON.stringify(oo);
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/invoice/"+employeeMode,
+					url : "http://localhost:8082/put/invoice/"+oo.id,
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -148,7 +194,7 @@ console.log("employeeMjjjjjjjjjjode == ",employeeMode.id);
                   data : requestJSON,
 					success : function(result) {
 						
-					location.reload();
+					 location.reload();
 						
 					},
 					error : function(e) {

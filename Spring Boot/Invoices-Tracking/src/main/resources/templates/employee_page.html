@@ -50,9 +50,7 @@
 	.table-title .add-new i {
 		margin-right: 4px;
 	}
-    table.table {
-        table-layout: fixed;
-    }
+    
     table.table tr th, table.table tr td {
         border-color: #e9e9e9;
     }
@@ -143,7 +141,7 @@ $(document).ready(function(){
 <script type="text/javascript" src="js/personalInfo.js"></script> 
  <script type="text/javascript" src="js/getEmployees.js"></script>
  <script type="text/javascript" src="js/AddNewRowInEmployeeTable.js"></script> 
-
+  <script type="text/javascript" src="js/editEmployee.js"></script> 
 </head>
 
 <body>
@@ -153,7 +151,7 @@ $(document).ready(function(){
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>Invoice<span>Tracking</span></b></a>
       <!--logo end-->
 
       <div class="top-menu" style="float: right; margin-top: 10px">
@@ -223,10 +221,8 @@ $(document).ready(function(){
             <div id="employeesJson"></div>
                 <div class="row">
                     <div class="col-sm-8"><h2>Employee <b>Details</b></h2></div> 
-                    <div id="employeesJson">iii</div>
-                    <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
+               
+                    
                 </div>
             </div>
             
@@ -241,14 +237,14 @@ $(document).ready(function(){
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Enabled</th>
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                                <tbody>
                        <tr>
                         <td hidden=true>
-							<a class="add1" title="Add1" data-toggle="tooltip"><i class="material-icons" style="color:black;">&#xE03B;</i></a>
-                            <a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>
+                            <a class="editEmployee" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>
                         </td>
                     </tr>
                 </tbody>

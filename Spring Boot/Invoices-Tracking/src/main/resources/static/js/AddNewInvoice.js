@@ -14,12 +14,12 @@
 				{
 			        dateOfCreate: datetime.toString(),
 			        dateOfUpdate: datetime.toString(),
-			        number: $("#number").val(),
+			        number: $("#numbern").val(),
 			        totalAmount: 0,
 			        totalPaid: 0,
 			        remainingAmount: 0,
-			        status:  $(".status:checked").val(),
-			        isDeleated:  $(".isDeleted:checked").val(),
+			        status:  "not paid",
+			        isDeleated:  "false",
 			        customerName: $("#customersName").val(),
 			        userName: sessionStorage.getItem("username")
 			    } 
@@ -43,7 +43,7 @@
                   },
                   error : function(data) {
 	 
-	 alert("noooo");
+	 alert("nooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonoooo");
                   }
                });
 			 

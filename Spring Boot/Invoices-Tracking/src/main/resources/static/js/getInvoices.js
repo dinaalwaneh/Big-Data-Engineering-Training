@@ -25,13 +25,13 @@ $(document).ready(function(){
                         
  				var items = $("table td:last-child").html();
                   for (var i=0; i<result.length; i++) {
-	 var d = ' <td  >'+' <a href="#editEmployeeModal'  + i + '" class="edit" data-toggle="modal"><i class="material-icons" style="color:black;">&#xE03B;</i></a>'
+	 var d = ' <td  >'+' <a href="#editEmployeeModal'  + result[i].id + '" class="edit" data-toggle="modal"><i class="material-icons" style="color:black;">&#xE03B;</i></a>'
                        
                         +'<a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>'
                        +'</td>';
 	var h='   <td >'+
                            '<!-- Edit Modal HTML -->'  +
-							'<div   id=  "editEmployeeModal'  + i + '"  class="modal fade">'	
+							'<div   id=  "editEmployeeModal'  + result[i].id + '"  class="modal fade">'	
 								+'<div class="modal-dialog">'
 								+'<div class="modal-content">'
 								 
@@ -49,12 +49,12 @@ $(document).ready(function(){
 								   +'   <div class="row">'          
 								     +' <div class="col-sm-8"><h2>Item<b>Details</b></h2></div> '              
 								      +' <div class="col-sm-4">'             
-								        +'<button type="button" class="btn btn-info add-new' + i + '"><i class="fa fa-plus"></i> Add New</button>'
+								        +'<button type="button" class="btn btn-info add-new' + result[i].id + '"><i class="fa fa-plus"></i> Add New</button>'
 								                     +'  </div>'             
 								           +' </div>'    
 								         +' </div>'  
 								             
-								      +'  <table id="table-content" class="table table-bordered itemTable' + i + '">'+'<thead>'     
+								      +'  <table id="table-content" class="table table-bordered itemTable' + result[i].id + '">'+'<thead>'     
 								                 +'<tr>'   
 								                       
 								                   +' <th>ItemName</th>'    
@@ -64,7 +64,7 @@ $(document).ready(function(){
 								               +'  </tr>'   
 								               +'</thead>' 
 								              +"<tbody><tr><td hidden=true><a class='add11'"+"title='Add11' data-toggle='tooltip'>"+"<i class='material-icons' style='color:black;'>&#xE03B;</i></a>" 
-								               +' <a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>'+'</td>'       
+								               +' <a class="Edititem" title="Edititem" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>'+'</td>'       
 								                        
 															+'</td> </tr></tbody> </table><div class="table-title"><div id="employeesJson"></div>'
 								                   
@@ -78,17 +78,19 @@ $(document).ready(function(){
 								
 								
 								
-                     var row = $('<tr><td id="Id">' + result[i].id +
-                      '</td><td id="dateOfCreate">' +result[i].dateOfCreate
-                     + '</td><td name="dateOfUpdate" id="dateOfUpdate">' + result[i].dateOfUpdate +
-                       '</td>'+'<td name="numbern" id="numbern">' + result[i].number +
-                       '</td>'+'<td name="totalAmount" id="totalAmount">' + result[i].totalAmount +  '</td>' +
+                     var row = $('<tr>' + 
+                       '<td name="Idd" id="Idd">' + result[i].id +'</td>'+
+                       '</td>'+'<td name="numbern" id="numbern">' + result[i].number +'</td>'
+                       +
+                       '<td name="userName" id="userName">' + result[i].userName +  '</td>'+
+                       '<td name="customerName" id="customerName">' + result[i].customerName +  '</td>'
+                        + '<td id="dateOfCreate">' +result[i].dateOfCreate
+                     + '</td><td name="dateOfUpdate" id="dateOfUpdate">' + result[i].dateOfUpdate 
+                       +'<td name="totalAmount" id="totalAmount">' + result[i].totalAmount +  '</td>' +
                        '<td name="totalPaid" id="totalPaid">' + result[i].totalPaid +
                        '<td name="remainingAmount" id="remainingAmount">' + result[i].remainingAmount +  '</td>' +
                       '<td name="status" id="status">' + result[i].status +  '</td>' +
-                       '<td name="isDeleated" id="isDeleated">' + result[i].isDeleated +  '</td>' +
-                       '<td name="customerName" id="customerName">' + result[i].customerName +  '</td>' +
-                       '<td name="userName" id="userName">' + result[i].userName +  '</td>' +
+                       '<td name="isDeleated" id="isDeleated">' + result[i].isDeleated +  '</td>'   +
                        
                            d + '<td>' + h + '</td>'
                          
@@ -108,7 +110,7 @@ $(document).ready(function(){
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds()
 
-console.log(datetime.toString());
+				console.log(datetime.toString());
 
                },
                error : function(e) {

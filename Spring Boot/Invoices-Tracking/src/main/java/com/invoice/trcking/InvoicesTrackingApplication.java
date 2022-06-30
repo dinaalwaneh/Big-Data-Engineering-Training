@@ -61,8 +61,8 @@ public class InvoicesTrackingApplication {
 			
 			Customer c=customerRepository.save(new Customer(null , "John daron", "john", "jenin","0568285214","dina1@gmail.com",true));
 			customerRepository.save(new Customer(null , "will d", "will", "jenin","0568575214","dina16@gmail.com",true));
-			customerRepository.save(new Customer(null , "jim d", "jim", "jenin","dina12@gmail.com","0568985214",true));
-			customerRepository.save(new Customer(null , "arnold d", "arnold", "jenin","dina15@gmail.com","0568595214",true));
+			customerRepository.save(new Customer(null , "jim d", "jim", "jenin","0568985214","dina12@gmail.com",true));
+			customerRepository.save(new Customer(null , "arnold d", "arnold", "jenin","0568595214","dina15@gmail.com",true));
 			 
 		 
 			LocalDateTime localDateTime = LocalDateTime.now();
@@ -73,14 +73,14 @@ public class InvoicesTrackingApplication {
 		    String formattedDate = myDateObj.format(myFormatObj);
 		    System.out.println("After formatting: " + formattedDate);
 
-		    Invoice invoice=	invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,555,100,0,100,"fff","false",c,u));
+		    Invoice invoice=	invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,111,0,0,0,"Empty","false",c,u));
+			
+			/*
 			invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,5585,100,0,100,"fff","false",c,u));
 			 
 			
 			InvoiceItemKey h = new InvoiceItemKey(invoice.getId(),item.getId());
 			invoiceItemRepository.save(new InvoiceItem(h,invoice,item,20,10));
-			
-			/*
 			
 			
 			 

@@ -1,9 +1,12 @@
 $(document).on("click", ".edit", function(){
             
  
-
-var j = $(this).parents("tr").find("td:first-child").text()[0];
-console.log("kkkkkk "+j);
+    var j = $(this).parents("tr").find("td:nth-child(1)").text().replace(' Swish Walletsanselk Walletnoia Walletmilk WalletSwish Walletsanselk Walletnoia Walletmilk Wallet','');
+ j=j.replace('Swish Walletsanselk Walletnoia Walletmilk WalletSwish Walletsanselk Walletnoia Walletmilk Wallet','');
+j=j.replace(/[A-Z]/g,'');
+j=j.replace(' ','');
+j=j.replace(' ','');
+console.log("kkkkkkget items to invoice "+j);
 
 // PREPARE FORM DATA
 			    $.ajax({	 
@@ -18,7 +21,7 @@ console.log("kkkkkk "+j);
     		   async: true,  
                success : function(result) {
 	           var totalAmount = 0;
- 				var actions = $(".itemTable"+(j-1)+" td:last-child").html();
+ 				var actions = $(".itemTable"+(j)+" td:last-child").html();
                   for (var i=0; i<result.length; i++) {
                      var row = $('<tr><td id="Id">' + result[i].itemName + '</td><td id="name">' +result[i].quantity
                      + '</td><td name="userName" id="userName">' + result[i].amount +  '</td>'+
@@ -26,7 +29,7 @@ console.log("kkkkkk "+j);
                  
                  	totalAmount  = totalAmount+result[i].amount;
                  	console.log("ijijij");
-                    $('.itemTable'+(j-1)).append(row);
+                    $('.itemTable'+(j)).append(row);
                 }
                                     
                      console.log("Success: ", totalAmount);

@@ -64,8 +64,9 @@
                    var employeeModel = {
                   id :$("#Id").val() ,
                   name : $("#Name").val(),
+                  discription : $("#discription").val(),
                   ammount: $("#ammo").val() ,
-                  quantity : $("#quan").val(),
+                  quantity:0,
                   isDeleated :$("#isDeleted").val()
                };
                
@@ -85,17 +86,10 @@
                   },
                   error : function(data) {
 	 
-	 alert("noooo");
+	 alert("Product is already added");
                   }
                });
-			input.each(function(){
-				$(this).parent("td").html($(this).val());
-				
-			});	
-			input2.each(function(){
-				$(this).parent("td").html($(this).val());
-				
-			});			
+			 	
 			 
 		}	
 			

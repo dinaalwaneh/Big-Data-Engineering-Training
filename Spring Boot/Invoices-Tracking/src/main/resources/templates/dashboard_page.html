@@ -111,12 +111,11 @@
 <script type="text/javascript" src="js/AddNewInvoice.js"></script> 
 <script type="text/javascript" src="js/getInvoices.js"></script> 
 <script type="text/javascript" src="js/updateInvoice.js"></script> 
-<script type="text/javascript" src="js/AddRowForNewItem.js"></script> 
 <script type="text/javascript" src="js/getAllItemsToSelect.js"></script> 
 <script type="text/javascript" src="js/addItemToInvoice.js"></script>
 <script type="text/javascript" src="js/addModalToAddItems.js"></script>
 <script type="text/javascript" src="js/getallinvoiceItem.js"></script>
-
+<script type="text/javascript" src="js/editItem.js"></script>
 
 </head>
 
@@ -203,13 +202,13 @@
 						<div  id="myModal" class="modal">
 						
 						  <!-- Modal content -->
-						  <div style="width: 40%; height: 600px" class="modal-content">
+						  <div style="width: 40%; height: 500px" class="modal-content">
 						    <span class="close">&times;</span>
 						    <form style="background-color: white; box-shadow: 1px 3px 3px 1px lightblue;" action="index.html" method="post">
       
         <h1>Add New Invoice</h1>
         
-        <fieldset style="background-color: white; height: 400px">
+        <fieldset style="background-color: white; height: 300px">
           <br>
           <label for="customersName" style="margin-top: 20px">customer Name</label>
            <br>
@@ -218,20 +217,10 @@
 	       </select>
 	   <br> <br>  
           <label for="number">Invoice Number:</label>
-           <br>            <input type="number" id="number" name="number">
+           <br>            <input type="number" id="numbern" name="numbern">
           <br>
-          <label>is deleted</label>
-           <br>
-          <input type="radio" id="true" value="true" class="isDeleted" name="isDeleted"><label for="true" class="light">true</label><br>
-          <input type="radio" id="false" value="false" class="isDeleted" name="isDeleted"><label for="false" class="light">false</label>
-           <br>
-            <br>
-          <label>Invoice status</label>
-           <br>
-          <input type="radio" id="paid" value="paid" class="status" name="status"><label for="paid" class="light">paid</label><br>
-          <input type="radio" id="not paid" value="not paid" class="status" name="status"><label for="not paid" class="light">not paid</label>
-
-	       <br>   <br> <br>  
+           
+	       <br><br>  
         </fieldset>
         <button type="submit" style="color: white;" class = "addNewInnoice">Add</button>
       </form>
@@ -246,16 +235,16 @@
             <table  id="table-content" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Date Of Create</th>
-                        <th>Date Of Update</th>
-                        <th>Number</th>
-                        <th>Total Amount</th>
-                        <th>Total Paid</th>
-                        <th>Remaining Amount</th>
-                        <th>Status</th>
-                        <th>Customer Name</th>
-                        <th>Employee Name</th>
+                         <th>ID</th>
+                         <th>Number</th>
+                         <th>Employee Name</th>
+                         <th>Customer Name</th>
+                         <th>Date Of Create</th>
+                         <th>Date Of Update</th>
+                         <th>Total Amount</th>
+                         <th>Total Paid</th>
+                         <th>Remaining Amount</th>
+                         <th>Status</th>
                         <th>Is Deleted</th>
                         <th>Actions</th> 
                     </tr>

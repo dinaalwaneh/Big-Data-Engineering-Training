@@ -56,7 +56,7 @@
 			        phone: $("#phone").val(),
 			        email: $("#email").val(),
 			        password: $("#password").val(),
-			        enabled:  $(".enabled:checked").val(),
+			        enabled:  "true",
 			        roleName: $("#job").val()
 			    };
                
@@ -73,7 +73,7 @@
                   success : function(data) {
 	
                   		console.log("doneeeeeeeeeeee");
-                  			 window.location.href="/authenticate"
+                  		window.location.href="/authenticate"
                   },
                   error : function(data) {
 	 

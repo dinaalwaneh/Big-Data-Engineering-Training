@@ -5,7 +5,7 @@
 
                $.ajax({
                   type : "GET",
-                  url :"http://localhost:8082/get/items",
+                  url :"http://localhost:8082/get/customers",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -16,8 +16,8 @@
 	         $.each(result , function (key, value) {
                                 $('#customersName').append($('<option>',
                                     {
-                                    value: value.name,
-                                    text: value.name
+                                    value: value.customerName,
+                                    text: value.customerName
                                 }));
                                 });
                                 

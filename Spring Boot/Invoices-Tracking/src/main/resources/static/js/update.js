@@ -1,4 +1,4 @@
-$(document).on("click", ".edit1", function(){
+$(document).on("click", ".editProduct", function(){
 	
               
                
@@ -37,10 +37,11 @@ $(document).on("click", ".edit1", function(){
                   id : $("#d0").val() ,
                   name :  $("#d1").val(),
                   ammount:  $("#d2").val() ,
-                  quantity :  $("#d3").val(),
-                  isDeleated : $("#d4").val()
+                  discription :  $("#d3").val(),
+                  quantity:0,
+                  deleated : $("#d4").val()
                };
-		  
+	 
                var requestJSON = JSON.stringify(employeeModel);
                console.log("requestJSON"+requestJSON);
 				$.ajax({

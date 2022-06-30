@@ -1,7 +1,6 @@
 $(document).on("click", ".edit1", function(){
 	
-              
-               
+             
 	 var caretId = []; var i =0;
         $(this).parents("tr").find("td:not(:last-child)").each(function(){
 	 
@@ -40,19 +39,21 @@ $(document).on("click", ".edit1", function(){
 				   var employeeModel =  
 				{
 					 id: $("#d0").val() ,
-			        dateOfCreate: $("#d1").val() ,
-			        dateOfUpdate:datetime.toString() ,
-			        number:$("#d3").val() ,
-			        totalAmount: $("#d4").val() ,
-			        totalPaid:$("#d5").val()  ,
-			        remainingAmount: $("#d4").val()-$("#d5").val() ,
-			        status:  $("#d7").val() ,
-			        isDeleated: $("#d8").val() ,
-			        customerName: $("#d9").val() ,
-			        userName: $("#d10").val() ,
+					 number:$("#d1").val() ,
+					 userName: $("#d2").val() ,
+					 customerName: $("#d3").val() ,
+			         dateOfCreate: $("#d4").val() ,
+			         dateOfUpdate:datetime.toString() ,
+			         totalAmount: $("#d6").val() ,
+			         totalPaid:$("#d7").val()  ,
+			         remainingAmount: $("#d6").val()-$("#d7").val() ,
+			         status:  $("#d9").val() ,
+			         isDeleated: $("#d10").val() ,
+			       
+			       
 			    } 
 		  
-		  if($("#d4").val()-$("#d5").val()==0){
+		  if($("#d6").val()-$("#d7").val()==0){
 			employeeModel.status="paid";
 		  }else{
 			employeeModel.status="not paid";

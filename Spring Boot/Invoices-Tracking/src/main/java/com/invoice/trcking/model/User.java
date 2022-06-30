@@ -26,7 +26,7 @@ public class User implements Serializable {
     private String  email;
     @Column(name = "password",nullable = false)
     private String password;
-    @Column(name = "is_enabled", nullable = false)
+    @Column(name = "is_enabled")
     private boolean isEnabled;
 
 

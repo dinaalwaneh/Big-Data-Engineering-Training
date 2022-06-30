@@ -10,7 +10,7 @@ $(document).ready(function(){
             '<td><input type="number" class="form-control" name="Id" id="Id"></td>' +
             '<td><input type="text" class="form-control" name="Name" id="Name"></td>' +
             '<td><input type="number" class="form-control" name="ammo" id="ammo"></td>' +
-            '<td><input type="number" class="form-control" name="quan" id="quan"></td>' +
+            '<td><input type="text" class="form-control" name="discription" id="discription"></td>' +
             '<td><input type="text" class="form-control" name="isDeleted" id="isDeleted"></td>' +
 			'<td>' + actions + '</td>' +
         '</tr>';

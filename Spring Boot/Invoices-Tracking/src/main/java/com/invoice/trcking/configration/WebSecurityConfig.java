@@ -100,6 +100,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/put/invoice/{id}/**").permitAll()
 			.antMatchers("/add/employee/**").permitAll()
 			.antMatchers("/resources/static/**").permitAll()
+			.antMatchers("/get/invoicehistory/{invoiceid}/**").permitAll()
+			.antMatchers("/add/invoicehistory/**").permitAll()
+			.antMatchers("/invoiceHistory/**").permitAll()
+			
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}

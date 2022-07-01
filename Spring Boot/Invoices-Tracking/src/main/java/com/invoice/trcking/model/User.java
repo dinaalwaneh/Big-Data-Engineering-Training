@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -34,6 +35,8 @@ public class User implements Serializable {
     @JoinColumn(name = "role_id" , nullable = false )
     private Role role;
 
+    @OneToMany(mappedBy = "user")
+    Set<History> histories;
     
     //PS :  constructers , setters and getters i can replace them with annotations from lombok dependancy ->
     //@Data -> for setters and getters 

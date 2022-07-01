@@ -51,4 +51,9 @@ public class AppViewController {
 		public String getEmployeePage() {
 			return "employee_page";
 		}
+		
+		@GetMapping("/invoiceHistory")
+		public String getInvoiceHistoryPage() {
+			return "invoiceHistory_page";
+		}
 }

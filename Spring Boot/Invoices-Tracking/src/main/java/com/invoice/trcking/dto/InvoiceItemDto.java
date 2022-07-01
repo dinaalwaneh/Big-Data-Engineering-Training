@@ -6,7 +6,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
-import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.InvoiceItemKey;
 import com.invoice.trcking.model.Item;
 

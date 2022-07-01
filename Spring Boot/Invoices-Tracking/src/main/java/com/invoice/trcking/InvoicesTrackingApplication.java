@@ -73,8 +73,11 @@ public class InvoicesTrackingApplication {
 		    String formattedDate = myDateObj.format(myFormatObj);
 		    System.out.println("After formatting: " + formattedDate);
 
-		    Invoice invoice=	invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,111,0,0,0,"Empty","false",c,u));
+		    Invoice invoice=	invoiceRepository.save(new Invoice(null, localDateTime,localDateTime,111,0,0,0,"Empty","false",c,u));
 			
+		    Date g = new Date(System.currentTimeMillis());
+		    
+		    
 			/*
 			invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,5585,100,0,100,"fff","false",c,u));
 			 

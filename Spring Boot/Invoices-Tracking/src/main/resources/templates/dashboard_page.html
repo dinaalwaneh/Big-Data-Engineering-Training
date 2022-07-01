@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <style>
     body {
         color: #404E67;
@@ -109,13 +110,15 @@
  <script type="text/javascript" src="js/personalInfo.js"></script> 
 <script type="text/javascript" src="js/getCustmersNameToSelect.js"></script> 
 <script type="text/javascript" src="js/AddNewInvoice.js"></script> 
-<script type="text/javascript" src="js/getInvoices.js"></script> 
-<script type="text/javascript" src="js/updateInvoice.js"></script> 
+<script type="text/javascript" src="js/getInvoices.js"></script>
+ <script type="text/javascript" src="js/updateInvoice.js"></script> 
 <script type="text/javascript" src="js/getAllItemsToSelect.js"></script> 
 <script type="text/javascript" src="js/addItemToInvoice.js"></script>
 <script type="text/javascript" src="js/addModalToAddItems.js"></script>
 <script type="text/javascript" src="js/getallinvoiceItem.js"></script>
 <script type="text/javascript" src="js/editItem.js"></script>
+<script type="text/javascript" src="js/pagenationInInvoice.js"></script>
+<script type="text/javascript" src="js/searchInvoice.js"></script>
 
 </head>
 
@@ -217,7 +220,7 @@
 	       </select>
 	   <br> <br>  
           <label for="number">Invoice Number:</label>
-           <br>            <input type="number" id="numbern" name="numbern">
+           <br>            <input type="number" id="invoiceNumber" name="invoiceNumber">
           <br>
            
 	       <br><br>  
@@ -231,8 +234,17 @@
                 </div>
             </div>
             
-              <div id="ModalDiv"></div>
-            <table  id="table-content" class="table table-bordered">
+             
+        <div style="display: flex;">
+          <div  >
+            <input  id="search" type="text" placeholder="Search Invoice.." style="height: 40px" />
+          </div>
+      
+          <div  >
+            <button class="btn-search" type="button" style="height: 40px; background-color:#5bc0de; border: none; border-radius: 0px; color: white;padding-top: 10px; padding-bottom: 30px" >SEARCH</button>
+          </div>
+        </div>
+            <table  id="table-content" class="table table-bordered table-striped ">
                 <thead>
                     <tr>
                          <th>ID</th>
@@ -266,7 +278,18 @@
                     </div>
                 </div>
             </div>
-
+<div class="clearfix">
+ 
+<ul class="pagination" style="float: lift;">
+<li class="page-item disabled"><a href="#">Previous</a></li>
+<li class="page-item active"><a href="#1" class="page-link">1</a></li>
+<li class="page-item"><a href="#2" class="page-link">2</a></li>
+<li class="page-item"><a href="#" class="page-link">3</a></li>
+<li class="page-item"><a href="#" class="page-link">4</a></li>
+<li class="page-item"><a href="#" class="page-link">5</a></li>
+<li class="page-item"><a href="#" class="page-link">Next</a></li>
+ </ul>
+</div>
         </div>
     </div>   
         	
@@ -309,5 +332,5 @@ window.onclick = function(event) {
   }
 }
 </script>
- 
+
 </html>

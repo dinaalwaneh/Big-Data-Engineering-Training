@@ -2,6 +2,8 @@ package com.invoice.trcking.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.invoice.trcking.model.Invoice;
 
 public interface InvoiceService {
@@ -13,4 +15,7 @@ public interface InvoiceService {
 	Invoice updateInvoice(long id, Invoice invoice);
 
 	Invoice getInvoiceById(long id);
+	
+    Page<Invoice> findProductsWithPaginationAndSorting(int offset,int pageSize,String field);
+	    
 }

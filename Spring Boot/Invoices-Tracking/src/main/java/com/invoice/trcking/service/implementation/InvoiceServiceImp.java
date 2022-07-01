@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.invoice.trcking.exception.EmptyValueException;
@@ -19,6 +21,14 @@ import com.invoice.trcking.model.User;
 import com.invoice.trcking.repository.InvoiceRepository;
 import com.invoice.trcking.repository.UserRepository;
 import com.invoice.trcking.service.InvoiceService;
+import org.springframework.data.domain.Sort;
+
+import javax.annotation.PostConstruct;
+import java.security.PublicKey;
+import java.time.LocalDateTime;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Service
 public class InvoiceServiceImp implements InvoiceService{
@@ -35,7 +45,9 @@ public class InvoiceServiceImp implements InvoiceService{
 
 	@Override
 	public Invoice addInvoice(Invoice invoice) throws InvoiceAlreadyExistsException , EmptyValueException {
-		
+		LocalDateTime localDateTime = LocalDateTime.now();
+		invoice.setDateOfCreate(localDateTime);
+		invoice.setDateOfUpdate(localDateTime);
 		if(invoice.getNumber()==0) {
 			throw new EmptyValueException("Invoice date has null values!!");
     	}
@@ -55,11 +67,12 @@ public class InvoiceServiceImp implements InvoiceService{
 	    	if(newInvoiceDetails.getId()==0||newInvoiceDetails.getNumber()==0) {
 	    		throw new EmptyValueException("updated date has empty values!!");
 	    	}
+	    	LocalDateTime localDateTime = LocalDateTime.now();
 			invoice.setId(newInvoiceDetails.getId());
 			invoice.setNumber(newInvoiceDetails.getNumber());
 			invoice.setTotalAmount(newInvoiceDetails.getTotalAmount());
 			invoice.setDateOfCreate(newInvoiceDetails.getDateOfCreate());
-			invoice.setDateOfUpdate(newInvoiceDetails.getDateOfUpdate());
+			invoice.setDateOfUpdate(localDateTime);
 			invoice.setTotalPaid(newInvoiceDetails.getTotalPaid());
 			invoice.setRemainingAmount(newInvoiceDetails.getRemainingAmount());
 			invoice.setStatus(newInvoiceDetails.getStatus());
@@ -79,6 +92,12 @@ public class InvoiceServiceImp implements InvoiceService{
 			throw new NoSuchInvoiceExistsException("No sush Invoice exist with id = "+id);
 		}
 		return result.get();
+	}
+	
+	@Override
+	public Page<Invoice> findProductsWithPaginationAndSorting(int offset,int pageSize,String field){
+	        Page<Invoice> products = invoiceRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC,field)));
+	        return  products;
 	}
 
 }

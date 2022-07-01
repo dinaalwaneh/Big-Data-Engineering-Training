@@ -14,8 +14,8 @@ import lombok.Data;
 public class InvoiceDto {
  
     private Long id;
-    private String  dateOfCreate;
-    private String  dateOfUpdate;
+    private LocalDateTime  dateOfCreate;
+    private LocalDateTime  dateOfUpdate;
     private long  number;
     private long totalAmount;
     private long totalPaid;
@@ -32,7 +32,7 @@ public class InvoiceDto {
 	}
 
 	//Args constructer
-	public InvoiceDto(Long id, String dateOfCreate, String dateOfUpdate, long number, long totalAmount,
+	public InvoiceDto(Long id, LocalDateTime dateOfCreate, LocalDateTime dateOfUpdate, long number, long totalAmount,
 			long totalPaid, long remainingAmount, String status, String isDeleated, String customerName,
 			String userName) {
 		super();
@@ -58,19 +58,19 @@ public class InvoiceDto {
 		this.id = id;
 	}
 
-	public String getDateOfCreate() {
+	public LocalDateTime getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(String dateOfCreate) {
+	public void setDateOfCreate(LocalDateTime dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 
-	public String getDateOfUpdate() {
+	public LocalDateTime getDateOfUpdate() {
 		return dateOfUpdate;
 	}
 
-	public void setDateOfUpdate(String dateOfUpdate) {
+	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 

@@ -18,9 +18,9 @@ public class Invoice implements Serializable {
 	@Column(name = "id")
     private Long id;
 	@Column(name = "date_of_create")
-    private String  dateOfCreate;
+    private LocalDateTime  dateOfCreate;
 	@Column(name = "date_of_update")
-    private String  dateOfUpdate;
+    private LocalDateTime  dateOfUpdate;
     @Column(name = "number", unique = true, nullable = false)
     private long  number;
     @Column(name = "total_amount")
@@ -54,7 +54,7 @@ public class Invoice implements Serializable {
 	}
 
 	//Args constructer
-	public Invoice(Long id, String formattedDate, String formattedDate2, long number, long totalAmount,
+	public Invoice(Long id, LocalDateTime formattedDate, LocalDateTime formattedDate2, long number, long totalAmount,
 			long totalPaid, long remainingAmount, String status, String isDeleated,Customer customer ,User user ) {
 		super();
 		this.id = id;
@@ -79,19 +79,19 @@ public class Invoice implements Serializable {
 		this.id = id;
 	}
 
-	public String getDateOfCreate() {
+	public LocalDateTime getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(String dateOfCreate) {
+	public void setDateOfCreate(LocalDateTime dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 
-	public String getDateOfUpdate() {
+	public LocalDateTime getDateOfUpdate() {
 		return dateOfUpdate;
 	}
 
-	public void setDateOfUpdate(String dateOfUpdate) {
+	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
 	}
 

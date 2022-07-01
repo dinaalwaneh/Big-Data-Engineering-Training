@@ -2,8 +2,8 @@
 	
     var currentdate = new Date(); 
     var datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + " " 
-              
+                + (currentdate.getMonth()+1)  + "-" 
+              +(currentdate.getDay()+26)+ " " 
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds()
@@ -12,9 +12,8 @@
 		
 			 var employeeModel =  
 				{
-			        dateOfCreate: datetime.toString(),
-			        dateOfUpdate: datetime.toString(),
-			        number: $("#numbern").val(),
+			       
+			        number: $("#invoiceNumber").val(),
 			        totalAmount: 0,
 			        totalPaid: 0,
 			        remainingAmount: 0,

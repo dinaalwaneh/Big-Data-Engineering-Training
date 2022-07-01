@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -160,5 +161,14 @@ public class InvoiceController {
 		
 		return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 	}
+	
+	   @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
+	    private ResponseEntity<Object> getProductsWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+			
+		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
+		   productsWithPagination.forEach(invoice -> invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice)));
+	        return  ResponseEntity.ok().body(invoiceDtos);
+	    }
  
 }

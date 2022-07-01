@@ -5,7 +5,7 @@ $(document).ready(function(){
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoices",
+               url : "http://localhost:8082/paginationAndSort/0/2/dateOfCreate",
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

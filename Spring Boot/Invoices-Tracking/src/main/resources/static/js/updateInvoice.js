@@ -29,13 +29,7 @@ $(document).on("click", ".edit1", function(){
 
 			// DO GET
 			function ajaxGet() {
-				 var currentdate = new Date(); 
-    var datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + " " 
-              
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds()
+				 
 				   var employeeModel =  
 				{
 					 id: $("#d0").val() ,
@@ -43,7 +37,7 @@ $(document).on("click", ".edit1", function(){
 					 userName: $("#d2").val() ,
 					 customerName: $("#d3").val() ,
 			         dateOfCreate: $("#d4").val() ,
-			         dateOfUpdate:datetime.toString() ,
+			        
 			         totalAmount: $("#d6").val() ,
 			         totalPaid:$("#d7").val()  ,
 			         remainingAmount: $("#d6").val()-$("#d7").val() ,

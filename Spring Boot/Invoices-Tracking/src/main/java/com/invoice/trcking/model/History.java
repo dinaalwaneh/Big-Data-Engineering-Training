@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import net.bytebuddy.asm.Advice.This;
+
 @Entity
 @Table(name = "history")
 public class History {
@@ -31,18 +33,22 @@ public class History {
     
     @Column(name = "date_of_update")
     private LocalDateTime  dateOfUpdate;
+    
+    @Column(name = "json_of_update")
+    private String  updatedData;
 
 	public History() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public History(Long id, Invoice invoice, User user, LocalDateTime dateOfUpdate) {
+	public History(Long id, Invoice invoice, User user, LocalDateTime dateOfUpdate, String updatedData) {
 		super();
 		this.id = id;
 		this.invoice = invoice;
 		this.user = user;
 		this.dateOfUpdate = dateOfUpdate;
+		this.updatedData = updatedData;
 	}
 
 	public Long getId() {
@@ -75,6 +81,14 @@ public class History {
 
 	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
+	}
+
+	public String getUpdatedData() {
+		return updatedData;
+	}
+
+	public void setUpdatedData(String updatedData) {
+		this.updatedData = updatedData;
 	}
     
 }

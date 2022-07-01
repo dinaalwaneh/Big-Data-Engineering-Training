@@ -28,7 +28,7 @@ $(document).ready(function(){
 	 var d = ' <td  >'+' <a href="#editEmployeeModal'  + result[i].id + '" class="edit" data-toggle="modal"><i class="material-icons" style="color:black;">&#xE03B;</i></a>'
                        
                         +'<a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>'
-                        +'<a href="invoiceHistory" class="showInvoiceHistory" title="invoiceHistory" data-toggle="tooltip"><i class="fa fa-history" aria-hidden="true"></i></a>'
+                        +'<a href="" class="showInvoiceHistory" title="invoiceHistory" data-toggle="tooltip"><i class="fa fa-history" aria-hidden="true"></i></a>'
                        +'</td>';
 	var h='   <td >'+
                            '<!-- Edit Modal HTML -->'  +

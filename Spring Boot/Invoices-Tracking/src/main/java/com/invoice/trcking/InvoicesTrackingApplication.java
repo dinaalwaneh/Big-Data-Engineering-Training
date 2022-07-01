@@ -14,6 +14,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.invoice.trcking.model.Customer;
+import com.invoice.trcking.model.History;
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.InvoiceItem;
 import com.invoice.trcking.model.InvoiceItemKey;
@@ -22,6 +23,7 @@ import com.invoice.trcking.model.RoleType;
 import com.invoice.trcking.model.User;
 import com.invoice.trcking.model.Item;
 import com.invoice.trcking.repository.CustomerRepository;
+import com.invoice.trcking.repository.HistoryRepository;
 import com.invoice.trcking.repository.InvoiceItemRepository;
 import com.invoice.trcking.repository.InvoiceRepository;
 import com.invoice.trcking.repository.ItemRepository;
@@ -38,7 +40,7 @@ public class InvoicesTrackingApplication {
 
 	@Bean
 	CommandLineRunner run (UserRepository userRepository, RoleRepository roleRepository,CustomerRepository customerRepository
-			,ItemRepository itemRepository,InvoiceRepository invoiceRepository , InvoiceItemRepository invoiceItemRepository){
+			,ItemRepository itemRepository,InvoiceRepository invoiceRepository , InvoiceItemRepository invoiceItemRepository, HistoryRepository historyRepository){
 		
 		return args ->{
 			
@@ -77,8 +79,7 @@ public class InvoicesTrackingApplication {
 			
 		    Date g = new Date(System.currentTimeMillis());
 		    
-		    
-			/*
+ 			/*
 			invoiceRepository.save(new Invoice(null, formattedDate,formattedDate,5585,100,0,100,"fff","false",c,u));
 			 
 			

@@ -30,6 +30,7 @@ public class HistoryMapper {
 		historyDto.setInvoiceId(history.getInvoice().getId());
 		historyDto.setUserName(history.getUser().getUserName());
 		historyDto.setDateOfUpdate(history.getDateOfUpdate());
+		historyDto.setUpdatedData(history.getUpdatedData());
 		return historyDto;
 	}
 	
@@ -41,6 +42,7 @@ public class HistoryMapper {
 		Invoice invoice =invoiceServiceImp.getInvoiceById(historyDto.getInvoiceId());
 		history.setInvoice(invoice);
 		history.setDateOfUpdate(historyDto.getDateOfUpdate());
+		history.setUpdatedData(historyDto.getUpdatedData());
 		return history;
 	}
 }

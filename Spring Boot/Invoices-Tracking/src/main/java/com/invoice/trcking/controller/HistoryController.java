@@ -34,8 +34,28 @@ public class HistoryController {
 	@Autowired 
 	private HistoryMapper historyMapper; 
 	
-	@GetMapping("/get/invoicehistory/{invoiceid}")
-	public ResponseEntity<Object> getInvoiceItemById(@PathVariable Long invoiceId) {
+	@GetMapping("/get/allinvoiceshistory")
+	public ResponseEntity<Object> getInvoicesHistory() {
+		
+		List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
+		
+		historyService.getAllInvoicesHistory().forEach(invoicehistiry ->{
+			
+				historyDto.add(historyMapper.convertEntityToDto(invoicehistiry));
+			
+			
+		});
+		return new ResponseEntity<>(historyDto, HttpStatus.OK);
+		/*InvoiceItem invoiceItem = invoiceItemService.getInvoiceItemById(id);
+
+		// convert entity to DTO
+		InvoiceItemDto invoiceItemResponse = invoiceItemMapper.convertEntityToDto(invoiceItem);
+
+		return ResponseEntity.ok().body(invoiceItemResponse);*/
+	}
+	
+	@GetMapping("/get/invoicehistory/{invoiceId}")
+	public ResponseEntity<Object> getInvoiceHistoryById(@PathVariable Long invoiceId) {
 		
 		List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
 		

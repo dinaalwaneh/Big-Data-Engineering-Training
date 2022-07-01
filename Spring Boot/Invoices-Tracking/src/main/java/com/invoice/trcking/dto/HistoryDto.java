@@ -10,18 +10,21 @@ public class HistoryDto {
 	 private Long invoiceId;
      private String userName;
      private LocalDateTime  dateOfUpdate;
-     
+     private String  updatedData;
+
 	public HistoryDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public HistoryDto(Long id, Long invoiceId, String userName, LocalDateTime dateOfUpdate) {
+	public HistoryDto(Long id, Long invoiceId, String userName, LocalDateTime dateOfUpdate, String updatedData) {
 		super();
 		this.id = id;
 		this.invoiceId = invoiceId;
 		this.userName = userName;
 		this.dateOfUpdate = dateOfUpdate;
+		this.updatedData = updatedData;
+
 	}
 
 	public Long getId() {
@@ -54,6 +57,14 @@ public class HistoryDto {
 
 	public void setDateOfUpdate(LocalDateTime dateOfUpdate) {
 		this.dateOfUpdate = dateOfUpdate;
+	}
+
+	public String getUpdatedData() {
+		return updatedData;
+	}
+
+	public void setUpdatedData(String updatedData) {
+		this.updatedData = updatedData;
 	}
      
 }

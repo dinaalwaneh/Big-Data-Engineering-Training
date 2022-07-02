@@ -34,16 +34,16 @@ public class CustomerServiceImp implements CustomerService {
 	@Override
 	public Customer addCustomer(Customer customer)throws CustomerAlreadyExistsException , NullValueException , EmptyValueException {
 		
-		if(customer.getId()==null||customer.getCustomerName()==null||customer.getPhone()==null) {
+		if(customer.getCustomerName()==null||customer.getPhone()==null) {
 			throw new NullValueException("updated date has null values!!");
     	}
-    	if(customer.getId()==0||customer.getCustomerName()==""||customer.getPhone()=="") {
+    	if(customer.getCustomerName()==""||customer.getPhone()=="") {
     		throw new EmptyValueException("updated date has empty values!!");
     	}
-		Customer existingCustomer= customerRepository.findById(customer.getId()).orElse(null); 
-		if (existingCustomer == null) {
+	//	Customer existingCustomer= customerRepository.findById(customer.getId()).orElse(null); 
+		//if (existingCustomer == null) {
 	    	return customerRepository.save(customer);
-	     }else throw new CustomerAlreadyExistsException("Customer already exixts!!");		
+	   //  }else throw new CustomerAlreadyExistsException("Customer already exixts!!");		
 	}
 
 	@Override

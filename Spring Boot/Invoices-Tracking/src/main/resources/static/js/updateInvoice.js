@@ -65,7 +65,7 @@ $(document).on("click", ".edit1", function(){
                   data : requestJSON,
 					success : function(result) {
 						
-					location.reload();
+					addUpdatesToHistory(result)
 						
 					},
 					error : function(e) {
@@ -74,4 +74,43 @@ $(document).on("click", ".edit1", function(){
 					}
 				});
 			}
+			
+			 function addUpdatesToHistory(updatedData){
+		
+		var InvoiceHistory ={
+			
+			invoiceId : updatedData.id,
+			userName : sessionStorage.getItem("username"),
+			updatedData : "id = " + updatedData.id 
+			+ ", customerName = "+ updatedData.customerName + ", userName = "+ updatedData.userName
+			+ ", dateOfCreate = "+ updatedData.dateOfCreate
+			+ ", dateOfUpdate = "+updatedData.updatedData + ", number = "+ updatedData.number
+			+ ", totalAmount = "+ updatedData.totalAmount + ", totalPaid = "+ updatedData.totalPaid
+			+ ", remainingAmount = "+ updatedData.remainingAmount + ", status = "+ updatedData.status
+			
+		};
+			 var requestJSON = JSON.stringify(InvoiceHistory);
+    console.log("ddfffffffffff "+InvoiceHistory.updatedData);
+            $.ajax({
+               type : "POST",
+               url : "http://localhost:8082/add/invoicehistory",
+               headers : {
+                     "Content-Type" : "application/json",
+                      Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
+                  },
+               data : requestJSON,
+               success : function(result) {
+             
+                    
+     			location.reload();    
+                    
+                  
+               },
+               error : function(e) {
+                  $("#getResultDiv").html("<strong>Error</strong>");
+                  console.log("ERROR: ", e);
+               }
+            });
+         
+	}
 		})

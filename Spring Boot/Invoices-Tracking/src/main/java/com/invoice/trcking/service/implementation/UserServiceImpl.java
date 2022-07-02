@@ -53,10 +53,10 @@ public class UserServiceImpl implements UserService {
 	     if (user == null)
 	            throw new NoSuchUserExistsException("No Such User exists with id = "+id);
 	     else {
-	    	if(newUserDetails.getId()==null||newUserDetails.getUserName()==null||(newUserDetails.getPhone()==null||newUserDetails.getPassword()==null)) {
+	    	if(newUserDetails.getId()==null||newUserDetails.getUserName()==null||(newUserDetails.getPhone()==null)) {
 	    		throw new NullValueException("updated date has null values!!");
 	    	}
-	    	if(newUserDetails.getId()==0||newUserDetails.getUserName()==""||newUserDetails.getPhone()==""||newUserDetails.getPassword()=="") {
+	    	if(newUserDetails.getId()==0||newUserDetails.getUserName()==""||newUserDetails.getPhone()=="") {
 	    		throw new EmptyValueException("updated date has empty values!!");
 	    	}
 

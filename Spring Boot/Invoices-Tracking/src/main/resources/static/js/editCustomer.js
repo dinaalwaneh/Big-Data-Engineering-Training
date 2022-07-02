@@ -1,4 +1,4 @@
-$(document).on("click", ".editEmployee", function(){
+$(document).on("click", ".edit1", function(){
 	
 	 var caretId = []; var i =0;
         $(this).parents("tr").find("td:not(:last-child)").each(function(){
@@ -20,27 +20,22 @@ $(document).on("click", ".editEmployee", function(){
 
 			// DO GET
 			function ajaxGet() {
-				 
-				   var employeeModel =  
-				{
-					 id: $("#d0").val() ,
-					 name:$("#d1").val() ,
-					 userName: $("#d2").val() ,
-					  roleName:  $("#d3").val() ,
-					 address: $("#d4").val() ,
-			         phone: $("#d5").val() ,
-			         email: $("#d6").val() ,
-			         enabled:$("#d7").val()  
-			        
-			       
-			       
-	 }
+			var employ  =  {  
+				    id:$("#d0").val() ,
+			        name: "customer",
+			        customerName: $("#d1").val(),
+			        address:$("#d2").val(),
+			        phone: $("#d3").val(),
+			        email:$("#d4").val(),
+			        enabled:  "true",
+			    };	 
+				
 		  
-               var requestJSON = JSON.stringify(employeeModel);
+               var requestJSON = JSON.stringify(employ);
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/user/"+$("#d0").val(),
+					url : "http://localhost:8082/update/customer/"+$("#d0").val(),
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

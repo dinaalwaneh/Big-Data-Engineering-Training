@@ -1,5 +1,6 @@
 package com.invoice.trcking.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.invoice.trcking.dto.CustomerDto;
 import com.invoice.trcking.dto.InvoiceDto;
@@ -47,7 +50,30 @@ public class InvoiceController {
 	public ResponseEntity<Object> getInvoices()
 	{
 		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-		invoiceService.getAllInvoices().forEach(invoice -> invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice)));
+		invoiceService.getAllInvoices().forEach(invoice ->{
+			if(invoice.getFileName()==null) {
+				invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+			}
+			
+				
+		});
+		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+	}
+	
+	@GetMapping("/get/uploadedinvoices")
+	public ResponseEntity<Object> getUploadedInvoices()
+	{
+		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+		invoiceService.getAllInvoices().forEach(invoice ->{
+			if(invoice.getFileName()!=null) {
+				if(invoice.getFileName().length()!=0) {
+					invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+				}
+				
+			}
+			
+				
+		});
 		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
 	}
 	
@@ -82,16 +108,16 @@ public class InvoiceController {
 
 			//LOGGER.debug("Add invoice service");
 			if(invoiceDto == null){
-				throw new NullPointerException("InvoiceDto point to null ");
+			//	throw new NullPointerException("InvoiceDto point to null ");
 			}
 			// convert DTO to entity
 			Invoice invoiceRequest = invoiceMapper.convertDtoToEntity(invoiceDto);
 
 			Invoice invoice = invoiceService.addInvoice(invoiceRequest);
 
-			if(invoice == null){
-				throw new NullPointerException("customer point to null");
-			}
+		//	if(invoice == null){
+		//		throw new NullPointerException("invoice point to null");
+		//	}
 			// convert entity to DTO
 		    InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
 		    LOGGER.info("Invoice added to item entity successfuly");
@@ -163,12 +189,44 @@ public class InvoiceController {
 	}
 	
 	   @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
-	    private ResponseEntity<Object> getProductsWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+	    private ResponseEntity<Object> getInvicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
 		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
 			
 		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
-		   productsWithPagination.forEach(invoice -> invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice)));
+		   productsWithPagination.forEach(invoice ->{
+			 
+				   	invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+			   
+		   
+		   });
 	        return  ResponseEntity.ok().body(invoiceDtos);
 	    }
+	   
+	   @GetMapping("/UploadedInvicesPaginationAndSort/{offset}/{pageSize}/{field}")
+	    private ResponseEntity<Object> getUplodedInvoicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+			
+		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
+		   productsWithPagination.forEach(invoice ->{
+			   if(invoice.getFileName()!=null) {
+				   	invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+				   
+			   }
+		   
+		   });
+	        return  ResponseEntity.ok().body(invoiceDtos);
+	    }
+	   
+	   @PostMapping("/upload") 
+		  public ResponseEntity<?> handleFileUpload( @RequestParam("file") MultipartFile file ) {
+
+		    String fileName = file.getOriginalFilename();
+		    try {
+		      file.transferTo( new File("C:\\Users\\hp\\Documents\\workspace-spring-tool-suite-4-4.14.1.RELEASE\\Invoices-Tracking\\src\\main\\resources\\static\\images\\" + fileName));
+		    } catch (Exception e) {
+		      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		    } 
+		    return ResponseEntity.ok("File uploaded successfully.");
+		  }
  
 }

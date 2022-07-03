@@ -36,8 +36,7 @@ $(document).on("click", ".edit1", function(){
 					 number:$("#d1").val() ,
 					 userName: $("#d2").val() ,
 					 customerName: $("#d3").val() ,
-			         dateOfCreate: $("#d4").val() ,
-			        
+			         dateOfCreate: $("#d5").val() ,
 			         totalAmount: $("#d6").val() ,
 			         totalPaid:$("#d7").val()  ,
 			         remainingAmount: $("#d6").val()-$("#d7").val() ,

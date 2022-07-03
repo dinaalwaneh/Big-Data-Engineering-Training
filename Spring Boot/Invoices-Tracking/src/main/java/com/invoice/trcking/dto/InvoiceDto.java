@@ -24,6 +24,7 @@ public class InvoiceDto {
     private String isDeleated;
     private String customerName;
     private String userName;
+    private String fileName;
     
     //Empty constructer
 	public InvoiceDto() {
@@ -34,7 +35,7 @@ public class InvoiceDto {
 	//Args constructer
 	public InvoiceDto(Long id, LocalDateTime dateOfCreate, LocalDateTime dateOfUpdate, long number, long totalAmount,
 			long totalPaid, long remainingAmount, String status, String isDeleated, String customerName,
-			String userName) {
+			String userName, String fileName) {
 		super();
 		this.id = id;
 		this.dateOfCreate = dateOfCreate;
@@ -47,6 +48,7 @@ public class InvoiceDto {
 		this.isDeleated = isDeleated;
 		this.customerName = customerName;
 		this.userName = userName;
+		this.fileName =  fileName;
 	}
 
 	//setters & Getters
@@ -136,6 +138,14 @@ public class InvoiceDto {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 

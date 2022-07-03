@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Dashio - Bootstrap Admin Template</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link href="css/modalStyle.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+ <link rel="stylesheet" href="css/registerPageStyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+        color: #404E67;
+        background: #F5F7FA;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.table-wrapper {
+		width: 700px;
+		margin: 30px auto;
+        background: #fff;
+        padding: 20px;	
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 22px;
+    }
+    .table-title .add-new ,.table-title .save ,  .table-title .show-uplades {
+        float: right;
+		height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: none;
+		width: 150px;
+		border-radius: 50px;
+		line-height: 13px;
+    }
+	.table-title .add-new i {
+		margin-right: 4px;
+	}
+     
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    table.table th:last-child {
+        width: 100px;
+    }
+    table.table td a {
+		cursor: pointer;
+        display: inline-block;
+        margin: 0 5px;
+		min-width: 24px;
+    }    
+	table.table td a.add {
+        color: #27C46B;
+    }
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table td a.add i {
+        font-size: 24px;
+    	margin-right: -1px;
+        position: relative;
+        top: 3px;
+    }    
+    table.table .form-control {
+        height: 32px;
+        line-height: 32px;
+        box-shadow: none;
+        border-radius: 2px;
+    }
+	table.table .form-control.error {
+		border-color: #f50000;
+	}
+	table.table td .add {
+		display: none;
+	}
+</style>
+ 
+<script type="text/javascript" src="js/showUploadesInvoices.js"></script>
+
+<script type="text/javascript" src="js/goBackToInvoices.js"></script>
+ <script type="text/javascript" src="js/personalInfo.js"></script> 
+<script type="text/javascript" src="js/getCustmersNameToSelect.js"></script> 
+<script type="text/javascript" src="js/AddNewInvoice.js"></script> 
+
+</head>
+
+<body>
+  <section style="width: 100%" id="container">
+      <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="index.html" class="logo"><b>Invoice<span>Tracking</span></b></a>
+      <!--logo end-->
+
+      <div class="top-menu" style="float: right; margin-top: 10px">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout "   href="home">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="images/jim.jpg" class="img-circle" width="80"></a></p>
+          <h5 id="username" class="centered"></h5>
+          <li class="mt">
+            <a class="active" href="dashboard">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="employee">
+              <i class="fa fa-tasks"></i>
+              <span>Employees</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="customer">
+              <i class="fa fa-tasks"></i>
+              <span>Customers</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="product">
+              <i class="fa fa-tasks"></i>
+              <span>Products</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Categories</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="invoiceHistory">
+              <i class="fa fa-th"></i>
+              <span>History</span>
+              </a>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+   
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+         
+        	
+        	<div id="customers">
+        			    <div class="container">
+  
+        <div style="width:100%" class="table-wrapper">
+            <div class="table-title">
+            <div id="employeesJson"></div>
+                <div class="row">
+                    <div class="col-sm-8"><h2>Invoice <b>Details</b></h2></div> 
+                     
+                    
+                    <div class="col-sm-4">
+                    
+                   		<div style="display: flex;">
+	                   		<button style="margin-right: 10px" type="button" class="btn btn-info add-new" id="myBtn"><i class="fa fa-plus"></i> Add New</button> 
+	                        <button type="button" class="btn btn-info show-uplades" id="formInvoices">Go to from invoices </button> 
+                   		</div>
+                        						<!-- The Modal -->
+						<div  id="myModal" class="modal">
+						
+						  <!-- Modal content -->
+						  <div style="width: 40%; height: 500px" class="modal-content">
+						    <span class="close">&times;</span>
+						    <form style="background-color: white; box-shadow: 1px 3px 3px 1px lightblue;" action="index.html" method="post">
+      
+        <h1>Add New Invoice</h1>
+        
+        <fieldset style="background-color: white; height: 300px">
+          <br>
+          <label for="customersName" style="margin-top: 20px">customer Name</label>
+           <br>
+	       <select id="customersName"  class="customersName" name="customersName">
+	           
+	       </select>
+	   <br> <br>  
+          <label for="number">Invoice Number:</label>
+           <br>            <input type="number" id="invoiceNumber" name="invoiceNumber">
+          <br>
+          <input id="fileupload" type="file" name="fileupload" /> 
+<button id="upload-button" onclick="uploadFile()"> Upload </button>
+          
+	       <br><br>  
+        </fieldset>
+        <button type="submit" style="color: white;" class = "addNewInnoice">Add</button>
+      </form>
+						  </div>
+						
+						</div>
+                     </div>
+                </div>
+            </div>
+            
+             
+        <div style="display: flex;">
+          <div  >
+            <input  id="search" type="text" placeholder="Search Invoice.." style="height: 40px" />
+          </div>
+      
+          <div  >
+            <button class="btn-search" type="button" style="height: 40px; background-color:#5bc0de; border: none; border-radius: 0px; color: white;padding-top: 10px; padding-bottom: 30px" >SEARCH</button>
+          </div>
+        </div>
+        
+        <div></div>
+            <table  id="table-content" class="table table-bordered table-striped ">
+                <thead>
+                    <tr>
+                          <th>ID</th>
+                         <th>Number</th>
+                        <th>Employee Name</th>
+                        <th>Customer Name</th>
+                         <th>Invoice File</th>
+                        <th>Date Of Create</th>
+                    </tr>
+                </thead>
+                <tbody>
+                      
+                       
+                     
+                   
+                </tbody>
+            </table>
+
+ 						 
+              <div class="table-title">
+            <div id="employeesJson"></div>
+                <div class="row">
+                    <div class="col-sm-4" style="float: right;">
+                        <button type="button" class="btn btn-info save">Save Changed</button>
+                    </div>
+                </div>
+            </div>
+<div class="clearfix">
+ 
+<ul class="pagination" style="float: lift;">
+<li class="page-item disabled"><a href="#">Previous</a></li>
+<li class="page-item active"><a href="#" class="page-link">1</a></li>
+<li class="page-item"><a href="#" class="page-link">2</a></li>
+<li class="page-item"><a href="#" class="page-link">3</a></li>
+<li class="page-item"><a href="#" class="page-link">4</a></li>
+<li class="page-item"><a href="#" class="page-link">5</a></li>
+<li class="page-item"><a href="#" class="page-link">Next</a></li>
+ </ul>
+</div>
+        </div>
+    </div>   
+        	
+        	</div>
+        	
+        	
+        </div>
+    
+      </section>
+    </section>
+  
+  </section>
+
+        
+</body>
+
+  
+  
+  <script>
+
+</script>
+<script>
+ // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</html>

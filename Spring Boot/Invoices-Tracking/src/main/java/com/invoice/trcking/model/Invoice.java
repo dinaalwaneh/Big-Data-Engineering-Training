@@ -33,14 +33,16 @@ public class Invoice implements Serializable {
     private String status; //paid or not paid
     @Column(name = "is_deleted")
     private String isDeleated;
+    @Column(name = "fileName")
+    private String fileName;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id" , nullable = false )
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id" )
     private User user;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "customer_id" , nullable = true )
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id",nullable = true  )
     private Customer customer;
     
    
@@ -55,7 +57,7 @@ public class Invoice implements Serializable {
 
 	//Args constructer
 	public Invoice(Long id, LocalDateTime formattedDate, LocalDateTime formattedDate2, long number, long totalAmount,
-			long totalPaid, long remainingAmount, String status, String isDeleated,Customer customer ,User user ) {
+			long totalPaid, long remainingAmount, String status, String isDeleated,Customer customer ,User user, String fileName) {
 		super();
 		this.id = id;
 		this.dateOfCreate = formattedDate;
@@ -68,6 +70,7 @@ public class Invoice implements Serializable {
 		this.isDeleated = isDeleated;
 		this.user = user;
 		this.customer = customer;
+		this.fileName = fileName;
 	}
 
 	//setters & getters :
@@ -166,5 +169,12 @@ public class Invoice implements Serializable {
 	public void setItems(Set<InvoiceItem> items) {
 		this.items = items;
 	}
-	
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 }

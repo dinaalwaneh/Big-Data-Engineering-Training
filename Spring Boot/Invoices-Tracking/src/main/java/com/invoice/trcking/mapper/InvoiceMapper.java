@@ -30,9 +30,19 @@ public class InvoiceMapper {
 		invoiceDto.setTotalPaid(invoice.getTotalPaid());
 		invoiceDto.setRemainingAmount(invoice.getRemainingAmount());
 		invoiceDto.setStatus(invoice.getStatus());
-		invoiceDto.setUserName(invoice.getUser().getUserName());
-		invoiceDto.setCustomerName(invoice.getCustomer().getCustomerName());
+		if(invoice.getUser()!=null) {
+			invoiceDto.setUserName(invoice.getUser().getUserName());
+		}else {
+			invoiceDto.setUserName(null);
+		}
+		if(invoice.getCustomer()!=null) {
+			invoiceDto.setCustomerName(invoice.getCustomer().getCustomerName());
+		}else {
+			invoiceDto.setCustomerName(null);
+		}
+		
 		invoiceDto.setIsDeleated(invoice.getIsDeleated());
+		invoiceDto.setFileName(invoice.getFileName());
 		return invoiceDto;
 	}
 	
@@ -47,8 +57,14 @@ public class InvoiceMapper {
 		invoice.setRemainingAmount(invoiceDto.getRemainingAmount());
 		invoice.setStatus(invoiceDto.getStatus());
 		invoice.setIsDeleated(invoiceDto.getIsDeleated());
-		invoice.setCustomer(customerService.getCustomerByUsername(invoiceDto.getCustomerName()));
-		invoice.setUser(userService.getUserByUsername(invoiceDto.getUserName()));
+		if(invoiceDto.getCustomerName()!=null) {
+			invoice.setCustomer(customerService.getCustomerByUsername(invoiceDto.getCustomerName()));
+		}
+		if(invoiceDto.getUserName()!=null) {
+			invoice.setUser(userService.getUserByUsername(invoiceDto.getUserName()));
+		}
+		
+		invoice.setFileName(invoiceDto.getFileName());
 		return invoice;
 	}
 }

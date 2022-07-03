@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import com.invoice.trcking.model.Invoice;
+import com.invoice.trcking.model.*;
 
 public interface InvoiceService {
 

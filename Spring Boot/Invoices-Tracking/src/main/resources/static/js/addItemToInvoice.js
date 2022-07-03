@@ -156,7 +156,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
 			updatedData : "id = " + updatedData.id 
 			+ ", customerName = "+ updatedData.customerName + ", userName = "+ updatedData.userName
 			+ ", dateOfCreate = "+ updatedData.dateOfCreate
-			+ ", dateOfUpdate = "+updatedData.updatedData + ", number = "+ updatedData.number
+			+ ", fileName = "+updatedData.fileName + ", number = "+ updatedData.number
 			+ ", totalAmount = "+ updatedData.totalAmount + ", totalPaid = "+ updatedData.totalPaid
 			+ ", remainingAmount = "+ updatedData.remainingAmount + ", status = "+ updatedData.status
 			

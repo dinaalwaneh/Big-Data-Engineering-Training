@@ -34,7 +34,8 @@ $(document).ready(
                 
 					 sessionStorage.setItem("jwtToken", result.token);
 					 sessionStorage.setItem("username", formData.username);
-					 window.location.href="/dashboard"
+					window.location.href="/home"
+					 
 					 
 					},
 					error : function(e) {
@@ -44,5 +45,24 @@ $(document).ready(
 				});
 
 			}
+			
+			 function getUser() {
+    
+            $.ajax({
+               type : "GET",
+               url : "user/"+sessionStorage.getItem("username"),
+               success : function(result) {
+             
+             console.log("ihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+                        
+    
+                  
+               },
+               error : function(e) {
+                  $("#getResultDiv").html("<strong>Error</strong>");
+                  console.log("ERROR: ", e);
+               }
+            });
+         }
 
 		})

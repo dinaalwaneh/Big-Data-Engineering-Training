@@ -45,13 +45,13 @@
         margin: 6px 0 0;
         font-size: 22px;
     }
-    .table-title .add-new ,.table-title .save {
+    .table-title .add-new ,.table-title .save ,  .table-title .show-uplades {
         float: right;
 		height: 30px;
 		font-weight: bold;
 		font-size: 12px;
 		text-shadow: none;
-		width: 100px;
+		width: 150px;
 		border-radius: 50px;
 		line-height: 13px;
     }
@@ -116,11 +116,11 @@
 <script type="text/javascript" src="js/addItemToInvoice.js"></script>
 <script type="text/javascript" src="js/addModalToAddItems.js"></script>
 <script type="text/javascript" src="js/getallinvoiceItem.js"></script>
-<script type="text/javascript" src="js/editItem.js"></script>
 <script type="text/javascript" src="js/pagenationInInvoice.js"></script>
 <script type="text/javascript" src="js/searchInvoice.js"></script>
 <script type="text/javascript" src="js/showInvoiceHistory.js"></script>
-
+<script type="text/javascript" src="js/goToUploadInvoices.js"></script>
+<script type="text/javascript" src="js/goBackToInvoices.js"></script>
 
 
 </head>
@@ -131,10 +131,8 @@
       <div class="sidebar-toggle-box">
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
-      <!--logo start-->
-      <a href="index.html" class="logo"><b>Invoice<span>Tracking</span></b></a>
-      <!--logo end-->
-
+      
+ <a href="index.html" class="logo"><b>Invoice<span>Tracking</span></b></a>
       <div class="top-menu" style="float: right; margin-top: 10px">
         <ul class="nav pull-right top-menu">
           <li><a class="logout "   href="home">Logout</a></li>
@@ -146,7 +144,9 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="images/jim.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img  src="images/ui-sam.jpg" class="img-circle" width="80"></a></p>
+         
+								   
           <h5 id="username" class="centered"></h5>
           <li class="mt">
             <a class="active" href="dashboard">
@@ -172,12 +172,7 @@
               <span>Products</span>
               </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Categories</span>
-              </a>
-          </li>
+      
           <li class="sub-menu">
             <a href="invoiceHistory">
               <i class="fa fa-th"></i>
@@ -202,9 +197,15 @@
             <div id="employeesJson"></div>
                 <div class="row">
                     <div class="col-sm-8"><h2>Invoice <b>Details</b></h2></div> 
+                     
+                    
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new" id="myBtn"><i class="fa fa-plus"></i> Add New</button>  
-						<!-- The Modal -->
+                    
+                   		<div style="margin-top: 15px">
+	                   		<button style="  border-radius: 10px" type="button" class="btn btn-info add-new" id="myBtn"><i class="fa fa-plus"></i> Add New</button> 
+	                       
+                   		</div>
+                        						<!-- The Modal -->
 						<div  id="myModal" class="modal">
 						
 						  <!-- Modal content -->
@@ -225,7 +226,8 @@
           <label for="number">Invoice Number:</label>
            <br>            <input type="number" id="invoiceNumber" name="invoiceNumber">
           <br>
-           
+            <input id="fileupload" type="file" name="fileupload" /> 
+         
 	       <br><br>  
         </fieldset>
         <button type="submit" style="color: white;" class = "addNewInnoice">Add</button>
@@ -247,6 +249,8 @@
             <button class="btn-search" type="button" style="height: 40px; background-color:#5bc0de; border: none; border-radius: 0px; color: white;padding-top: 10px; padding-bottom: 30px" >SEARCH</button>
           </div>
         </div>
+        
+        <div></div>
             <table  id="table-content" class="table table-bordered table-striped ">
                 <thead>
                     <tr>
@@ -254,8 +258,8 @@
                          <th>Number</th>
                          <th>Employee Name</th>
                          <th>Customer Name</th>
+                         <th>fileName</th>
                          <th>Date Of Create</th>
-                         <th>Date Of Update</th>
                          <th>Total Amount</th>
                          <th>Total Paid</th>
                          <th>Remaining Amount</th>
@@ -277,7 +281,7 @@
             <div id="employeesJson"></div>
                 <div class="row">
                     <div class="col-sm-4" style="float: right;">
-                        <button type="button" class="btn btn-info save">Save Changed</button>
+                        <button style="  border-radius: 10px" type="button" class="btn btn-info save">Save Changed</button>
                     </div>
                 </div>
             </div>
@@ -308,6 +312,12 @@
 
         
 </body>
+
+  
+  
+  <script>
+
+</script>
 <script>
  // Get the modal
 var modal = document.getElementById("myModal");

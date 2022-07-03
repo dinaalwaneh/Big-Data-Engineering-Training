@@ -1,15 +1,8 @@
 	$(document).on("click", ".addNewInnoice", function(){
 	
-    var currentdate = new Date(); 
-    var datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + "-" 
-              +(currentdate.getDay()+26)+ " " 
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds()
+   
  
-
-		
+	
 			 var employeeModel =  
 				{
 			       
@@ -20,10 +13,24 @@
 			        status:  "not paid",
 			        isDeleated:  "false",
 			        customerName: $("#customersName").val(),
-			        userName: sessionStorage.getItem("username")
+			        userName: sessionStorage.getItem("username"),
+			        fileName:$("#fileupload").val()
 			    } 
-						     
-               
+	employeeModel.fileName = employeeModel.fileName.substr(12);				 
+ 
+			async function uploadFile() {
+			 
+			  let formData = new FormData(); 
+			  formData.append("file", fileupload.files[0]);
+			  let response = await fetch('/upload', {
+			    method: "POST", 
+			    body: formData
+			  }); 
+			
+			}     
+		    
+		    uploadFile();	
+		           
                var requestJSON = JSON.stringify(employeeModel);
                $.ajax({
                   type : "POST",
@@ -36,13 +43,13 @@
                   success : function(data) {
 	
                   		console.log("doneeeeeeeeeeee");
-            
-                  			location.reload();
+           
+                  	    location.reload();
  
                   },
                   error : function(data) {
 	 
-	 alert("nooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonooonoooo");
+					 alert("no");
                   }
                });
 			 

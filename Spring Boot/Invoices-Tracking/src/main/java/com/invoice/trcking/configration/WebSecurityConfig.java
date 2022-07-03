@@ -104,6 +104,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/add/invoicehistory/**").permitAll()
 			.antMatchers("/invoiceHistory/**").permitAll()
 			.antMatchers("/get/allinvoiceshistory/**").permitAll()
+			.antMatchers("/upload/**").permitAll()
+			.antMatchers("/get/uploadedinvoices/**").permitAll()
+			.antMatchers("/get/invoices/**").permitAll()
+			.antMatchers("/UploadedInvicesPaginationAndSort/{offset}/{pageSize}/{field}/**").permitAll()
+			.antMatchers("/uploadInvoices/**").permitAll()
+			
 			
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

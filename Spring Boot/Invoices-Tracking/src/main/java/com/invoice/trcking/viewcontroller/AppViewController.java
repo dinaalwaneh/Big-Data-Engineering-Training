@@ -56,4 +56,9 @@ public class AppViewController {
 		public String getInvoiceHistoryPage() {
 			return "invoiceHistory_page";
 		}
+		
+		@GetMapping("/uploadInvoices")
+		public String getUploadInvoicePage() {
+			return "uploadInvoices_page";
+		}
 }

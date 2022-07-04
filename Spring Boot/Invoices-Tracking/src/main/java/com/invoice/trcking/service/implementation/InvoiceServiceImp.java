@@ -24,6 +24,8 @@ import com.invoice.trcking.service.InvoiceService;
 import org.springframework.data.domain.Sort;
 
 import javax.annotation.PostConstruct;
+
+import java.awt.print.Pageable;
 import java.security.PublicKey;
 import java.time.LocalDateTime;
 import java.util.Random;
@@ -96,8 +98,10 @@ public class InvoiceServiceImp implements InvoiceService{
 	
 	@Override
 	public Page<Invoice> findProductsWithPaginationAndSorting(int offset,int pageSize,String field){
-	        Page<Invoice> products = invoiceRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC,field)));
-	        return  products;
+	        Page<Invoice> invoices = invoiceRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC,field)));
+	        return  invoices;
 	}
+
+	 
 
 }

@@ -34,7 +34,7 @@ $(document).ready(
                 
 					 sessionStorage.setItem("jwtToken", result.token);
 					 sessionStorage.setItem("username", formData.username);
-					 window.location.href="/dashboard"
+					  getUser();
 					 
 					},
 					error : function(e) {
@@ -44,5 +44,37 @@ $(document).ready(
 				});
 
 			}
+			
+			 function getUser() {
+    
+            $.ajax({
+               type : "GET",
+               url : "user/"+sessionStorage.getItem("username"),
+               success : function(result) {
+             
+             		if(result.roleName=="SUPERUSER"){
+	
+						window.location.href="/dashboard"
+					}
+					
+					if(result.roleName=="SUPPORTUSER"){
+					
+						window.location.href="/sUDashboard"
+					}
+					
+					if(result.roleName=="AUDITORUSER"){
+	
+						window.location.href="/aUDashboard"
+					}
+                        
+    
+                  
+               },
+               error : function(e) {
+                  $("#getResultDiv").html("<strong>Error</strong>");
+                  console.log("ERROR: ", e);
+               }
+            });
+         }
 
 		})

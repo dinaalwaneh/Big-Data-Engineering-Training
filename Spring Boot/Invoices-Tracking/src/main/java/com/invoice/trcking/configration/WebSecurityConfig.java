@@ -109,6 +109,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/get/invoices/**").permitAll()
 			.antMatchers("/UploadedInvicesPaginationAndSort/{offset}/{pageSize}/{field}/**").permitAll()
 			.antMatchers("/uploadInvoices/**").permitAll()
+			.antMatchers("/sUDashboard/**").permitAll()
+			.antMatchers("/sUInvoicesHistory/**").permitAll()
+			.antMatchers("/InvicesPaginationAndSort/{userName}/{offset}/{pageSize}/{field}/**").permitAll()
+			.antMatchers("/get/invoicesByUserName/{userName}/**").permitAll()
+			.antMatchers("/aUDashboard/**").permitAll()
+
 			
 			
 			.anyRequest().authenticated();

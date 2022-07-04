@@ -51,15 +51,27 @@ public class InvoiceController {
 	{
 		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
 		invoiceService.getAllInvoices().forEach(invoice ->{
-			if(invoice.getFileName()==null) {
+			 
 				invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			}
+			
 			
 				
 		});
 		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
 	}
 	
+	
+	@GetMapping("/get/invoicesByUserName/{userName}")
+	public ResponseEntity<Object> getInvoicesByUserName(@PathVariable String userName)
+	{
+		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+		invoiceService.getAllInvoices().forEach(invoice ->{
+			if(invoice.getUser().getUserName().equals(userName)) {
+				invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+			}
+		});
+		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+	}
 	@GetMapping("/get/uploadedinvoices")
 	public ResponseEntity<Object> getUploadedInvoices()
 	{
@@ -203,15 +215,31 @@ public class InvoiceController {
 	    }
 	   
 	   @GetMapping("/UploadedInvicesPaginationAndSort/{offset}/{pageSize}/{field}")
-	    private ResponseEntity<Object> getUplodedInvoicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+	    private ResponseEntity<Object> getUploadedInvicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
 		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
 			
 		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
 		   productsWithPagination.forEach(invoice ->{
-			   if(invoice.getFileName()!=null) {
+			   		
 				   	invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+			   
+		   
+		   });
+	        return  ResponseEntity.ok().body(invoiceDtos);
+	    }
+	   
+	   @GetMapping("/InvicesPaginationAndSort/{userName}/{offset}/{pageSize}/{field}")
+	    private ResponseEntity<Object> getInvoicesWithPaginationAndSortByUserName(@PathVariable String userName,@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+			
+		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
+		   productsWithPagination.forEach(invoice ->{
+			   
+			   System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh  + "+invoice.getUser().getUserName().equals(userName));
+			   	if(invoice.getUser().getUserName().equals(userName)) {
+			   		invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
+			   	}
 				   
-			   }
 		   
 		   });
 	        return  ResponseEntity.ok().body(invoiceDtos);

@@ -34,7 +34,7 @@ $(document).ready(
                 
 					 sessionStorage.setItem("jwtToken", result.token);
 					 sessionStorage.setItem("username", formData.username);
-					window.location.href="/home"
+					 getUser();
 					 
 					 
 					},
@@ -53,8 +53,11 @@ $(document).ready(
                url : "user/"+sessionStorage.getItem("username"),
                success : function(result) {
              
-             console.log("ihhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-                        
+                         if(result.roleName == "AUDITORUER"){
+								window.location.href="/dashboard"
+							}else{
+								window.location.href="/home"
+							}
     
                   
                },

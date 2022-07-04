@@ -61,14 +61,15 @@ public class JwtAuthenticationController {
 			LOGGER.info("User authenticated successfully : ");
 			return new ResponseEntity<Object>(new JwtResponse(token), HttpStatus.CREATED);
 		}catch(UsernameNotFoundException e) {
-			LOGGER.error("User not found : ");
-			System.out.println("UsernameNotFoundException : "+e.getMessage());
+			LOGGER.error("UsernameNotFoundException : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			System.out.println("Exception : "+e.getMessage());
+			LOGGER.error("Exception : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		
 
 		 
 	}

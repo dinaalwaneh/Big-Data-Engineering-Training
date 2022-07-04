@@ -34,24 +34,7 @@ import com.invoice.trcking.service.UserService;
 
 @Controller
 public class UserController {
-	
-/*
-	@RequestMapping(value = "/add/user", method = RequestMethod.POST)
-	public ResponseEntity<Object> createEmployee(@RequestBody User user)
-	{
-		user = userService.createUser(user);
-		return new ResponseEntity<>(
-				"User is created successfully with Id = " + user.getId(),
-				HttpStatus.CREATED);
-	}
 
-	@RequestMapping(value = "/get/users", method = RequestMethod.GET)
-	public ResponseEntity<Object> getEmployees()
-	{
-		List<User> userList = userService.getUsers();
-		return new ResponseEntity<>(userList, HttpStatus.OK);
-	}*/
-	/********************************************************************/
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 
@@ -62,11 +45,16 @@ public class UserController {
 	private UserMapper userMapper;
 
 	@GetMapping("/get/users")
-	public ResponseEntity<Object> getUsers()
-	{
-		List<UserDto> userDtos = new ArrayList<UserDto>();
-		userService.getAllUsers().forEach(user -> userDtos.add(userMapper.convertEntityToDto(user)));
-		return new ResponseEntity<>(userDtos, HttpStatus.OK);
+	public ResponseEntity<Object> getUsers() throws Exception{
+		try {
+			List<UserDto> userDtos = new ArrayList<UserDto>();
+			userService.getAllUsers().forEach(user -> userDtos.add(userMapper.convertEntityToDto(user)));
+			return new ResponseEntity<>(userDtos, HttpStatus.OK);
+		}catch (Exception e) {
+			LOGGER.error("NoSuchUserExistsException : "+e.getMessage());
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}	
 	}
 	
 	@GetMapping("/get/user/{id}")
@@ -82,16 +70,14 @@ public class UserController {
 			LOGGER.info("getCustomerById service with id = {} is done successfully",id);
 			return ResponseEntity.ok().body(postResponse);
 		}catch (NoSuchUserExistsException e) {
-			LOGGER.error("User not foundes with id = {} ",id);
-			System.out.println("NoSuchUserExistsException : "+e.getMessage());
+			LOGGER.error("NoSuchUserExistsException : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch (Exception e) {
-			LOGGER.error("Something goes wrong in getUserById api at User Controller");
-			System.out.println("Exception : "+e.getMessage());
+			LOGGER.error("Exception : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}
-
-		return null;
 	}
 	
 	@PostMapping("/add/user")
@@ -118,28 +104,28 @@ public class UserController {
 			return new ResponseEntity<UserDto>(userResponse, HttpStatus.CREATED);
 			
 		}catch(UserAlreadyExistsException e) {
-			LOGGER.error("User with id = {} already exists in item entity",userDto.getId());
-			System.out.println("UserAlreadyExistsException : "+ e.getMessage()) ;
+			LOGGER.error("UserAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullValueException e) {
-			LOGGER.error("User data has null value!!");
-			System.out.println("NullValueException : "+ e.getMessage()) ;
+			LOGGER.error("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("User data has empty value!!");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in addUser service in UserController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
+		
 	}
 	
 	@PutMapping("/put/user/{id}")
@@ -165,28 +151,28 @@ public class UserController {
 		    LOGGER.info("User with id = {} ",userResponse.getId()," has updated successfuly :");
 			return ResponseEntity.ok().body(userResponse);
 		}catch(NoSuchCustomerExistsException e) {
-			LOGGER.error("No Such User Exists with id = {}",id);
-			System.out.println("NoSuchCustomerExistsException : "+ e.getMessage()) ;
+			LOGGER.error("NoSuchCustomerExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullValueException e) {
-			LOGGER.error("User data has null value!!");
-			System.out.println("NullValueException : "+ e.getMessage()) ;
+			LOGGER.error("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("User data has empty value!!");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in updateUser service in UserController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<UserDto>(HttpStatus.BAD_REQUEST);
+		
 	}
 	
  
@@ -194,6 +180,7 @@ public class UserController {
 
 	@GetMapping("/user/{username}")
 	public ResponseEntity<UserDto> getUserByUserName(@PathVariable String username) {
+		
 		try {
 			LOGGER.info("user name = {}",username);
 			User user = userService.getUserByUsername(username);
@@ -203,8 +190,7 @@ public class UserController {
 
 			return ResponseEntity.ok().body(postResponse);
 		}catch (Exception e) {
-			LOGGER.error("Something goes wrong in getUserByUserName service in UserController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
 		}
 		return null;

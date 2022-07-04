@@ -25,9 +25,7 @@ public class RoleController {
 	public ResponseEntity<Object> createRole(@RequestBody Role role)
 	{
 		role = roleService.createRole(role);
-		return new ResponseEntity<>(
-				"User is created successfully with Id = " + role.getId(),
-				HttpStatus.CREATED);
+		return new ResponseEntity<>("User is created successfully with Id = " + role.getId(), HttpStatus.CREATED);
 	}
 
 	@RequestMapping(value = "/get/roles", method = RequestMethod.GET)

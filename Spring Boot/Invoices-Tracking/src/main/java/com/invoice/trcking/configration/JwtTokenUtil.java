@@ -1,8 +1,7 @@
 package com.invoice.trcking.configration;
 
 
-import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,27 +10,22 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtTokenUtil  {
 
-	private static final long serialVersionUID = -2550185165626007488L;
+	 
 
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 50 * 60 * 60;
 
 	@Value("${jwt.secret}")
 	private String secret;
@@ -40,7 +34,6 @@ public class JwtTokenUtil  {
 	public String getUsernameFromToken(String token,UserDetails userDetails) {
 		
 		String username = getClaimFromToken(token, Claims::getSubject);
-		System.out.println("getUsernameFromToken 1235hhhhhhhhhhhhhhhhhhhhhhhhhh[lplphhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh ");
 		System.out.println(username);
 		return username;
 	}
@@ -91,7 +84,7 @@ public class JwtTokenUtil  {
 		Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
 		String access_token = JWT.create()
 				.withSubject(subject)
-				.withExpiresAt(new Date(System.currentTimeMillis() +50*60*601000))
+				.withExpiresAt(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY*1000))
 				.withClaim("roles", collection.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList())).sign(algorithm);
 
 		return access_token;
@@ -100,7 +93,6 @@ public class JwtTokenUtil  {
 	
 	//validate token
 	public Boolean validateToken(String token, UserDetails userDetails) {
-		System.out.println("validateToken hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh "+token );
 
 		final String username = getUsernameFromToken(token,userDetails);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));

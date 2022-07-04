@@ -40,10 +40,7 @@ public class UserServiceImpl implements UserService {
 		if(user.getUserName()==""||user.getPhone()==""||user.getPassword()=="") {
 			throw new EmptyValueException("added date has empty values!!");
 		}
-		//User existingUser= userRepository.findByUsername(user.getUserName());
-		//if (existingUser == null) {
-			return userRepository.save(user);
-	     //}else throw new UserAlreadyExistsException("User already exixts!!");
+		return userRepository.save(user);
 	}
 
 	@Override
@@ -80,15 +77,6 @@ public class UserServiceImpl implements UserService {
 			throw new NoSuchUserExistsException("No sush user exist with id = "+id);
 		}
 		return result.get();
-		/*if(result.isPresent()) {
-			return result.get();
-		}else {
-			throw new ResourceNotFoundException("Post", "id", id);
-		}*/
-		
-//		Post post = postRepository.findById(id)
-//				.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-		//return post;
 	}
 	
 

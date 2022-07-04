@@ -44,10 +44,8 @@ public class ItemServiceImp implements ItemService {
     	if(item.getName()==""||item.getAmmount()==0) {
     		throw new EmptyValueException("added date has empty values!!");
     	}
-		//Item existingItem = itemRepository.findById(item.getId()).orElse(null); 
-		//if (existingItem == null) {
-			return itemRepository.save(item);
-	    // }else throw new CustomerAlreadyExistsException("Item already exixts!!");		
+		
+		return itemRepository.save(item);
 	}
 
 	@Override

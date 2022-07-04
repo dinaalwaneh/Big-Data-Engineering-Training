@@ -35,20 +35,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 	
-	
-@Bean
-	
+	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 	    return new BCryptPasswordEncoder();
 	}
 	
-	@Autowired
-
+	// configure AuthenticationManager so that it knows from where to load
+	// user for matching credentials
+	// Use BCryptPasswordEncoder
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		// configure AuthenticationManager so that it knows from where to load
-		// user for matching credentials
-		// Use BCryptPasswordEncoder
-		auth.userDetailsService(jwtUserDetailsService).passwordEncoder( passwordEncoder());
+		auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
 	}
 
 	
@@ -60,17 +56,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-	    web
-	            .ignoring()
-	            .antMatchers("/css/**","/images/**","/js/**");
+		web		
+        .ignoring()
+        .antMatchers("/css/**","/images/**","/js/**");
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
 			.exceptionHandling().and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+			.and()
 			.authorizeRequests().antMatchers("/home").permitAll()
 			.antMatchers("/login/**").permitAll()
 			.antMatchers("/authenticate/**").permitAll()
@@ -114,9 +110,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/InvicesPaginationAndSort/{userName}/{offset}/{pageSize}/{field}/**").permitAll()
 			.antMatchers("/get/invoicesByUserName/{userName}/**").permitAll()
 			.antMatchers("/aUDashboard/**").permitAll()
-
-			
-			
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}

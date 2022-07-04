@@ -41,11 +41,17 @@ public class ItemController {
 	private ItemMapper itemMapper;
 
 	@GetMapping("/get/items")
-	public ResponseEntity<Object> getItems()
-	{
-		List<ItemDto> itemDtos = new ArrayList<ItemDto>();
-		itemService.getAllItems().forEach(item -> itemDtos.add(itemMapper.convertEntityToDto(item)));
-		return new ResponseEntity<>(itemDtos, HttpStatus.OK);
+	public ResponseEntity<Object> getItems() throws Exception{
+		
+		try {
+			List<ItemDto> itemDtos = new ArrayList<ItemDto>();
+			itemService.getAllItems().forEach(item -> itemDtos.add(itemMapper.convertEntityToDto(item)));
+			return new ResponseEntity<>(itemDtos, HttpStatus.OK);
+		}catch (Exception e) {
+			LOGGER.error("Exception : "+e.getMessage());
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/get/item/{id}")
@@ -63,24 +69,21 @@ public class ItemController {
 			return ResponseEntity.ok().body(itemResponse);
 			
 		}catch (NoSuchItemExistsException e) {
-			LOGGER.error("Item not foundes with id = {} ",id);
-			System.out.println("NoSuchItemExistsException : "+e.getMessage());
+			LOGGER.error("NoSuchItemExistsException : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch (Exception e) {
-			LOGGER.error("Something goes wrong in getItemById api at ItemController");
-			System.out.println("Exception : "+e.getMessage());
+			LOGGER.error("Exception : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}
-
-		return null;
-		
 	}
 	
 	@PostMapping("/add/item")
 	public ResponseEntity<ItemDto> addItem(@RequestBody ItemDto itemDto) throws NullPointerException, ItemAlreadyExistsException, EmptyValueException, NullValueException, Exception {
 		
 		
-			try {
+		try {
 				
 				//LOGGER.debug("Add item service");
 				if(itemDto == null){
@@ -100,28 +103,28 @@ public class ItemController {
 				return new ResponseEntity<ItemDto>(itemResponse, HttpStatus.CREATED);
 				
 		}catch(ItemAlreadyExistsException e) {
-			LOGGER.error("Item with id = {} already exists in item entity",itemDto.getId());
-			System.out.println("ItemAlreadyExistsException : "+ e.getMessage()) ;
+			LOGGER.error("ItemAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullValueException e) {
-			LOGGER.error("Item data has null value!!");
-			System.out.println("NullValueException : "+ e.getMessage()) ;
+			LOGGER.error("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("item data has empty value!!");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in addItem service in ItemController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
+		
 		
 	}
 	
@@ -146,31 +149,30 @@ public class ItemController {
 			
 		    LOGGER.info("Item with id = {} ",itemResponse.getId(),"has updated successfuly :");
         	return ResponseEntity.ok().body(itemResponse);
-
 			
 		}catch(NoSuchItemExistsException e) {
-			LOGGER.error("No Such Item Exists with id = {}",id);
-			System.out.println("NoSuchItemExistsException : "+ e.getMessage()) ;
+			LOGGER.error("NoSuchItemExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullValueException e) {
-			LOGGER.error("Item data has null value!!");
-			System.out.println("NullValueException : "+ e.getMessage()) ;
+			LOGGER.error("NullValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("invoice data has empty value!!");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in updateItem service in ItemController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
 		}
 	
-	return new ResponseEntity<ItemDto>(HttpStatus.BAD_REQUEST);
+	
 		
 	}
 }

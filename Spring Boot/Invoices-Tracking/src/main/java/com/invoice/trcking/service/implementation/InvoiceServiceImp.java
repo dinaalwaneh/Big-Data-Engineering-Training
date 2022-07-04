@@ -26,6 +26,7 @@ import org.springframework.data.domain.Sort;
 import javax.annotation.PostConstruct;
 
 import java.awt.print.Pageable;
+import java.io.Console;
 import java.security.PublicKey;
 import java.time.LocalDateTime;
 import java.util.Random;
@@ -47,25 +48,22 @@ public class InvoiceServiceImp implements InvoiceService{
 
 	@Override
 	public Invoice addInvoice(Invoice invoice) throws InvoiceAlreadyExistsException , EmptyValueException {
+		
 		LocalDateTime localDateTime = LocalDateTime.now();
 		invoice.setDateOfCreate(localDateTime);
 		invoice.setDateOfUpdate(localDateTime);
 		if(invoice.getNumber()==0) {
 			throw new EmptyValueException("Invoice date has null values!!");
     	}
-		//Invoice existingInvoice = invoiceRepository.fi(invoice.getId()).orElse(null); 
-		//if (existingInvoice == null) {
-			return invoiceRepository.save(invoice);
-	    // }else throw new CustomerAlreadyExistsException("Invoice already exixts!!");		
+		
+		return invoiceRepository.save(invoice);		
 	}
 
 	@Override
 	public Invoice updateInvoice(long id, Invoice newInvoiceDetails) throws NoSuchInvoiceExistsException , EmptyValueException {
-		//Invoice invoice = invoiceRepository.findById(id).orElse(null);
-	   //  if (invoice == null)
-	    //        throw new NoSuchInvoiceExistsException("No Such Invoice exists with id = "+id);
-	    // else {
-		Invoice invoice = invoiceRepository.findById(id).get();
+
+		    Invoice invoice = invoiceRepository.findById(id).get();
+		  
 	    	if(newInvoiceDetails.getId()==0||newInvoiceDetails.getNumber()==0) {
 	    		throw new EmptyValueException("updated date has empty values!!");
 	    	}
@@ -83,9 +81,7 @@ public class InvoiceServiceImp implements InvoiceService{
 			invoice.setUser(newInvoiceDetails.getUser());
 			return invoiceRepository.save(invoice);
 	     }	
-		
 
-	//}
 
 	@Override
 	public Invoice getInvoiceById(long id) throws NoSuchInvoiceExistsException{
@@ -97,11 +93,9 @@ public class InvoiceServiceImp implements InvoiceService{
 	}
 	
 	@Override
-	public Page<Invoice> findProductsWithPaginationAndSorting(int offset,int pageSize,String field){
+	public Page<Invoice> findInvoicesWithPaginationAndSorting(int offset,int pageSize,String field){
 	        Page<Invoice> invoices = invoiceRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC,field)));
 	        return  invoices;
 	}
-
-	 
 
 }

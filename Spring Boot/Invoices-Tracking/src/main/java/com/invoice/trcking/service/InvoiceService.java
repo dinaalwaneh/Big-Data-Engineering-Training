@@ -17,5 +17,5 @@ public interface InvoiceService {
 
 	Invoice getInvoiceById(long id);
 	
-    Page<Invoice> findProductsWithPaginationAndSorting(int offset,int pageSize,String field);
+    Page<Invoice> findInvoicesWithPaginationAndSorting(int offset,int pageSize,String field);
 }

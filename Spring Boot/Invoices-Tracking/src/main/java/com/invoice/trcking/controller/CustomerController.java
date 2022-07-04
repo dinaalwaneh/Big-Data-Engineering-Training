@@ -44,14 +44,23 @@ public class CustomerController {
 	@Autowired
 	private CustomerMapper customerMapper;
 	
+	// in this function i will getAllCustomers from the database as a list of Json of type customer entity
+	// and then take each one and convert it to customer DTO and add it to customerDtos list .
 	@GetMapping("/get/customers")
-	public ResponseEntity<Object> getCustomers()
-	{
-		List<CustomerDto> customerDtos = new ArrayList<CustomerDto>();
-		customerService.getAllCustomers().forEach(user -> customerDtos.add(customerMapper.convertEntityToDto(user)));
-		return new ResponseEntity<>(customerDtos, HttpStatus.OK);
+	public ResponseEntity<Object> getCustomers() throws Exception{
+		
+		try {
+			List<CustomerDto> customerDtos = new ArrayList<CustomerDto>();
+			customerService.getAllCustomers().forEach(user -> customerDtos.add(customerMapper.convertEntityToDto(user)));
+			return new ResponseEntity<>(customerDtos, HttpStatus.OK);
+		}catch (Exception e) {
+			LOGGER.error("Exception : "+e.getMessage());
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}		
 	}
 	
+	// in this function i will getCustomerById from the database as a Json of type customer entity
+	// and then convert it to customer DTO .
 	@GetMapping("/get/customer/{id}")
 	public ResponseEntity<CustomerDto> getCustomerById(@PathVariable(name = "id") Long id) throws NoSuchCustomerExistsException, Exception {
 		
@@ -66,16 +75,15 @@ public class CustomerController {
 				return ResponseEntity.ok().body(postResponse);
 				
 			}catch (NoSuchCustomerExistsException e) {
-				LOGGER.error("Customer not foundes with id = {} ",id);
-				System.out.println("NoSuchCustomerExistsException : "+e.getMessage());
+				LOGGER.error("NoSuchCustomerExistsException : "+e.getMessage());
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch (Exception e) {
-				LOGGER.error("Something goes wrong in getCustomerById api at Customer Controller");
-				System.out.println("Exception : "+e.getMessage());
+				LOGGER.error("Exception : "+e.getMessage());
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}
 	
-			return null;
 	}
 	
 	@PostMapping("/add/customer")
@@ -102,30 +110,32 @@ public class CustomerController {
 				return new ResponseEntity<CustomerDto>(customerResponse, HttpStatus.CREATED);
 				
 			}catch(CustomerAlreadyExistsException e) {
-				LOGGER.error("Customer with id = {} already exists in item entity",customerDto.getId());
-				System.out.println("CustomerAlreadyExistsException : "+ e.getMessage()) ;
+				LOGGER.error("CustomerAlreadyExistsException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(NullPointerException e) {
-				LOGGER.error("object point to null");
-				System.out.println("NullPointerException : "+ e.getMessage()) ;
+				LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(NullValueException e) {
-				LOGGER.error("Customer data has null value!!");
-				System.out.println("NullValueException : "+ e.getMessage()) ;
+				LOGGER.error("NullValueException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(EmptyValueException e) {
-				LOGGER.error("Customer data has empty value!!");
-				System.out.println("EmptyValueException : "+ e.getMessage()) ;
+				LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(Exception e) {
-				LOGGER.error("Something goes wrong in addItem service in ItemController");
-				System.out.println("Exception : "+ e.getMessage()) ;
+				LOGGER.error("Exception : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}
 			
-			return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
+			
 	}
 	
+	// in this function i will send CustomerDto to body and customer id to url and then 
+	// convert customer DTO to entity and send it to updateCustomer in customerService.
 	@PutMapping("/update/customer/{id}")
 	public ResponseEntity<CustomerDto> updateCustomer(@PathVariable long id, @RequestBody CustomerDto customerDto) throws NullPointerException, NoSuchCustomerExistsException, NullValueException , EmptyValueException, Exception {
 
@@ -148,29 +158,27 @@ public class CustomerController {
 			    LOGGER.info("Customer with id = {} ",customerResponse.getId()," has updated successfuly :");
 				return ResponseEntity.ok().body(customerResponse);
 			}catch(NoSuchCustomerExistsException e) {
-				LOGGER.error("No Such Customer Exists with id = {}",id);
-				System.out.println("NoSuchCustomerExistsException : "+ e.getMessage());
+				LOGGER.error("NoSuchCustomerExistsException : "+ e.getMessage());
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(NullPointerException e) {
-				LOGGER.error("object point to null");
-				System.out.println("NullPointerException : "+ e.getMessage());
+				LOGGER.error("NullPointerException : "+ e.getMessage());
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(NullValueException e) {
-				LOGGER.error("Customer data has null value!!");
-				System.out.println("NullValueException : "+ e.getMessage()) ;
+				LOGGER.error("NullValueException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(EmptyValueException e) {
-				LOGGER.error("Customer data has empty value!!");
-				System.out.println("EmptyValueException : "+ e.getMessage()) ;
+				LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}catch(Exception e) {
-				LOGGER.error("Something goes wrong in updateCustomer service in CustomerController");
-				System.out.println("Exception : "+ e.getMessage());
+				LOGGER.error("Exception : "+ e.getMessage());
 				e.printStackTrace();
+				return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
 			}
-			
-			return new ResponseEntity<CustomerDto>(HttpStatus.BAD_REQUEST);
-		
+
 	}
 
 }

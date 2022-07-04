@@ -36,12 +36,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
-	@Autowired
-	private JwtUserDetailsService jwtUserDetailsService;
-
-	@Autowired
-	private JwtTokenUtil jwtTokenUtil;
-
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {

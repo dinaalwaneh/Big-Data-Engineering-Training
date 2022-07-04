@@ -40,10 +40,8 @@ public class CustomerServiceImp implements CustomerService {
     	if(customer.getCustomerName()==""||customer.getPhone()=="") {
     		throw new EmptyValueException("updated date has empty values!!");
     	}
-	//	Customer existingCustomer= customerRepository.findById(customer.getId()).orElse(null); 
-		//if (existingCustomer == null) {
-	    	return customerRepository.save(customer);
-	   //  }else throw new CustomerAlreadyExistsException("Customer already exixts!!");		
+	
+	    return customerRepository.save(customer);
 	}
 
 	@Override

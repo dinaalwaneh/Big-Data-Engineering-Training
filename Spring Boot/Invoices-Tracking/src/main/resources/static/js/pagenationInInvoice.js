@@ -25,7 +25,7 @@ $(document).on("click", ".page-item", function(){
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/paginationAndSort/"+($(this).text()-1)+"/2/dateOfCreate",
+               url : "http://localhost:8082/paginationAndSort/"+($(this).text()-1)+"/10/dateOfCreate",
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

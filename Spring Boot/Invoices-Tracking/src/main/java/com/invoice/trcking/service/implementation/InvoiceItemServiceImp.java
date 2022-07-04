@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.invoice.trcking.exception.EmptyValueException;
+import com.invoice.trcking.exception.invoice.item.NoSuchInvoiceItemExistsException;
 import com.invoice.trcking.exception.invoiceItem.InvoiceItemAlreadyExistsException;
 import com.invoice.trcking.exception.invoive.InvoiceAlreadyExistsException;
+import com.invoice.trcking.exception.invoive.NoSuchInvoiceExistsException;
 import com.invoice.trcking.model.Invoice;
 import com.invoice.trcking.model.InvoiceItem;
 import com.invoice.trcking.model.User;
@@ -42,8 +44,6 @@ public class InvoiceItemServiceImp implements InvoiceItemService {
 	public InvoiceItem updateInvoiceItem(long id, InvoiceItem newInvoiceItem) {
 		InvoiceItem invoiceItem = invoiceItemRepository.findById(id).get();
 		
-		//.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-		
 		invoiceItem.setId(newInvoiceItem.getId());
 		invoiceItem.setInvoice(newInvoiceItem.getInvoice());
 		invoiceItem.setItem(newInvoiceItem.getItem());
@@ -52,8 +52,11 @@ public class InvoiceItemServiceImp implements InvoiceItemService {
 	}
 
 	@Override
-	public InvoiceItem getInvoiceItemById(long id) {
+	public InvoiceItem getInvoiceItemById(long id) throws NoSuchInvoiceItemExistsException{
 		Optional<InvoiceItem> result = invoiceItemRepository.findById(id);
+		if(result.isEmpty()) {
+			throw new NoSuchInvoiceItemExistsException("No sush Invoice Item exist with id = "+id);
+		}
 		return result.get();
 	}
 

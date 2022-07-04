@@ -47,70 +47,55 @@ public class InvoiceController {
 	private InvoiceMapper invoiceMapper;
 
 	@GetMapping("/get/invoices")
-	public ResponseEntity<Object> getInvoices()
-	{
-		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-		invoiceService.getAllInvoices().forEach(invoice ->{
-			 
-				invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			
-			
-				
-		});
-		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+	public ResponseEntity<Object> getInvoices() throws Exception{
+		try {
+			List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+			invoiceService.getAllInvoices().forEach(invoice ->{invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));});
+			return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+		}catch (Exception e) {
+			LOGGER.error("Exception : "+e.getMessage());
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}		
 	}
 	
 	
 	@GetMapping("/get/invoicesByUserName/{userName}")
-	public ResponseEntity<Object> getInvoicesByUserName(@PathVariable String userName)
-	{
-		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-		invoiceService.getAllInvoices().forEach(invoice ->{
-			if(invoice.getUser().getUserName().equals(userName)) {
-				invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			}
-		});
-		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
-	}
-	@GetMapping("/get/uploadedinvoices")
-	public ResponseEntity<Object> getUploadedInvoices()
-	{
-		List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-		invoiceService.getAllInvoices().forEach(invoice ->{
-			if(invoice.getFileName()!=null) {
-				if(invoice.getFileName().length()!=0) {
+	public ResponseEntity<Object> getInvoicesByUserName(@PathVariable String userName) throws Exception{
+		try {
+			List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+			invoiceService.getAllInvoices().forEach(invoice ->{
+				if(invoice.getUser().getUserName().equals(userName)) {
 					invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
 				}
-				
-			}
-			
-				
-		});
-		return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+			});
+			return new ResponseEntity<>(invoiceDtos, HttpStatus.OK);
+		}catch (Exception e) {
+			LOGGER.error("Exception : "+e.getMessage());
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 	}
 	
 	@GetMapping("/get/invoice/{id}")
 	public ResponseEntity<InvoiceDto> getInvoiceById(@PathVariable(name = "id") Long id)throws NoSuchInvoiceExistsException, Exception {
+		
 		try {
-			
 			//LOGGER.debug("getInvoiceById service with id : ",id);
 			Invoice invoice = invoiceService.getInvoiceById(id);
-
 			// convert entity to DTO
 			InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
 			LOGGER.info("getInvoiceById service is done successfully");
 			return ResponseEntity.ok().body(invoiceResponse);
 		}catch (NoSuchInvoiceExistsException e) {
-			LOGGER.error("Invoice not foundes with id :",id);
-			System.out.println("NoSuchInvoiceExistsException : "+e.getMessage());
+			LOGGER.error("NoSuchInvoiceExistsException : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch (Exception e) {
-			LOGGER.error("Something goes wrong in getInvoiceById api at InvoiceController");
-			System.out.println("Exception : "+e.getMessage());
+			LOGGER.error("Exception : "+e.getMessage());
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}
 
-		return null;	
 	}
 	
 	@PostMapping("/add/invoice")
@@ -120,40 +105,39 @@ public class InvoiceController {
 
 			//LOGGER.debug("Add invoice service");
 			if(invoiceDto == null){
-			//	throw new NullPointerException("InvoiceDto point to null ");
+				throw new NullPointerException("InvoiceDto point to null ");
 			}
 			// convert DTO to entity
 			Invoice invoiceRequest = invoiceMapper.convertDtoToEntity(invoiceDto);
 
 			Invoice invoice = invoiceService.addInvoice(invoiceRequest);
 
-		//	if(invoice == null){
-		//		throw new NullPointerException("invoice point to null");
-		//	}
+			if(invoice == null){
+				throw new NullPointerException("invoice point to null");
+			}
 			// convert entity to DTO
 		    InvoiceDto invoiceResponse = invoiceMapper.convertEntityToDto(invoice);
 		    LOGGER.info("Invoice added to item entity successfuly");
 			return new ResponseEntity<InvoiceDto>(invoiceResponse, HttpStatus.CREATED);
 			
 		}catch(InvoiceAlreadyExistsException e) {
-			LOGGER.error("Invoice already exists in invoice entity");
-			System.out.println("InvoiceAlreadyExistsException : "+ e.getMessage()) ;
+			LOGGER.error("InvoiceAlreadyExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("invoice data has empty value!!");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in addInvoice service in InvoiceController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 	}
 	
 	@PutMapping("/put/invoice/{id}")
@@ -181,80 +165,51 @@ public class InvoiceController {
 			
 		    LOGGER.info("Invoice with id :",invoiceResponse.getId(),"has updated successfuly :");
 			return ResponseEntity.ok().body(invoiceResponse);
-			
-			
 		}catch(NoSuchInvoiceExistsException e) {
-			LOGGER.error("No Such Invoice Exists with id =",id);
-			System.out.println("NoSuchInvoiceExistsException : "+ e.getMessage()) ;
+			LOGGER.error("NoSuchInvoiceExistsException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch(EmptyValueException e) {
-			LOGGER.error("trieng to update data with empty value");
-			System.out.println("EmptyValueException : "+ e.getMessage()) ;
+			LOGGER.error("EmptyValueException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in updateInvoice service in InvoiceController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
 		}
 		
-		return new ResponseEntity<InvoiceDto>(HttpStatus.BAD_REQUEST);
+		
 	}
-	
-	   @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
-	    private ResponseEntity<Object> getInvicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
-		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-			
-		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
-		   productsWithPagination.forEach(invoice ->{
-			 
-				   	invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			   
-		   
-		   });
-	        return  ResponseEntity.ok().body(invoiceDtos);
-	    }
-	   
-	   @GetMapping("/UploadedInvicesPaginationAndSort/{offset}/{pageSize}/{field}")
-	    private ResponseEntity<Object> getUploadedInvicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
-		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-			
-		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
-		   productsWithPagination.forEach(invoice ->{
-			   		
-				   	invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			   
-		   
-		   });
-	        return  ResponseEntity.ok().body(invoiceDtos);
-	    }
-	   
-	   @GetMapping("/InvicesPaginationAndSort/{userName}/{offset}/{pageSize}/{field}")
-	    private ResponseEntity<Object> getInvoicesWithPaginationAndSortByUserName(@PathVariable String userName,@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
-		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
-			
-		   Page<Invoice> productsWithPagination = invoiceService.findProductsWithPaginationAndSorting(offset, pageSize, field);
-		   productsWithPagination.forEach(invoice ->{
-			   
-			   System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh  + "+invoice.getUser().getUserName().equals(userName));
-			   	if(invoice.getUser().getUserName().equals(userName)) {
-			   		invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));
-			   	}
-				   
-		   
-		   });
-	        return  ResponseEntity.ok().body(invoiceDtos);
-	    }
-	   
-	   @PostMapping("/upload") 
-		  public ResponseEntity<?> handleFileUpload( @RequestParam("file") MultipartFile file ) {
 
-		    String fileName = file.getOriginalFilename();
-		    try {
-		      file.transferTo( new File("C:\\Users\\hp\\Documents\\workspace-spring-tool-suite-4-4.14.1.RELEASE\\Invoices-Tracking\\src\\main\\resources\\static\\images\\" + fileName));
-		    } catch (Exception e) {
+    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
+    private ResponseEntity<Object> getInvoicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) throws Exception {
+	   
+    	try {
+		   List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
+		   Page<Invoice> InvoicesWithPagination = invoiceService.findInvoicesWithPaginationAndSorting(offset, pageSize, field);
+		   InvoicesWithPagination.forEach(invoice ->{invoiceDtos.add(invoiceMapper.convertEntityToDto(invoice));});
+	       return  ResponseEntity.ok().body(invoiceDtos);
+	    }catch(Exception e) {
+	    	LOGGER.error("Exception : "+ e.getMessage()) ;
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	   
+    }
+  
+   @PostMapping("/upload") 
+   public ResponseEntity<?> handleFileUpload( @RequestParam("file") MultipartFile file ) {
+
+	    String fileName = file.getOriginalFilename();
+	    try {
+	    	   file.transferTo( new File("C:\\Users\\hp\\Documents\\workspace-spring-tool-suite-4-4.14.1.RELEASE\\Invoices-Tracking\\src\\main\\resources\\static\\images\\" + fileName));
+	    } catch (Exception e) {
+		      LOGGER.error("Exception : "+ e.getMessage()) ;
+			  e.printStackTrace();
 		      return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-		    } 
-		    return ResponseEntity.ok("File uploaded successfully.");
-		  }
- 
+	    } 
+	    return ResponseEntity.ok("File uploaded successfully.");
+    }
+  
 }

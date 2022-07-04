@@ -35,43 +35,36 @@ public class HistoryController {
 	private HistoryMapper historyMapper; 
 	
 	@GetMapping("/get/allinvoiceshistory")
-	public ResponseEntity<Object> getInvoicesHistory() {
+	public ResponseEntity<Object> getInvoicesHistory() throws Exception{
 		
-		List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
-		
-		historyService.getAllInvoicesHistory().forEach(invoicehistiry ->{
-			
-				historyDto.add(historyMapper.convertEntityToDto(invoicehistiry));
-			
-			
-		});
-		return new ResponseEntity<>(historyDto, HttpStatus.OK);
-		/*InvoiceItem invoiceItem = invoiceItemService.getInvoiceItemById(id);
-
-		// convert entity to DTO
-		InvoiceItemDto invoiceItemResponse = invoiceItemMapper.convertEntityToDto(invoiceItem);
-
-		return ResponseEntity.ok().body(invoiceItemResponse);*/
+		try {	
+			List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
+			historyService.getAllInvoicesHistory().forEach(invoicehistiry ->{historyDto.add(historyMapper.convertEntityToDto(invoicehistiry));});
+			return new ResponseEntity<>(historyDto, HttpStatus.OK);
+		}catch(Exception e) {
+			LOGGER.error("Exception : "+ e.getMessage()) ;
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@GetMapping("/get/invoicehistory/{invoiceId}")
-	public ResponseEntity<Object> getInvoiceHistoryById(@PathVariable Long invoiceId) {
+	public ResponseEntity<Object> getInvoiceHistoryByInvoiceId(@PathVariable Long invoiceId) throws Exception{
 		
-		List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
-		
-		historyService.getAllInvoicesHistory().forEach(invoicehistiry ->{
-			if(invoicehistiry.getInvoice().getId()==invoiceId) {
-				historyDto.add(historyMapper.convertEntityToDto(invoicehistiry));
-			}
+		try {	
+			List<HistoryDto> historyDto = new ArrayList<HistoryDto>();
 			
-		});
-		return new ResponseEntity<>(historyDto, HttpStatus.OK);
-		/*InvoiceItem invoiceItem = invoiceItemService.getInvoiceItemById(id);
-
-		// convert entity to DTO
-		InvoiceItemDto invoiceItemResponse = invoiceItemMapper.convertEntityToDto(invoiceItem);
-
-		return ResponseEntity.ok().body(invoiceItemResponse);*/
+			historyService.getAllInvoicesHistory().forEach(invoicehistiry ->{
+				if(invoicehistiry.getInvoice().getId()==invoiceId) {
+					historyDto.add(historyMapper.convertEntityToDto(invoicehistiry));
+				}
+			});
+			return new ResponseEntity<>(historyDto, HttpStatus.OK);
+		}catch(Exception e) {
+			LOGGER.error("Exception : "+ e.getMessage()) ;
+			e.printStackTrace();
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PostMapping("/add/invoicehistory")
@@ -97,17 +90,14 @@ public class HistoryController {
 			return new ResponseEntity<HistoryDto>(invoiceHistoryResponse, HttpStatus.CREATED);
 			
 		}catch(NullPointerException e) {
-			LOGGER.error("object point to null");
-			System.out.println("NullPointerException : "+ e.getMessage()) ;
+			LOGGER.error("NullPointerException : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<HistoryDto>(HttpStatus.BAD_REQUEST);
 		}catch(Exception e) {
-			LOGGER.error("Something goes wrong in addInvoice service in InvoiceController");
-			System.out.println("Exception : "+ e.getMessage()) ;
+			LOGGER.error("Exception : "+ e.getMessage()) ;
 			e.printStackTrace();
+			return new ResponseEntity<HistoryDto>(HttpStatus.BAD_REQUEST);
 		}
-		
-		return new ResponseEntity<HistoryDto>(HttpStatus.BAD_REQUEST);
-
 	}
 	
 }

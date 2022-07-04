@@ -22,16 +22,6 @@ public class AppViewController {
 			return "register_page";
 		}
 		
-		@GetMapping("/profile")
-		public String getpersonalPage() {
-			return "personal_page";
-		}
-		
-		@GetMapping("/dashboardd")
-		public String getdashboardPagee() {
-			return "dashboard";
-		}
-		
 		@GetMapping("/dashboard")
 		public String getdashboardPage() {
 			return "dashboard_page";

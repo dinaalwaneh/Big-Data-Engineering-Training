@@ -49,6 +49,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
 		
 		 		function getTotalAmmount(o){
 			 
+			 o = o.replace(" ",'');
 					 $.ajax({	 
 					
                type : "GET",

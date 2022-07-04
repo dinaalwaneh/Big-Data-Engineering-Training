@@ -9,10 +9,14 @@ public class SupportUserViewController {
 
 	
 	 
-	@GetMapping("/aUDashboard")
-	public String getAUDashboardPage() {
-		return "AuditorDashboard_page";
+	@GetMapping("/sUDashboard")
+	public String getSUDashboardPage() {
+		return "supportUserDashBoard_page";
 	}
 	
+	@GetMapping("/sUInvoicesHistory")
+	public String getSUInvoicesHistortPage() {
+		return "sUInvoicesHistory_page";
+	}
 	
 }

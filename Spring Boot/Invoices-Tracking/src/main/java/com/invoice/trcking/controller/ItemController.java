@@ -40,7 +40,9 @@ public class ItemController {
 	@Autowired
 	private ItemMapper itemMapper;
 
-	@GetMapping("/get/items")
+	// in this function i will get Items from the database as a list of Json of type Items entity
+	// and then take each one and convert it to Item DTO and add it to itemDtos list and return the list as a response with status code 200.
+	@GetMapping("/items")
 	public ResponseEntity<Object> getItems() throws Exception{
 		
 		try {
@@ -54,7 +56,9 @@ public class ItemController {
 		}
 	}
 	
-	@GetMapping("/get/item/{id}")
+	// in this function i will send Item id to url and call getItemById  function in invoiceItemService after recived  json of type Item entity
+	// then we will convert it to Item DTO send it as a response.
+	@GetMapping("/item/{id}")
 	public ResponseEntity<ItemDto> getItemById(@PathVariable Long id)throws NoSuchItemExistsException, Exception {
 		
 		try {
@@ -79,7 +83,10 @@ public class ItemController {
 		}
 	}
 	
-	@PostMapping("/add/item")
+	// in this function i will send ItemDto to body then 
+	// convert ItemDto to entity and send it to addItem in itemService to save it in the database
+	// and return ItemDto as a response with status code 200 if the operation completed.
+	@PostMapping("/item")
 	public ResponseEntity<ItemDto> addItem(@RequestBody ItemDto itemDto) throws NullPointerException, ItemAlreadyExistsException, EmptyValueException, NullValueException, Exception {
 		
 		
@@ -128,7 +135,9 @@ public class ItemController {
 		
 	}
 	
-	@PutMapping("/put/item/{id}")
+	// in this function i will send ItemDto to body and invoice id to url and then 
+	// convert ItemDto to entity and send it to updateItem function in itemService to save it in the database.
+	@PutMapping("/item/{id}")
 	public ResponseEntity<ItemDto> updateItem(@PathVariable long id, @RequestBody ItemDto itemDto)  throws NullPointerException, NoSuchItemExistsException, EmptyValueException, NullValueException, Exception {
 		
 		try {

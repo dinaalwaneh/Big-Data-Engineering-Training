@@ -46,7 +46,9 @@ public class InvoiceController {
 	@Autowired
 	private InvoiceMapper invoiceMapper;
 
-	@GetMapping("/get/invoices")
+	// in this function i will get Invoices from the database as a list of Json of type Invoice entity
+	// and then take each one and convert it to invoice DTO and add it to invoiceDto list .
+	@GetMapping("/invoices")
 	public ResponseEntity<Object> getInvoices() throws Exception{
 		try {
 			List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
@@ -58,8 +60,10 @@ public class InvoiceController {
 		}		
 	}
 	
-	
-	@GetMapping("/get/invoicesByUserName/{userName}")
+	// in this function i will send invoice userName to url path and then 
+    // i have called getAllInvoices funvtion from invoiceService and for each invoice returned from database i will search if it's userName == userName
+	// in the path , if true return invoice as entity and then convert it to invoice DTO . 
+	@GetMapping("/invoicesByUserName/{userName}")
 	public ResponseEntity<Object> getInvoicesByUserName(@PathVariable String userName) throws Exception{
 		try {
 			List<InvoiceDto> invoiceDtos = new ArrayList<InvoiceDto>();
@@ -76,7 +80,10 @@ public class InvoiceController {
 		
 	}
 	
-	@GetMapping("/get/invoice/{id}")
+	// in this function i will send Invoice id to url and call getInvoiceById function from invoiceService
+	// after we are received the json from invoice entity i will
+	// convert it to invoice DTO and send it as a response.
+	@GetMapping("/invoice/{id}")
 	public ResponseEntity<InvoiceDto> getInvoiceById(@PathVariable(name = "id") Long id)throws NoSuchInvoiceExistsException, Exception {
 		
 		try {
@@ -98,7 +105,10 @@ public class InvoiceController {
 
 	}
 	
-	@PostMapping("/add/invoice")
+	// in this function i will send InvoiceDto to body then 
+	// convert invoice DTO to entity and send it to addInvoice in invoiceService to save it in the database and return InvoiceDto as a response 
+	// with status code 200 if the operation compleated.
+	@PostMapping("/invoice")
 	public ResponseEntity<InvoiceDto> addInvoice(@RequestBody InvoiceDto invoiceDto) throws NullPointerException, InvoiceAlreadyExistsException, EmptyValueException, Exception {
 	
 		try {
@@ -140,7 +150,9 @@ public class InvoiceController {
 		
 	}
 	
-	@PutMapping("/put/invoice/{id}")
+	// in this function i will send InvoiceDto to body and invoice id to url and then 
+	// convert invoice DTO to entity and send it to updateInvoice in invoiceService to save it in the database.
+	@PutMapping("/invoice/{id}")
 	public ResponseEntity<InvoiceDto> updateInvoice(@PathVariable long id, @RequestBody InvoiceDto invoiceDto) throws NullPointerException, NoSuchInvoiceExistsException , EmptyValueException, Exception {
 		
 		try {
@@ -182,6 +194,10 @@ public class InvoiceController {
 		
 	}
 
+	// here i made the pagenation sort , so i have send (number of page'offset' , pageSize and field to sorted data according it) to
+	// url path and return data according to the size i had entered in the url path and then
+	// send them to findInvoicesWithPaginationAndSorting function in invoiceService class also i have convert the result
+	// to invoice DTO and return it as a response .
     @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
     private ResponseEntity<Object> getInvoicesWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) throws Exception {
 	   
@@ -198,8 +214,10 @@ public class InvoiceController {
 	   
     }
   
+   // this function for upload file so after upload the file i will getOriginalFilename and stor it in fileName 
+   // then i will transfer it to images file in the project and return text response with status code 200 . 
    @PostMapping("/upload") 
-   public ResponseEntity<?> handleFileUpload( @RequestParam("file") MultipartFile file ) {
+   public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file ) {
 
 	    String fileName = file.getOriginalFilename();
 	    try {

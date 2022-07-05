@@ -46,7 +46,7 @@ public class CustomerController {
 	
 	// in this function i will getAllCustomers from the database as a list of Json of type customer entity
 	// and then take each one and convert it to customer DTO and add it to customerDtos list .
-	@GetMapping("/get/customers")
+	@GetMapping("/customers")
 	public ResponseEntity<Object> getCustomers() throws Exception{
 		
 		try {
@@ -61,7 +61,7 @@ public class CustomerController {
 	
 	// in this function i will getCustomerById from the database as a Json of type customer entity
 	// and then convert it to customer DTO .
-	@GetMapping("/get/customer/{id}")
+	@GetMapping("/customer/{id}")
 	public ResponseEntity<CustomerDto> getCustomerById(@PathVariable(name = "id") Long id) throws NoSuchCustomerExistsException, Exception {
 		
 			try {
@@ -86,7 +86,9 @@ public class CustomerController {
 	
 	}
 	
-	@PostMapping("/add/customer")
+	// in this function i will send CustomerDto to body then 
+	// convert customer DTO to entity and send it to addCustomer in customerService to save it in the database.
+	@PostMapping("/customer")
 	public ResponseEntity<CustomerDto> addCustomer(@RequestBody CustomerDto customerDto) throws NullPointerException, CustomerAlreadyExistsException, EmptyValueException, NullValueException, Exception {
 
 			try {
@@ -135,8 +137,8 @@ public class CustomerController {
 	}
 	
 	// in this function i will send CustomerDto to body and customer id to url and then 
-	// convert customer DTO to entity and send it to updateCustomer in customerService.
-	@PutMapping("/update/customer/{id}")
+	// convert customer DTO to entity and send it to updateCustomer in customerService to save it in the database.
+	@PutMapping("/customer/{id}")
 	public ResponseEntity<CustomerDto> updateCustomer(@PathVariable long id, @RequestBody CustomerDto customerDto) throws NullPointerException, NoSuchCustomerExistsException, NullValueException , EmptyValueException, Exception {
 
 			try {

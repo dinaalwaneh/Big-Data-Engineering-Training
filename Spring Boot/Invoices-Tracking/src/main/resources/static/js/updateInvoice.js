@@ -56,7 +56,7 @@ $(document).on("click", ".edit1", function(){
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/invoice/"+$("#d0").val(),
+					url : "http://localhost:8082/invoice/"+$("#d0").val(),
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -92,7 +92,7 @@ $(document).on("click", ".edit1", function(){
     console.log("ddfffffffffff "+InvoiceHistory.updatedData);
             $.ajax({
                type : "POST",
-               url : "http://localhost:8082/add/invoicehistory",
+               url : "http://localhost:8082/invoicehistory",
                headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

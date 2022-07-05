@@ -21,14 +21,14 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 
-	@RequestMapping(value = "/add/role", method = RequestMethod.POST)
+	@RequestMapping(value = "/role", method = RequestMethod.POST)
 	public ResponseEntity<Object> createRole(@RequestBody Role role)
 	{
 		role = roleService.createRole(role);
 		return new ResponseEntity<>("User is created successfully with Id = " + role.getId(), HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/get/roles", method = RequestMethod.GET)
+	@RequestMapping(value = "/roles", method = RequestMethod.GET)
 	public ResponseEntity<Object> getRoles()
 	{
 		List<Role> roleList = roleService.getRoles();

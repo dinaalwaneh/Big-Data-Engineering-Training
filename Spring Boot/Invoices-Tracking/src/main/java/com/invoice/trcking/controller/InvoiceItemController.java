@@ -35,7 +35,9 @@ public class InvoiceItemController {
 	@Autowired
 	private InvoiceItemMapper invoiceItemMapper;
 
-	@GetMapping("/get/invoiceitems")
+	// in this function i will get invoiceitems from the database as a list of Json of type InvoiceItem entity
+	// and then take each one and convert it to invoiceItem DTO and add it to invoiceItemDto list and return the list as a response with status code 200.
+	@GetMapping("/invoiceitems")
 	public ResponseEntity<Object> getInvoiceItems() throws Exception{
 		
 		try {
@@ -49,7 +51,10 @@ public class InvoiceItemController {
 		
 	}
 	
-	@GetMapping("/get/invoiceitem/{id}")
+	// in this function i will send  InvoiceItem id to url and call getAllInvoiceItems  function from invoiceItemService
+	// after we are received the list of json from invoiceItem entity i will walk in each one to check if the if of invoiceItem == id in the path
+	// then  convert it to invoiceItem DTO and add the result to invoiceItemDtos and send it as a response.
+	@GetMapping("/invoiceitem/{id}")
 	public ResponseEntity<Object> getInvoiceItemById(@PathVariable Long id) throws NoSuchInvoiceItemExistsException{
 		try {
 			List<InvoiceItemDto> invoiceItemDtos = new ArrayList<InvoiceItemDto>();
@@ -75,7 +80,10 @@ public class InvoiceItemController {
  
 	}
 	
-	@PostMapping("/add/invoiceitem")
+	// in this function i will send InvoiceItemDto to body then 
+	// convert InvoiceItem DTO to entity and send it to createInvoiceItem in invoiceItemService to save it in the database
+	// and return InvoiceItemDto as a response with status code 200 if the operation compleated.
+	@PostMapping("/invoiceitem")
 	public ResponseEntity<InvoiceItemDto> createInvoiceItem(@RequestBody InvoiceItemDto invoiceItemDto) throws EmptyValueException , Exception{
 		try {
 			// convert DTO to entity
@@ -97,7 +105,9 @@ public class InvoiceItemController {
 		
 	}
 	
-	@PutMapping("/put/invoiceitem/{id}")
+	// in this function i will send InvoiceItemDto to body and invoice id to url and then 
+	// convert InvoiceItem DTO to entity and send it to updateInvoiceItem function in invoiceItemService to save it in the database.
+	@PutMapping("/invoiceitem/{id}")
 	public ResponseEntity<InvoiceItemDto> updateInvoiceItem(@PathVariable long id, @RequestBody InvoiceItemDto invoiceItemDto) throws NoSuchInvoiceItemExistsException, Exception {
 		
 		try {

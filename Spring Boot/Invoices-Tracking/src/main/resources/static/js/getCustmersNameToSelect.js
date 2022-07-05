@@ -5,7 +5,7 @@
 
                $.ajax({
                   type : "GET",
-                  url :"http://localhost:8082/get/customers",
+                  url :"http://localhost:8082/customers",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

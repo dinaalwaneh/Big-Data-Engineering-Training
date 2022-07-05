@@ -13,7 +13,7 @@ console.log("kkkkkkget items to invoice "+j);
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoiceitem/"+j,
+               url : "http://localhost:8082/invoiceitem/"+j,
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

@@ -13,7 +13,7 @@ $(document).on("click", ".showInvoiceHistory", function(){
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoicehistory/"+invoiceId,
+               url : "http://localhost:8082/invoicehistory/"+invoiceId,
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

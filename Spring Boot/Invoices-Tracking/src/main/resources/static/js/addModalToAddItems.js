@@ -5,8 +5,6 @@ $(document).on("click", ".edit", function(){
 		
 
 var i = $(this).parents("tr").find("td:nth-child(1)").text().replace(' Swish WalletSwish Walletsanselk Walletnoia Walletmilk WalletSwish Walletsanselk Walletnoia Walletmilk Wallet','');
-console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiii ============== "+i.replace(' ',''));
-
 i=i.replace(/[A-Z]/g,'');
 i=i.replace(/[a-z]/g,'');
 i=i.replace(' ','');

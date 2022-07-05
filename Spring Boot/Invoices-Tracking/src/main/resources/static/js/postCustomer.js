@@ -31,16 +31,17 @@
 				ajaxGet(employ);
 			});
 
+
 			// DO GET
 			function ajaxGet(employ) {
 				 
 				 
 		  
                var requestJSON = JSON.stringify(employ);
-               console.log("requestJSON"+requestJSON);
+               console.log("requestJSONijjjjjjjjjjjjj"+requestJSON);
 				$.ajax({
 					type : "POST",
-					url : "http://localhost:8082/add/customer",
+					url : "http://localhost:8082/customer",
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

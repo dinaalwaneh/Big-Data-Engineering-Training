@@ -6,7 +6,7 @@ $(document).on("click", ".btn-search", function(){
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoice/"+$("#search").val(),
+               url : "http://localhost:8082/invoice/"+$("#search").val(),
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

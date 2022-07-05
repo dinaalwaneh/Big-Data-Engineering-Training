@@ -23,7 +23,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
                var requestJSON = JSON.stringify(empl);
                $.ajax({
                   type : "POST",
-                  url : "http://localhost:8082/add/invoiceitem",
+                  url : "http://localhost:8082/invoiceitem",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -54,7 +54,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoiceitem/"+o,
+               url : "http://localhost:8082/invoiceitem/"+o,
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -90,7 +90,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
     
             $.ajax({
                type : "GET",
-               url : "http://localhost:8082/get/invoice/"+o,
+               url : "http://localhost:8082/invoice/"+o,
                headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -128,7 +128,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/invoice/"+oo.id,
+					url : "http://localhost:8082/invoice/"+oo.id,
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")
@@ -166,7 +166,7 @@ console.log("ffffffffffffffffffffffff ============== "+i );
     console.log("ddfffffffffff "+InvoiceHistory.updatedData);
             $.ajax({
                type : "POST",
-               url : "http://localhost:8082/add/invoicehistory",
+               url : "http://localhost:8082/invoicehistory",
                headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

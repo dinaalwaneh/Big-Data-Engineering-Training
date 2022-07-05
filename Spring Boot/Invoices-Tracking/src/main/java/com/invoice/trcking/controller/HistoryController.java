@@ -34,7 +34,9 @@ public class HistoryController {
 	@Autowired 
 	private HistoryMapper historyMapper; 
 	
-	@GetMapping("/get/allinvoiceshistory")
+	// in this function i will getInvoicesHistory from the database as a list of Json of type History entity
+	// and then take each one and convert it to History DTO and add it to historyDto list .
+	@GetMapping("/allinvoiceshistory")
 	public ResponseEntity<Object> getInvoicesHistory() throws Exception{
 		
 		try {	
@@ -48,7 +50,9 @@ public class HistoryController {
 		}
 	}
 	
-	@GetMapping("/get/invoicehistory/{invoiceId}")
+	// in this function i will get Invoice History By Invoice Id from the database as a Json of type history entity
+	// and then convert it to history DTO .
+	@GetMapping("/invoicehistory/{invoiceId}")
 	public ResponseEntity<Object> getInvoiceHistoryByInvoiceId(@PathVariable Long invoiceId) throws Exception{
 		
 		try {	
@@ -67,7 +71,9 @@ public class HistoryController {
 		}
 	}
 	
-	@PostMapping("/add/invoicehistory")
+	// in this function i will send HistoryDto to body then 
+	// convert History DTO to entity and send it to addInvoiceHistory in historyService to save it in the database.
+	@PostMapping("/invoicehistory")
 	public ResponseEntity<HistoryDto> addInvoiceHistory(@RequestBody HistoryDto historyDto) throws NullPointerException, Exception {
 	
 		try {

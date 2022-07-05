@@ -40,7 +40,7 @@ $(document).on("click", ".editEmployee", function(){
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/user/"+$("#d0").val(),
+					url : "http://localhost:8082/user/"+$("#d0").val(),
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

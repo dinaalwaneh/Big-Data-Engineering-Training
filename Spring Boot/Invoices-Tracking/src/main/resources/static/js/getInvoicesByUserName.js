@@ -5,7 +5,7 @@
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/invoicesByUserName/"+sessionStorage.getItem("username"),
+               url : "http://localhost:8082/invoicesByUserName/"+sessionStorage.getItem("username"),
                dataType : 'json',
                headers: {
                			Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

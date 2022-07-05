@@ -46,7 +46,7 @@ $(document).on("click", ".editProduct", function(){
                console.log("requestJSON"+requestJSON);
 				$.ajax({
 					type : "PUT",
-					url : "http://localhost:8082/put/item/"+$("#d0").val(),
+					url : "http://localhost:8082/item/"+$("#d0").val(),
 					headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

@@ -8,7 +8,7 @@ $(document).ready(function(){
 					
                type : "GET",
                contentType : "application/json",
-               url : "http://localhost:8082/get/customers",
+               url : "http://localhost:8082/customers",
                dataType : 'json',
                 headers: {
         Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

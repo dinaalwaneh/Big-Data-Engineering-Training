@@ -34,7 +34,7 @@
                var requestJSON = JSON.stringify(employeeModel);
                $.ajax({
                   type : "POST",
-                  url : "http://localhost:8082/add/invoice",
+                  url : "http://localhost:8082/invoice",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

@@ -74,7 +74,7 @@
                var requestJSON = JSON.stringify(employeeModel);
                $.ajax({
                   type : "POST",
-                  url : "http://localhost:8082/add/item",
+                  url : "http://localhost:8082/item",
                   headers : {
                      "Content-Type" : "application/json",
                       Authorization: 'Bearer ' + sessionStorage.getItem("jwtToken")

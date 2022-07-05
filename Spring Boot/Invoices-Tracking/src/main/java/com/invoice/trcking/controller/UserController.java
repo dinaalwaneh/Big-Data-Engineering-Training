@@ -44,7 +44,9 @@ public class UserController {
 	@Autowired
 	private UserMapper userMapper;
 
-	@GetMapping("/get/users")
+	// in this function i will getUsers from the database as a list of Json of type user entity
+	// and then take each one and convert it to user DTO and add it to userDtos list .
+	@GetMapping("/users")
 	public ResponseEntity<Object> getUsers() throws Exception{
 		try {
 			List<UserDto> userDtos = new ArrayList<UserDto>();
@@ -57,7 +59,9 @@ public class UserController {
 		}	
 	}
 	
-	@GetMapping("/get/user/{id}")
+	// in this function i will getUserById from the database as a Json of type customer entity by send user id to url path
+	// and call getUserById function in userService class , after we received the user we will convert it to user DTO .
+	@GetMapping("/userr/{id}")
 	public ResponseEntity<UserDto> getUserById(@PathVariable Long id) throws NoSuchUserExistsException, Exception { 
 		try {
 			
@@ -80,7 +84,9 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("/add/user")
+	// in this function i will send UserDto to body then 
+	// convert user DTO to entity and send it to createUser in userService to save it in the database abd return user Dto as a response with status 200.
+	@PostMapping("/user")
 	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) throws NullPointerException, UserAlreadyExistsException, EmptyValueException, NullValueException, Exception {
 
 		try {
@@ -128,7 +134,9 @@ public class UserController {
 		
 	}
 	
-	@PutMapping("/put/user/{id}")
+	// in this function i will send UserDto to body and user id to url and then 
+	// convert user DTO to entity and send it to updateUser in userService to save it in the database.
+	@PutMapping("/user/{id}")
 	public ResponseEntity<UserDto> updateUser(@PathVariable long id, @RequestBody UserDto userDto)throws NullPointerException, NoSuchCustomerExistsException, EmptyValueException, NullValueException, Exception {
 		
 		try {

@@ -92,6 +92,8 @@ public class InvoiceServiceImp implements InvoiceService{
 		return result.get();
 	}
 	
+	// here i  send (offset , pageSize and field to sorting according it) to findAll in invoiceRepository witch needs the PageRequest 
+	// of offset and pageSize and sort by field in a DESC order :) .
 	@Override
 	public Page<Invoice> findInvoicesWithPaginationAndSorting(int offset,int pageSize,String field){
 	        Page<Invoice> invoices = invoiceRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.DESC,field)));

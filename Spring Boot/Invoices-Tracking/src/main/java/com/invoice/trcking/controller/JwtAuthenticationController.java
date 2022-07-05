@@ -45,7 +45,9 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 	
-	
+	// get user name and password from body then authenticated them by authenticationManager 
+	// then load the user from database using user name , if the user loaded
+	// generate token .
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<Object> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws UsernameNotFoundException , Exception {
 		
@@ -74,7 +76,7 @@ public class JwtAuthenticationController {
 		 
 	}
 
-	//if the user and password exist in data base or not :
+	// authenticate if the user and password exist in data base or not :
 	private void authenticate(String username, String password) throws Exception {
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));

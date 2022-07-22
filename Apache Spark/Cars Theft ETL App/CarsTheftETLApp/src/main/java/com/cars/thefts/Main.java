@@ -132,8 +132,12 @@ public class Main {
         updatedTheftsJoin.cache();
         System.out.println("\n................updated Thefts Join................\n");
         updatedTheftsJoin.show(5);
-        System.out.println("\n updated Thefts Join count = " + updatedTheftsJoin.count() + "\n");
 
-        /*.........Find top five countries from updated thefts.........*/
+        /*.........Find top five countries from updated thefts with origin.........*/
+        updatedTheftsJoin.createOrReplaceTempView("updatedTheftsJoin");
+        var updatedTheftsWithOriginTopFiveCountries =spark.sql("Select Sum(updatedTheftsJoin.thefts) as s ,country_of_origin from updatedTheftsJoin Group By country_of_origin SORT BY s DESC LIMIT 5");
+        updatedTheftsWithOriginTopFiveCountries.cache();
+        System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
+        updatedTheftsWithOriginTopFiveCountries.show(5);
     }
 }

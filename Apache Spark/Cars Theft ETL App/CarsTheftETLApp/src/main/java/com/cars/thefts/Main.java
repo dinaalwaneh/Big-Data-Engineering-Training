@@ -83,5 +83,33 @@ public class Main {
         System.out.println("\n................Updated Thefts Dataset................\n");
         updatedThefts.show();
 
+        /*....................store Dataset as the table or convert Dataset into temporary view....................*/
+
+        updatedThefts.createOrReplaceTempView("updated_thefts");
+
+        /*....................left join between thefts table and updated_thefts according 3 keys from columns....................*/
+        var newThefts= spark.sql("select * FROM thefts left JOIN updated_thefts ON  updated_thefts.model1 like  thefts.model And updated_thefts.State1 like thefts.State  And updated_thefts.year1 like thefts.year");
+        newThefts.cache();
+ 
+        /*....................filter data set with null values to except the updated rows....................*/
+        newThefts = newThefts.filter(newThefts.col("state1").isNull());
+        newThefts.cache();
+
+        //Delete the extra rows to make a union between
+        newThefts = newThefts.drop(newThefts.col("State1"));
+        newThefts = newThefts.drop(newThefts.col("Rank1"));
+        newThefts = newThefts.drop(newThefts.col("model1"));
+        newThefts = newThefts.drop(newThefts.col("year1"));
+        newThefts = newThefts.drop(newThefts.col("Thefts1"));
+
+        newThefts.cache();
+
+        var merge_thefts = newThefts.union(updatedThefts);
+
+        merge_thefts.cache();
+        System.out.println("\n................merge thefts Dataset................\n");
+        merge_thefts.show(5);
+        System.out.println("\n merge thefts Dataset count = " + merge_thefts.count() + "\n");
+
     }
 }

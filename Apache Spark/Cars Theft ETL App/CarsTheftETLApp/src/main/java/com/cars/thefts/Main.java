@@ -139,5 +139,11 @@ public class Main {
         updatedTheftsWithOriginTopFiveCountries.cache();
         System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
         updatedTheftsWithOriginTopFiveCountries.show(5);
+
+        //Save top five countries in csv file
+        
+        final String TOP_FIVE_COUNTRIES_FILE_PATH = "src/main/resources/Files/Top_Five_Countries";
+        csvFile.WriteOnFile(updatedTheftsWithOriginTopFiveCountries,TOP_FIVE_COUNTRIES_FILE_PATH);
+
     }
 }

@@ -7,4 +7,5 @@ import org.apache.spark.sql.SparkSession;
 public interface IFile {
 
     public Dataset<Row> ReadFile(SparkSession spark, String filePath);
+    public void WriteOnFile(Dataset<Row> dataset, String filePath);
 }

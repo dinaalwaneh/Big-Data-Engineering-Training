@@ -111,7 +111,6 @@ public class Main {
         merge_thefts.show(5);
         System.out.println("\n merge thefts Dataset count = " + merge_thefts.count() + "\n");
 
-
         //store thefts_with_origin_country Dataset as the table
         thefts_with_origin_country.createOrReplaceTempView("thefts_with_origin_country");
 
@@ -122,7 +121,19 @@ public class Main {
         System.out.println("\n................top Five Countries................\n");
         topFiveCountries.show();
 
-        /*.........Find top five countries from updated thefts.........*/
+        //store thefts_with_origin_country Dataset as the table
+        merge_thefts.createOrReplaceTempView("merge_thefts");
 
+        //Left join between merge_thefts and cars
+        Dataset<Row> updateTheftsCars = spark.sql("select * FROM merge_thefts left join cars on merge_thefts.model like concat (cars.car_brand,'%')");
+
+        Dataset<Row> updatedTheftsJoin = updateTheftsCars.select(updateTheftsCars.col("model"), updateTheftsCars.col("Country_of_origin"),updateTheftsCars.col("year"),updateTheftsCars.col("Thefts"));
+        updatedTheftsJoin= updatedTheftsJoin.na().drop();
+        updatedTheftsJoin.cache();
+        System.out.println("\n................updated Thefts Join................\n");
+        updatedTheftsJoin.show(5);
+        System.out.println("\n updated Thefts Join count = " + updatedTheftsJoin.count() + "\n");
+
+        /*.........Find top five countries from updated thefts.........*/
     }
 }

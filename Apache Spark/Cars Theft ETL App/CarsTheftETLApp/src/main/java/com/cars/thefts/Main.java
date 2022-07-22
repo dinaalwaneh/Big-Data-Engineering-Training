@@ -61,6 +61,12 @@ public class Main {
         System.out.println("\n................Thefts with origin country Dataset................\n");
         thefts_with_origin_country.show(5);
 
+        /*....................thefts with origin country partitioning....................*/
+        Dataset<Row> thefts_with_origin_country_partioning =  thefts_with_origin_country.repartition(join.col("year"));
+
+        thefts_with_origin_country_partioning.cache();
+        System.out.println("\n................thefts with origin country partioning................\n");
+        thefts_with_origin_country_partioning.show(20);
 
     }
 }

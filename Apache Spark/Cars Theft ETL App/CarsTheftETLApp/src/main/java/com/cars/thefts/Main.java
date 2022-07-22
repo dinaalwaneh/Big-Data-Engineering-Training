@@ -68,5 +68,20 @@ public class Main {
         System.out.println("\n................thefts with origin country partioning................\n");
         thefts_with_origin_country_partioning.show(20);
 
+        /*.............................Read Updated - Sheet1.csv file.............................*/
+
+        final String UPDATED_THEFTS_FILE_PATH = "src/main/resources/Files/Updated - Sheet1.csv";
+
+        Dataset<Row> updatedThefts = csvFile.ReadFile(spark,UPDATED_THEFTS_FILE_PATH);
+        updatedThefts = updatedThefts.withColumnRenamed("Make/Model","model1");
+        updatedThefts = updatedThefts.withColumnRenamed("Model Year","year1");
+        updatedThefts = updatedThefts.withColumnRenamed("State","State1");
+        updatedThefts = updatedThefts.withColumnRenamed("Rank","Rank1");
+        updatedThefts = updatedThefts.withColumnRenamed("Thefts","Thefts1");
+
+        updatedThefts.cache();
+        System.out.println("\n................Updated Thefts Dataset................\n");
+        updatedThefts.show();
+
     }
 }

@@ -39,12 +39,28 @@ public class Main {
         final String THEFTS_FILE_PATH = "src/main/resources/Files/2015_State_Top10Report_wTotalThefts.csv";
 
         Dataset<Row> thefts = csvFile.ReadFile(spark,THEFTS_FILE_PATH);
-        thefts =  thefts.withColumnRenamed("Make/Model","make_model");
+        thefts =  thefts.withColumnRenamed("Make/Model","model");
         thefts = thefts.withColumnRenamed("Model Year","year");
 
         thefts.cache();
         System.out.println("\n................Thefts Dataset................\n");
         thefts.show(5);
+
+        /*....................store Dataset as the table or convert Dataset into temporary view....................*/
+
+        cars.createOrReplaceTempView("cars");
+        thefts.createOrReplaceTempView("thefts");
+
+        /*....................Second Req....................*/
+        Dataset<Row> join = spark.sql("select * FROM thefts left join cars on thefts.model like concat (cars.car_brand,'%')");
+
+        Dataset<Row> thefts_with_origin_country = join.select(join.col("model"), join.col("Country_of_origin"),join.col("year"),join.col("Thefts"));
+        thefts_with_origin_country = thefts_with_origin_country.na().drop();
+
+        thefts_with_origin_country.cache();
+        System.out.println("\n................Thefts with origin country Dataset................\n");
+        thefts_with_origin_country.show(5);
+
 
     }
 }

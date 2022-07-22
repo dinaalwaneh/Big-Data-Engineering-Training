@@ -8,6 +8,7 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,13 +21,30 @@ public class Main {
             .getOrCreate();
 
         IFile csvFile = new CSVFile();
-        final String FILE_PATH = "src/main/resources/Files/cars.csv";
 
-        Dataset<Row> cars = csvFile.ReadFile(spark,FILE_PATH);
+        /*.............................Read cars.csv file.............................*/
+
+        final String CARS_FILE_PATH = "src/main/resources/Files/cars.csv";
+
+        Dataset<Row> cars = csvFile.ReadFile(spark,CARS_FILE_PATH);
         cars = cars.withColumnRenamed("Car Brand","car_brand");
+        cars = cars.withColumnRenamed("Country of Origin","country_of_origin");
 
         cars.cache();
-        cars.show();
+        System.out.println("..........Cars Dataset..........\n");
+        cars.show(5);
+
+        /*.............................Read 2015_State_Top10Report_wTotalThefts.csv file.............................*/
+
+        final String THEFTS_FILE_PATH = "src/main/resources/Files/2015_State_Top10Report_wTotalThefts.csv";
+
+        Dataset<Row> thefts = csvFile.ReadFile(spark,THEFTS_FILE_PATH);
+        thefts =  thefts.withColumnRenamed("Make/Model","make_model");
+        thefts = thefts.withColumnRenamed("Model Year","year");
+
+        thefts.cache();
+        System.out.println("\n................Thefts Dataset................\n");
+        thefts.show(5);
 
     }
 }

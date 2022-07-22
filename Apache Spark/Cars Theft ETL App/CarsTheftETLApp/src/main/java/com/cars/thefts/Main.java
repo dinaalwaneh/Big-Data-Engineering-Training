@@ -90,7 +90,7 @@ public class Main {
         /*....................left join between thefts table and updated_thefts according 3 keys from columns....................*/
         var newThefts= spark.sql("select * FROM thefts left JOIN updated_thefts ON  updated_thefts.model1 like  thefts.model And updated_thefts.State1 like thefts.State  And updated_thefts.year1 like thefts.year");
         newThefts.cache();
- 
+
         /*....................filter data set with null values to except the updated rows....................*/
         newThefts = newThefts.filter(newThefts.col("state1").isNull());
         newThefts.cache();
@@ -110,6 +110,19 @@ public class Main {
         System.out.println("\n................merge thefts Dataset................\n");
         merge_thefts.show(5);
         System.out.println("\n merge thefts Dataset count = " + merge_thefts.count() + "\n");
+
+
+        //store thefts_with_origin_country Dataset as the table
+        thefts_with_origin_country.createOrReplaceTempView("thefts_with_origin_country");
+
+        /*.........Find top five countries from old thefts.........*/
+        var topFiveCountries =spark.sql("Select Sum(thefts_with_origin_country.thefts) as s ,country_of_origin from thefts_with_origin_country Group By country_of_origin SORT BY s DESC LIMIT 5");
+
+        topFiveCountries.cache();
+        System.out.println("\n................top Five Countries................\n");
+        topFiveCountries.show();
+
+        /*.........Find top five countries from updated thefts.........*/
 
     }
 }

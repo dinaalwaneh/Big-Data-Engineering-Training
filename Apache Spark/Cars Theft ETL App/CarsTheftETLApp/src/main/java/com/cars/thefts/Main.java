@@ -149,5 +149,10 @@ public class Main {
         System.out.println("\n................updated Thefts With Origin Top Five Thefts Models................\n");
         updatedTheftsWithOriginTopFiveTheftsModels.show(5);
 
+        //List the most 5 states based on the number of thefted cars :
+        var updatedTheftsWithOriginTopFiveStates =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts, state from updatedTheftsJoin Group By state SORT BY thefts DESC LIMIT 5");
+        updatedTheftsWithOriginTopFiveStates.cache();
+        System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
+        updatedTheftsWithOriginTopFiveStates.show(5);
     }
 }

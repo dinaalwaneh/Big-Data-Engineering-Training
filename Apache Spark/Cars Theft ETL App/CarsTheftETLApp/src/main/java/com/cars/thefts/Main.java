@@ -23,7 +23,6 @@ public class Main {
         IFile csvFile = new CSVFile();
 
         /*.............................Read cars.csv file.............................*/
-
         final String CARS_FILE_PATH = "src/main/resources/Files/cars.csv";
 
         Dataset<Row> cars = csvFile.ReadFile(spark,CARS_FILE_PATH);
@@ -54,7 +53,7 @@ public class Main {
         /*....................Second Req....................*/
         Dataset<Row> join = spark.sql("select * FROM thefts left join cars on thefts.model like concat (cars.car_brand,'%')");
 
-        Dataset<Row> thefts_with_origin_country = join.select(join.col("model"), join.col("Country_of_origin"),join.col("year"),join.col("Thefts"));
+        Dataset<Row> thefts_with_origin_country = join.select(join.col("state"),join.col("model"), join.col("Country_of_origin"),join.col("year"),join.col("Thefts"));
         thefts_with_origin_country = thefts_with_origin_country.na().drop();
 
         thefts_with_origin_country.cache();
@@ -127,7 +126,7 @@ public class Main {
         //Left join between merge_thefts and cars
         Dataset<Row> updateTheftsCars = spark.sql("select * FROM merge_thefts left join cars on merge_thefts.model like concat (cars.car_brand,'%')");
 
-        Dataset<Row> updatedTheftsJoin = updateTheftsCars.select(updateTheftsCars.col("model"), updateTheftsCars.col("Country_of_origin"),updateTheftsCars.col("year"),updateTheftsCars.col("Thefts"));
+        Dataset<Row> updatedTheftsJoin = updateTheftsCars.select(updateTheftsCars.col("state"),updateTheftsCars.col("model"), updateTheftsCars.col("Country_of_origin"),updateTheftsCars.col("year"),updateTheftsCars.col("Thefts"));
         updatedTheftsJoin= updatedTheftsJoin.na().drop();
         updatedTheftsJoin.cache();
         System.out.println("\n................updated Thefts Join................\n");
@@ -135,15 +134,15 @@ public class Main {
 
         /*.........Find top five countries from updated thefts with origin.........*/
         updatedTheftsJoin.createOrReplaceTempView("updatedTheftsJoin");
-        var updatedTheftsWithOriginTopFiveCountries =spark.sql("Select Sum(updatedTheftsJoin.thefts) as s ,country_of_origin from updatedTheftsJoin Group By country_of_origin SORT BY s DESC LIMIT 5");
+        var updatedTheftsWithOriginTopFiveCountries =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts,country_of_origin from updatedTheftsJoin Group By country_of_origin SORT BY thefts DESC LIMIT 5");
         updatedTheftsWithOriginTopFiveCountries.cache();
         System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
         updatedTheftsWithOriginTopFiveCountries.show(5);
 
         //Save top five countries in csv file
-        
         final String TOP_FIVE_COUNTRIES_FILE_PATH = "src/main/resources/Files/Top_Five_Countries";
         csvFile.WriteOnFile(updatedTheftsWithOriginTopFiveCountries,TOP_FIVE_COUNTRIES_FILE_PATH);
+
 
     }
 }

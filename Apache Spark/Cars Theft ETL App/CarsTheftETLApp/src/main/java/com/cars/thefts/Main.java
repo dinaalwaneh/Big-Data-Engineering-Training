@@ -143,6 +143,11 @@ public class Main {
         final String TOP_FIVE_COUNTRIES_FILE_PATH = "src/main/resources/Files/Top_Five_Countries";
         csvFile.WriteOnFile(updatedTheftsWithOriginTopFiveCountries,TOP_FIVE_COUNTRIES_FILE_PATH);
 
+        //List the most 5 thefted models in U.S :
+        var updatedTheftsWithOriginTopFiveTheftsModels =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts,model from updatedTheftsJoin Group By model SORT BY thefts DESC LIMIT 5");
+        updatedTheftsWithOriginTopFiveTheftsModels.cache();
+        System.out.println("\n................updated Thefts With Origin Top Five Thefts Models................\n");
+        updatedTheftsWithOriginTopFiveTheftsModels.show(5);
 
     }
 }

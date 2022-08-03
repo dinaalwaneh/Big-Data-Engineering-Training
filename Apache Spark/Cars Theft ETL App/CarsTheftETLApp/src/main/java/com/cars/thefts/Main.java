@@ -50,7 +50,7 @@ public class Main {
         cars.createOrReplaceTempView("cars");
         thefts.createOrReplaceTempView("thefts");
 
-        /*....................Second Req....................*/
+        /*....................Thefts with origin....................*/
         Dataset<Row> join = spark.sql("select * FROM thefts left join cars on thefts.model like concat (cars.car_brand,'%')");
 
         Dataset<Row> thefts_with_origin_country = join.select(join.col("state"),join.col("model"), join.col("Country_of_origin"),join.col("year"),join.col("Thefts"));
@@ -114,7 +114,7 @@ public class Main {
         thefts_with_origin_country.createOrReplaceTempView("thefts_with_origin_country");
 
         /*.........Find top five countries from old thefts.........*/
-        var topFiveCountries =spark.sql("Select Sum(thefts_with_origin_country.thefts) as s ,country_of_origin from thefts_with_origin_country Group By country_of_origin SORT BY s DESC LIMIT 5");
+        var topFiveCountries =spark.sql("Select Sum(thefts_with_origin_country.thefts) as thefts ,country_of_origin from thefts_with_origin_country Group By country_of_origin SORT BY thefts DESC LIMIT 5");
 
         topFiveCountries.cache();
         System.out.println("\n................top Five Countries................\n");

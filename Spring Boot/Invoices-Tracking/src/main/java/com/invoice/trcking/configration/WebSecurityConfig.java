@@ -77,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/product").permitAll()
 			.antMatchers("/employee").permitAll()
 			.antMatchers("/users/**").hasAuthority("SUPERUSER")
-			.antMatchers("/user/**").hasAuthority("SUPERUSER")
+			.antMatchers("/user/**").permitAll()
 			.antMatchers("/role/**").permitAll()
 			.antMatchers("/userr/{id}/**").permitAll()
 			.antMatchers("/role/**").permitAll()

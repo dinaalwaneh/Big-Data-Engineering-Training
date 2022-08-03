@@ -20,9 +20,10 @@ $(document).ready(function(){
                        
                      +' <a href="#showPic'  + result[i].id + '" class="showPic" data-toggle="modal"><i class="fa fa-eye" aria-hidden="true"></i></a>' +
                           
+               '<a href="" class="showInvoiceHistory" title="invoiceHistory" data-toggle="tooltip"><i class="fa fa-history" aria-hidden="true"></i></a>'
+
                           
-                          
-                           '<!-- Edit Modal HTML -->'  +
+                      +     '<!-- Edit Modal HTML -->'  +
 							'<div   id=  "editEmployeeModal'  + result[i].id + '"  class="modal fade">'	
 								+'<div class="modal-dialog">'
 								+'<div class="modal-content">'

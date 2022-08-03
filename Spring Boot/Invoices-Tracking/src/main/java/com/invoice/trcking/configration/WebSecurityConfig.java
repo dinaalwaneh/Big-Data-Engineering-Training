@@ -100,10 +100,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/upload/**").hasAnyAuthority("SUPERUSER","SUPPORTUSER")
 			.antMatchers("/invoices/**").hasAnyAuthority("SUPERUSER","SUPPORTUSER","AUDITORUSER")
 			.antMatchers("/sUDashboard/**").permitAll()
-			.antMatchers("/sUInvoicesHistory/**").hasAnyAuthority("SUPPORTUSER")
+			.antMatchers("/sUInvoicesHistory/**").permitAll()
 			.antMatchers("/InvicesPaginationAndSort/{userName}/{offset}/{pageSize}/{field}/**").hasAnyAuthority("SUPERUSER","SUPPORTUSER","AUDITORUSER")
 			.antMatchers("/invoicesByUserName/{userName}/**").hasAnyAuthority("SUPPORTUSER")
-			.antMatchers("/aUDashboard/**").permitAll() 
+			.antMatchers("/AUDashboard/**").permitAll() 
+			.antMatchers("/AUHistory/**").permitAll()
+			
 			.anyRequest().authenticated();
 		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}

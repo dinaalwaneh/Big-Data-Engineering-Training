@@ -64,7 +64,7 @@ $(document).ready(
 					
 					if(result.roleName=="AUDITORUSER"){
 	
-						window.location.href="/aUDashboard"
+						window.location.href="/AUDashboard"
 					}
                         
     

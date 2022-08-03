@@ -22,7 +22,7 @@ public class ItemDto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	//Args Constructor
 	public ItemDto(Long id, String name, String discription, long ammount, long quantity, boolean isDeleated) {
 		super();

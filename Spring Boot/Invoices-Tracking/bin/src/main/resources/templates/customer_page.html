@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>Invoice Tracking System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+  <link href="css/dashboard.css" rel="stylesheet">
+  <style>
+    body {
+        color: #404E67;
+        background: #F5F7FA;
+		font-family: 'Open Sans', sans-serif;
+	}
+	.table-wrapper {
+		width: 700px;
+		margin: 30px auto;
+        background: #fff;
+        padding: 20px;	
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 22px;
+    }
+    .table-title .add-new {
+        float: right;
+		height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: none;
+		min-width: 100px;
+		border-radius: 50px;
+		line-height: 13px;
+    }
+	.table-title .add-new i {
+		margin-right: 4px;
+	}
+    
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+    table.table th i {
+        font-size: 13px;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    table.table th:last-child {
+        width: 100px;
+    }
+    table.table td a {
+		cursor: pointer;
+        display: inline-block;
+        margin: 0 5px;
+		min-width: 24px;
+    }    
+	table.table td a.add {
+        color: #27C46B;
+    }
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table td a.add i {
+        font-size: 24px;
+    	margin-right: -1px;
+        position: relative;
+        top: 3px;
+    }    
+    table.table .form-control {
+        height: 32px;
+        line-height: 32px;
+        box-shadow: none;
+        border-radius: 2px;
+    }
+	table.table .form-control.error {
+		border-color: #f50000;
+	}
+	table.table td .add {
+		display: none;
+	}
+</style>
+
+
+
+<script>
+
+</script>
+ <script type="text/javascript" src="js/personalInfo.js"></script> 
+ <script type="text/javascript" src="js/getCustomers.js"></script> 
+ <script type="text/javascript" src="js/postCustomer.js"></script> 
+<script type="text/javascript" src="js/saveCustomer.js"></script> 
+ <script type="text/javascript" src="js/editCustomer.js"></script> 
+
+</head>
+
+<body>
+  <section id="container">
+      <header class="header black-bg">
+      <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+      </div>
+      <!--logo start-->
+      <a href="index.html" class="logo"><b>Invoice<span>Tracking</span></b></a>
+      <!--logo end-->
+
+      <div class="top-menu" style="float: right; margin-top: 10px">
+        <ul class="nav pull-right top-menu">
+          <li><a class="logout "   href="home">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="images/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 id="username" class="centered"></h5>
+          <li class="mt">
+            <a href="dashboard">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a  href="employee">
+              <i  class="fa fa-tasks"></i>
+              <span>Employees</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a  class="active" href="customer">
+              <i class="fa fa-tasks"></i>
+              <span>Customers</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="product">
+              <i class="fa fa-tasks"></i>
+              <span>Products</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="invoiceHistory">
+              <i class="fa fa-th"></i>
+              <span>History</span>
+              </a>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+   
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+         
+        	
+        	<div id="customers">
+        			    <div class="container">
+  
+        <div class="table-wrapper">
+            <div class="table-title">
+            <div id="employeesJson"></div>
+                <div class="row">
+                    <div class="col-sm-8"><h2>Customer <b>Details</b></h2></div>
+                    <div class="col-sm-4">
+                        <button style="  border-radius: 10px" type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            
+             
+            <table id="table-content" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Enabled</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                       <tr>
+                        <td hidden=true>
+					<a class="add1" title="Add1" data-toggle="tooltip"><i class="material-icons" style="color:black;">&#xE03B;</i></a>
+                            <a class="edit1" title="Edit1" data-toggle="tooltip"><i class="material-icons" style="color:#f9d306;">&#xE254;</i></a>
+ </td>
+                    </tr>
+                </tbody>
+            </table>
+               <div  class="table-title">
+            <div  id="employeesJson"></div>
+                <div  class="row">
+                    <div class="col-sm-4" style="float: right;">
+                        <button style="float: right; border-radius: 10px" type="button" class="btn btn-info save">Save Changed</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+        	
+        	</div>
+        	
+        	
+        </div>
+    
+      </section>
+    </section>
+  
+  </section>
+  
+</body>
+<script>
+
+</script>
+</html>

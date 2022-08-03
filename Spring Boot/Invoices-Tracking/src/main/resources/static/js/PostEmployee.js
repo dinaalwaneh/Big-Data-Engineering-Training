@@ -57,7 +57,7 @@
 			        email: $("#email").val(),
 			        password: $("#password").val(),
 			        enabled:  "true",
-			        roleName: $("#job").val()
+			        roleName: "SUPPORTUSER"
 			    };
                
                

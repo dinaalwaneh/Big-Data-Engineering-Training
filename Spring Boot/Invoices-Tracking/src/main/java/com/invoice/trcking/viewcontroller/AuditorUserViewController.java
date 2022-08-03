@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AuditorUserViewController {
 
-	@GetMapping("/aUDashboard")
+	@GetMapping("/AUDashboard")
 	public String getAUDashboardPage() {
 		return "AuditorDashboard_page";
 	}
+	
+	@GetMapping("/AUHistory")
+	public String getAUHistoryPage() {
+		return "AUHistory_page";
+	}
+	
 }

@@ -40,7 +40,7 @@ public class UserMapper {
 		user.setPhone(userDto.getPhone());
 		user.setEmail(userDto.getEmail());
 		user.setEnabled(userDto.isEnabled());
-		user.setPassword(userDto.getPassword());	
+		user.setPassword(userDto.getPassword());
 		// here i send customer roleType to getRoleByRoleName function in roleServiceImp to received object from role that has the same type and send it to setRole function .
 		user.setRole(roleServiceImp.getRoleByRoleName(RoleType.valueOf(userDto.getRoleName())));
 		return user;

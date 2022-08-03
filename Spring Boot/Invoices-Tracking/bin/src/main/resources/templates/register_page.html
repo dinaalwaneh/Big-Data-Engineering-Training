@@ -1,0 +1,49 @@
+ <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/registerPageStyle.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/PostEmployee.js"></script> 
+        
+    </head>
+    <body>
+
+      <form style="background-color: white; box-shadow: 1px 3px 3px 1px lightblue;" action="index.html" method="post">
+      
+        <h1>Sign Up</h1>
+        
+        <fieldset style="background-color: white;">
+         
+          <label for="name">Name:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="text" id="name" name="name">
+          
+          <label for="username">User Name:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="text" id="username" name="username">
+          
+           <label for="address">Address:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="text" id="address" name="address">
+          
+          <label for="phone">Phone:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="text" id="phone" name="phone">
+          
+          <label for="email">Email:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="email" id="email" name="email">
+          
+          <label for="password">Password:</label>
+          <input style=" border: 1px solid black; border-radius: 4px; background-color: white;" type="password" id="password" name="user_password">
+          
+         
+	       <label for="job" style="margin-top: 20px">Job Role:</label>
+	       <select style=" border: 1px solid black; border-radius: 4px; background-color: white;" id="job" name="user_job">
+	            <option value="AUDITORUSER">AUDITOR USER</option>
+	            <option value="SUPERUSER">SUPER USER</option>
+	            <option value="SUPPORTUSER">SUPPORT USER</option>
+	       </select>
+        </fieldset>
+        <button type="submit">Sign Up</button>
+      </form>
+      
+    </body>
+</html>

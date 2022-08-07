@@ -14,6 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Logger.getLogger("org").setLevel(Level.OFF);
+
         SparkSession spark = SparkSession
             .builder()
             .appName("Application Name")
@@ -89,10 +90,15 @@ public class Main {
         /*....................left join between thefts table and updated_thefts according 3 keys from columns....................*/
         var newThefts= spark.sql("select * FROM thefts left JOIN updated_thefts ON  updated_thefts.model1 like  thefts.model And updated_thefts.State1 like thefts.State  And updated_thefts.year1 like thefts.year");
         newThefts.cache();
+        /*....................store Dataset as the table or convert Dataset into temporary view....................*/
 
+        newThefts.createOrReplaceTempView("new_thefts");
         /*....................filter data set with null values to except the updated rows....................*/
-        newThefts = newThefts.filter(newThefts.col("state1").isNull());
+        newThefts = spark.sql("select * from new_thefts where new_thefts.state1 IS NULL");
+        // newThefts = newThefts.filter(newThefts.col("state1").isNull());
         newThefts.cache();
+        System.out.println("\n................merge thefts Dataset................\n");
+
 
         //Delete the extra rows to make a union between
         newThefts = newThefts.drop(newThefts.col("State1"));
@@ -102,8 +108,11 @@ public class Main {
         newThefts = newThefts.drop(newThefts.col("Thefts1"));
 
         newThefts.cache();
-
-        var merge_thefts = newThefts.union(updatedThefts);
+        /*....................store Dataset as the table or convert Dataset into temporary view....................*/
+        newThefts.createOrReplaceTempView("new_thefts");
+        updatedThefts.createOrReplaceTempView("updated_thefts");
+        var merge_thefts =spark.sql("( select * from new_thefts ) UNION ( select * from updated_thefts)");
+        //var merge_thefts = newThefts.union(updatedThefts);
 
         merge_thefts.cache();
         System.out.println("\n................merge thefts Dataset................\n");
@@ -112,13 +121,6 @@ public class Main {
 
         //store thefts_with_origin_country Dataset as the table
         thefts_with_origin_country.createOrReplaceTempView("thefts_with_origin_country");
-
-        /*.........Find top five countries from old thefts.........*/
-        var topFiveCountries =spark.sql("Select Sum(thefts_with_origin_country.thefts) as thefts ,country_of_origin from thefts_with_origin_country Group By country_of_origin SORT BY thefts DESC LIMIT 5");
-
-        topFiveCountries.cache();
-        System.out.println("\n................top Five Countries................\n");
-        topFiveCountries.show();
 
         //store thefts_with_origin_country Dataset as the table
         merge_thefts.createOrReplaceTempView("merge_thefts");

@@ -4,6 +4,8 @@ import Files.IFile;
 import Files.Imp.CSVFile;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.spark.SparkConf;
+import org.apache.spark.SparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
@@ -21,10 +23,19 @@ public class Main {
             .master("local[*]")
             .getOrCreate();
 
+        /*
+        SparkSession spark = SparkSession
+                .builder()
+                .appName("Application Name")
+                .enableHiveSupport()
+                .getOrCreate();
+        */
+
         IFile csvFile = new CSVFile();
 
         /*.............................Read cars.csv file.............................*/
-        final String CARS_FILE_PATH = "src/main/resources/Files/cars.csv";
+
+        final String CARS_FILE_PATH = "src/main/resources/Files/cars.csv"; //s3://Thtfts cars/cars.csv
 
         Dataset<Row> cars = csvFile.ReadFile(spark,CARS_FILE_PATH);
         cars = cars.withColumnRenamed("Car Brand","car_brand");
@@ -33,10 +44,27 @@ public class Main {
         cars.cache();
         System.out.println("..........Cars Dataset..........\n");
         cars.show(5);
-
+        /*
+        spark.sql("CREATE DATABASE [IF NOT EXISTS] car_sheft");
+        spark.sql("use car_sheft");
+        spark.sql("CREATE TABLE IF NOT EXISTS dina_car (
+             car_brand string,
+             Country_of_origin string)
+             COMMENT 'Car Table'
+             ROW FORMAT SERDE
+               'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
+             STORED AS INPUTFORMAT
+               'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
+             OUTPUTFORMAT
+               'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+             LOCATION
+               's3://taks/dina/table';");
+         spark.sql("LOAD DATA INPATH 's3://Thtfts cars/cars.csv' INTO TABLE car_sheft.dina_car;");
+         cars.write().mode("overwrite").saveAsTable("car_theft.dina_car");
+        */
         /*.............................Read 2015_State_Top10Report_wTotalThefts.csv file.............................*/
 
-        final String THEFTS_FILE_PATH = "src/main/resources/Files/2015_State_Top10Report_wTotalThefts.csv";
+        final String THEFTS_FILE_PATH = "src/main/resources/Files/2015_State_Top10Report_wTotalThefts.csv"; //s3://Thtfts cars/2015_State_Top10Report_wTotalThefts.csv
 
         Dataset<Row> thefts = csvFile.ReadFile(spark,THEFTS_FILE_PATH);
         thefts =  thefts.withColumnRenamed("Make/Model","model");
@@ -46,6 +74,27 @@ public class Main {
         System.out.println("\n................Thefts Dataset................\n");
         thefts.show(5);
 
+                /*
+        spark.sql("CREATE DATABASE [IF NOT EXISTS] car_sheft");
+        spark.sql("use car_sheft");
+        spark.sql("CREATE TABLE IF NOT EXISTS dina_thefts(
+             state string,
+             rank int,
+             model string,
+             year int,
+             Thefts long)
+             COMMENT 'Thefts'
+             ROW FORMAT SERDE
+               'org.apache.hadoop.hive.ql.io.orc.OrcSerde'
+             STORED AS INPUTFORMAT
+               'org.apache.hadoop.hive.ql.io.orc.OrcInputFormat'
+             OUTPUTFORMAT
+               'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
+             LOCATION
+               's3://taks/dina/table';");
+         spark.sql("LOAD DATA INPATH 's3://Thtfts cars/2015_State_Top10Report_wTotalThefts.csv' INTO TABLE car_sheft.dina_thefts;");
+         thefts.write().mode("overwrite").saveAsTable("car_theft.dina_thefts");
+        */
         /*....................store Dataset as the table or convert Dataset into temporary view....................*/
 
         cars.createOrReplaceTempView("cars");
@@ -82,6 +131,7 @@ public class Main {
         updatedThefts.cache();
         System.out.println("\n................Updated Thefts Dataset................\n");
         updatedThefts.show();
+        // updatedThefts.write().mode("overwrite").saveAsTable("car_theft.dina_thefts");
 
         /*....................store Dataset as the table or convert Dataset into temporary view....................*/
 
@@ -139,7 +189,7 @@ public class Main {
         var updatedTheftsWithOriginTopFiveCountries =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts,country_of_origin from updatedTheftsJoin Group By country_of_origin SORT BY thefts DESC LIMIT 5");
         updatedTheftsWithOriginTopFiveCountries.cache();
         System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
-        updatedTheftsWithOriginTopFiveCountries.show(5);
+        updatedTheftsWithOriginTopFiveCountries.show();
 
         //Save top five countries in csv file
         final String TOP_FIVE_COUNTRIES_FILE_PATH = "src/main/resources/Files/Top_Five_Countries";
@@ -149,12 +199,12 @@ public class Main {
         var updatedTheftsWithOriginTopFiveTheftsModels =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts,model from updatedTheftsJoin Group By model SORT BY thefts DESC LIMIT 5");
         updatedTheftsWithOriginTopFiveTheftsModels.cache();
         System.out.println("\n................updated Thefts With Origin Top Five Thefts Models................\n");
-        updatedTheftsWithOriginTopFiveTheftsModels.show(5);
+        updatedTheftsWithOriginTopFiveTheftsModels.show();
 
         //List the most 5 states based on the number of thefted cars :
         var updatedTheftsWithOriginTopFiveStates =spark.sql("Select Sum(updatedTheftsJoin.thefts) as thefts, state from updatedTheftsJoin Group By state SORT BY thefts DESC LIMIT 5");
         updatedTheftsWithOriginTopFiveStates.cache();
         System.out.println("\n................updated Thefts With Origin Top Five Countries................\n");
-        updatedTheftsWithOriginTopFiveStates.show(5);
+        updatedTheftsWithOriginTopFiveStates.show();
     }
 }
